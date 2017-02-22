@@ -28,7 +28,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute]int id)
         {
-            
+            var result = await _userProfileService.Create(new UserProfileViewModel());
             return Ok(await _userProfileService.Get(id)); 
         }
 

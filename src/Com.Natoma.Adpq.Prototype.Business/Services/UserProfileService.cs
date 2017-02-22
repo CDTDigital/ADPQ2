@@ -1,9 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Services
 {
@@ -24,6 +29,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
         public async Task<UserProfileViewModel> Create(UserProfileViewModel userProfileViewModel)
         {
+            var latLongSet = GetGeoLocation("2833 Greenwood Avenue", null, "Sacramento", "CA", "95821");
             var newProfile = new UserProfile
             {
                 AddressLine1 = userProfileViewModel.AddressLine1,
@@ -31,18 +37,46 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 City = userProfileViewModel.City,
                 Email = userProfileViewModel.Email,
                 FirstName = userProfileViewModel.FirstName,
-                MiddleName = userProfileViewModel.MiddleName,
                 LastName = userProfileViewModel.LastName,
                 Password = userProfileViewModel.Password, // need to hash
                 Phone = userProfileViewModel.Phone,
                 State = userProfileViewModel.State,
                 Zipcode = userProfileViewModel.Zipcode,
-                IsAdmin = userProfileViewModel.IsAdmin
+                IsAdmin = userProfileViewModel.IsAdmin,
+                Latitude = latLongSet.Latitude,
+                Longitude = latLongSet.Longitude
             };
             _context.UserProfile.Add(newProfile);
             await _context.SaveChangesAsync();
             userProfileViewModel.UserProfileId = newProfile.UserProfileId;
             return userProfileViewModel;
+        }
+
+        public LatLongSet GetGeoLocation(string address1, string address2, string city, string state, string zipcode)
+        {
+            LatLongSet latLongSet = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://maps.googleapis.com");
+                var apiAddress = "/maps/api/geocode/json?" + "address=" + address1 + "+" +
+                                 city + "+" +  state + "+" +
+                                 zipcode + "&key=AIzaSyDMLoJ5K4BFV8Jqwt22R3UIrJGH_zMAe7A";
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
+                client.DefaultRequestHeaders.Accept.Add(contentType);
+                HttpResponseMessage response = client.GetAsync(apiAddress).Result;
+                string stringData = response.Content.ReadAsStringAsync().Result;
+               
+                dynamic data = JsonConvert.DeserializeObject<dynamic>(stringData);
+                var results = data.results;
+                var geometry = results[0].geometry;
+                var location = geometry.location;
+                latLongSet = new LatLongSet
+                {
+                    Latitude = location.lat,
+                    Longitude = location.lng
+                };
+            }
+            return latLongSet;
         }
 
         private UserProfileViewModel PopulateUserProfileViewModel(UserProfile userProfile)
@@ -54,7 +88,6 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 City = userProfile.City,
                 Email = userProfile.Email,
                 FirstName = userProfile.FirstName,
-                MiddleName = userProfile.MiddleName,
                 LastName = userProfile.LastName,
                 Phone = userProfile.Phone,
                 State = userProfile.State,
