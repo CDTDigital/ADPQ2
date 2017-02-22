@@ -29,7 +29,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
         public async Task<UserProfileViewModel> Create(UserProfileViewModel userProfileViewModel)
         {
-            var latLongSet = GetGeoLocation("2833 Greenwood Avenue", null, "Sacramento", "CA", "95821");
+            var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
             var newProfile = new UserProfile
             {
                 AddressLine1 = userProfileViewModel.AddressLine1,
