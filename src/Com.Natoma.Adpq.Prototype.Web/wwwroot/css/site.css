@@ -36,3 +36,8 @@ textarea {
     display: none
   }
 }
+
+adpq-login h1,
+adpq-login h2 {
+    text-align: center;
+}

@@ -1,14 +1,41 @@
-﻿import {Component, OnInit} from '@angular/core';
+﻿import { Component, OnInit, OnDestroy} from '@angular/core';
 
 import { Subscription }   from 'rxjs/Subscription';
+import { Message } from 'primeng/primeng';
+import { ADPQService, GrowlObject } from './shared/adpq.service';
 
 @Component({
     selector: 'adpq-app',
     templateUrl: '../html/home.html'
 })
-export class AppComponent implements OnInit {
-    
-    ngOnInit() {
-        console.log("in app component OnInit");
+export class AppComponent implements OnInit, OnDestroy {
+    private growls: Message[] = [];
+    private stickyGrowls: Message[] = [];
+
+    onGrowlSub: Subscription;
+
+    constructor(private adpqService: ADPQService) {
+        this.growls = [];
+
+        // This receives the message that a growl needs to be displayed
+        this.onGrowlSub = adpqService.growl$.subscribe((growlObj: GrowlObject) => {
+            if (!growlObj || growlObj == null) {
+                this.stickyGrowls = [];
+                this.growls = [];
+                return;
+            }
+
+            if (growlObj.isSticky)
+                this.stickyGrowls.push(growlObj.message);
+            else
+                this.growls.push(growlObj.message);
+        });
+    }
+
+    ngOnInit() { 
+    }
+
+    ngOnDestroy() {
+        this.onGrowlSub.unsubscribe();
     }
 }

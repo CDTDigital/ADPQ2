@@ -2,6 +2,9 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AuthService } from './auth.service';
+import { ADPQService } from './adpq.service';
+import { UserService } from '../user.service';
 
 import {
     InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule,
@@ -27,7 +30,8 @@ import {
 export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule: SharedModule
+            ngModule: SharedModule,
+            providers: [AuthService, ADPQService, UserService]
         };
     }
 }
