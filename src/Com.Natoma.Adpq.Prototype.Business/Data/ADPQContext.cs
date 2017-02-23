@@ -11,11 +11,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public virtual DbSet<UserMessage> UserMessage { get; set; }
         public virtual DbSet<UserProfile> UserProfile { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseNpgsql(@"Host=localhost;Database=ADPQ;Username=adpq_web;Password=password");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //    optionsBuilder.UseNpgsql(@"Host=localhost;Database=ADPQ;Username=adpq_web;Password=password");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -128,7 +128,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.MiddleName)
+                entity.Property(e => e.Login)
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
 
@@ -147,6 +147,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                 entity.Property(e => e.Zipcode)
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
+
             });
 
             modelBuilder.HasSequence("Message_MessageId_seq");

@@ -9,6 +9,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Models.UserProfile
     public class UserProfileViewModel
     {
         public int UserProfileId { get; set; }
+        public string Username { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }

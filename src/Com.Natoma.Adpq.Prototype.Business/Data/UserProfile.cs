@@ -11,7 +11,6 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
 
         public int UserProfileId { get; set; }
         public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
@@ -24,6 +23,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public bool? IsAdmin { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public string Login { get; set; }
 
         public virtual ICollection<UserMessage> UserMessage { get; set; }
     }
