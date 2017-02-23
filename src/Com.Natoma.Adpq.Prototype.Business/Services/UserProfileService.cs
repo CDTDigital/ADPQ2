@@ -15,41 +15,40 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 {
     public class UserProfileService: IUserProfileService
     {
-        private readonly ADPQContext _context;
+        private readonly adpq2adpqContext _context;
 
-        public UserProfileService(ADPQContext context)
+        public UserProfileService(adpq2adpqContext context)
         {
             _context = context;
         }
 
         public async Task<UserProfileViewModel> Get(int id)
         {
-            var result = await _context.UserProfile.Where(x => x.UserProfileId == id).FirstOrDefaultAsync();
+            var result = await _context.User.Where(x => x.UserId == id).FirstOrDefaultAsync();
             return result == null ? null : PopulateUserProfileViewModel(result) ;
         }
 
         public async Task<UserProfileViewModel> Create(UserProfileViewModel userProfileViewModel)
         {
             var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
-            var newProfile = new UserProfile
+            var newProfile = new User
             {
-                AddressLine1 = userProfileViewModel.AddressLine1,
-                AddressLine2 = userProfileViewModel.AddressLine2,
+                Address1 = userProfileViewModel.AddressLine1,
+                Address2 = userProfileViewModel.AddressLine2,
                 City = userProfileViewModel.City,
                 Email = userProfileViewModel.Email,
                 FirstName = userProfileViewModel.FirstName,
                 LastName = userProfileViewModel.LastName,
                 Password = userProfileViewModel.Password, // need to hash
-                Phone = userProfileViewModel.Phone,
                 State = userProfileViewModel.State,
                 Zipcode = userProfileViewModel.Zipcode,
                 IsAdmin = userProfileViewModel.IsAdmin,
                 Latitude = latLongSet.Latitude,
                 Longitude = latLongSet.Longitude
             };
-            _context.UserProfile.Add(newProfile);
+            _context.User.Add(newProfile);
             await _context.SaveChangesAsync();
-            userProfileViewModel.UserProfileId = newProfile.UserProfileId;
+            userProfileViewModel.UserProfileId = newProfile.UserId;
             return userProfileViewModel;
         }
 
@@ -80,17 +79,16 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return latLongSet;
         }
 
-        private UserProfileViewModel PopulateUserProfileViewModel(UserProfile userProfile)
+        private UserProfileViewModel PopulateUserProfileViewModel(User userProfile)
         {
             return new UserProfileViewModel
             {
-                AddressLine1 = userProfile.AddressLine1,
-                AddressLine2 = userProfile.AddressLine2,
+                AddressLine1 = userProfile.Address1,
+                AddressLine2 = userProfile.Address2,
                 City = userProfile.City,
                 Email = userProfile.Email,
                 FirstName = userProfile.FirstName,
                 LastName = userProfile.LastName,
-                Phone = userProfile.Phone,
                 State = userProfile.State,
                 Zipcode = userProfile.Zipcode,
                 IsAdmin = userProfile.IsAdmin ?? false

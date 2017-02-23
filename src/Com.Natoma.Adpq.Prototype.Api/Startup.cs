@@ -48,7 +48,7 @@ namespace Com.Natoma.Adpq.Prototype.Api
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddDbContext<ADPQContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<adpq2adpqContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             // Enable the use of an [Authorize("Bearer")] attribute on methods and classes to protect.
             services.AddAuthorization(auth =>
