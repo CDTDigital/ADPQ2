@@ -1,0 +1,96 @@
+﻿<div class="row login">
+    <div class="col-md-8 col-md-offset-2">
+        <form (ngSubmit)="doLogin()" #loginForm="ngForm">
+            <div class="form-group row">
+                <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.emailAddress" name="user-email-input" #userEmail="ngModel" 
+                           [disabled]="isSignupVisible">
+                </div>
+                <div [hidden]="userEmail.valid || userEmail.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Email is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="password" value="" required [(ngModel)]="newUser.password" name="user-pwd-input" #userPassword="ngModel"
+                           [disabled]="isSignupVisible">
+                </div>
+                <div [hidden]="userPassword.valid || userPassword.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Password is required </div>
+            </div>
+
+            <button type="submit" pButton icon="fa fa-check" label="Login" [disabled]="!loginForm.form.valid"></button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="no-acct-link">Don't have an account? <span (click)="doMakeSignupVisible()">Create Account</span></div>
+    </div>
+</div>
+
+<div *ngIf="isSignupVisible" class="row signup">
+    <div class="col-md-8 col-md-offset-2">
+        <form (ngSubmit)="doSignup(true)" #signupForm="ngForm">
+            <div class="form-group row">
+                <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.emailAddress" name="user-email-input" #userEmail="ngModel">
+                </div>
+                <div [hidden]="userEmail.valid || userEmail.pristine" class="col-md-4 alert alert-danger"> Email is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel">
+                </div>
+                <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-fname-input" class="col-md-2 col-form-label">First Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.firstName" name="user-fname-input" #userFName="ngModel">
+                </div>
+                <div [hidden]="userFName.valid || userFName.pristine" class="col-md-4 alert alert-danger"> First Name is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-lname-input" class="col-md-2 col-form-label">Last Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.lastName" name="user-lname-input" #userLName="ngModel">
+                </div>
+                <div [hidden]="userLName.valid || userLName.pristine" class="col-md-4 alert alert-danger"> Last Name is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-address-input" class="col-md-2 col-form-label">Address</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.addressLine" name="user-address-input" #userAddress="ngModel">
+                </div>
+                <div [hidden]="userAddress.valid || userAddress.pristine" class="col-md-4 alert alert-danger"> Last Name is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-city-input" class="col-md-2 col-form-label">City</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.city" name="user-city-input" #userCity="ngModel">
+                </div>
+                <div [hidden]="userCity.valid || userCity.pristine" class="col-md-4 alert alert-danger"> City is required </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.zip" name="user-zip-input" #userZip="ngModel">
+                </div>
+                <div [hidden]="userZip.valid || userZip.pristine" class="col-md-4 alert alert-danger"> City is required </div>
+
+            </div>
+            <button type="submit" pButton icon="fa fa-check" label="Save" [disabled]="!signupForm.form.valid"></button>
+            <button type="button" pButton icon="fa fa-close" (click)="doSignup(false)" label="Cancel"></button>
+        </form>
+    </div>
+</div>

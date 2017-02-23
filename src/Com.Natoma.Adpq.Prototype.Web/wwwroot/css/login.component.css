@@ -1,0 +1,31 @@
+﻿div.login {
+    margin-top: 200px;
+    padding: 40px;
+}
+
+div.login .col-md-8,
+div.signup .col-md-8 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 30px;
+}
+
+div.signup {
+    margin-top: 50px;
+    padding: 40px;
+}
+
+div.no-acct-link {
+    font-weight: 400;
+}
+
+div.no-acct-link span {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+
+.alert {
+    padding: 6px;
+    margin-bottom: 0px;
+}

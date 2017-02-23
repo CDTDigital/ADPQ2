@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var execSync = require('sync-exec');
 var Builder = require('systemjs-builder');
+var exec = require('child_process').exec;
 
 var webroot = './wwwroot';
 
@@ -20,10 +21,10 @@ gulp.task("ScriptsNStyles", function () {
             //'jquery.cookie/jquery.cookie.js',
             //'jquery.uniform/dist/**',
             'bootstrap/dist/**',
-            //'font-awesome/css/font-awesome.css',
-            //'font-awesome/fonts/*.*',
-            //'primeng/**/*.{js,js.map}',
-            //'primeng/resources/primeng.css',
+            'font-awesome/css/font-awesome.css',
+            'font-awesome/fonts/*.*',
+            'primeng/**/*.{js,js.map}',
+            'primeng/resources/primeng.css',
             //'angular2-cookie/**/*.{js,js.map}',
             "core-js/**/*.js", "!core-js/**/*.min.js"
 
@@ -65,4 +66,46 @@ gulp.task('ng-bundle', function (done) {
             console.log('Build error');
             console.log(err);
         });
+
+
+    //
+    // PRIMENG
+    //
+    builder
+        .bundle([
+            `./node_modules/primeng/components/**/*.js`
+        ], `${webroot}/lib/bundles/primeng.min.js`, {
+            minify: true,
+            sourceMaps: true,
+            mangle: false
+        })
+        .then(function () {
+            console.log('Build complete');
+            done();
+        })
+        .catch(function (err) {
+            console.log('Build error');
+            console.log(err);
+            done();
+        });
+});
+
+gulp.task('installTypings', function () {
+    console.log("now installing the typings utility");
+    exec('npm install typings --global', function (err, stdout, stderr) {
+        console.log(stdout);
+        if (err) {
+            console.log('(1) install typings --global exited with error code', err.message);
+            return;
+        }
+
+        console.log("now installing the typings defined in typings.json");
+        exec('typings install --global', function (err, stdout, stderr) {
+            console.log(stdout);
+            if (err) {
+                console.log('(2) typings --global exited with error code', err.message);
+                return;
+            }
+        });
+    });
 });
