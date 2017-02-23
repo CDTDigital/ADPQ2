@@ -10,6 +10,7 @@ using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
+
 namespace Com.Natoma.Adpq.Prototype.Business.Services
 {
     public class UserProfileService: IUserProfileService
