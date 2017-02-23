@@ -67,6 +67,16 @@ namespace Com.Natoma.Adpq.Prototype.Api
             services.AddTransient<IUserProfileService, UserProfileService>();
             services.AddTransient<IEventService, EventService>();
 
+            // Add service and create Policy with options
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvc();
         }
 
@@ -143,6 +153,8 @@ namespace Com.Natoma.Adpq.Prototype.Api
             });
 
             app.UseSwagger();
+
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
         }

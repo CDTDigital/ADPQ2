@@ -32,6 +32,16 @@ namespace Com.Natoma.Adpq.Prototype.Web
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            // Add service and create Policy with options
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvc();
         }
 
@@ -56,6 +66,8 @@ namespace Com.Natoma.Adpq.Prototype.Web
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            app.UseCors("CorsPolicy");
 
             app.UseMvc(routes =>
             {
