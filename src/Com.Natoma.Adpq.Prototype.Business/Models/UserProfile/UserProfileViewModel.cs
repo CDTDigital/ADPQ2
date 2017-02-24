@@ -22,5 +22,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Models.UserProfile
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+        public bool IsEmailNotifications { get; set; }
+        public bool IsSms { get; set; }
+        public string Token { get; set; }
     }
 }
