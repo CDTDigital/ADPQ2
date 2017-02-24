@@ -9,7 +9,7 @@ import { Message } from 'primeng/primeng';
 
 @Component({
     templateUrl: '../../html/user-home.component.html',
-    styleUrls: ['../../css/user-home.component.css'],
+    //styleUrls: ['../../css/user-home.component.css'],
     moduleId: module.id,
 })
 export class UserHomeComponent implements OnInit {
@@ -24,8 +24,8 @@ export class UserHomeComponent implements OnInit {
         if (this.isLogin) {
             let res: RequestResult;
             try {
-                res = await this.authService.getUserInfo();
-                this.userName = (res.data as any).UserName;
+                //res = await this.authService.getUserInfo();
+                //this.userName = (res.data as any).UserName;
             }
             catch (e) {
                 this.router.navigate(["./login"]);
