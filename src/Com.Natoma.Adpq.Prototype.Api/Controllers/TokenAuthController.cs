@@ -23,7 +23,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<string> GetAuthToken([FromBody]UserProfileViewModel user)
+        public async Task<IActionResult> GetAuthToken([FromBody]UserProfileViewModel user)
         {
             // test the user
 
@@ -35,7 +35,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
                 var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
                 var token = TokenAuthUtils.GenerateToken((UserProfileViewModel)existingUser.Data, expiresIn);
 
-                return JsonConvert.SerializeObject(new RequestResult
+                return Ok(new RequestResult
                 {
                     State = RequestStateEnum.Success,
                     Data = new
@@ -49,7 +49,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
             }
             else
             {
-                return JsonConvert.SerializeObject(new RequestResult
+                return Ok(new RequestResult
                 {
                     State = RequestStateEnum.Failed,
                     Msg = "Username or password is invalid"
