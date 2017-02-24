@@ -9,6 +9,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services.Interfaces
         Task<RequestResult> Get(int id);
         Task<RequestResult> Get(string email, string password);
         Task<RequestResult> Create(UserProfileViewModel userProfileViewModel);
+        Task<RequestResult> Update(UserProfileViewModel userProfileViewModel);
 
     }
 }

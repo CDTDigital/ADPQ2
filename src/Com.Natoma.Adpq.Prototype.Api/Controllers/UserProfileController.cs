@@ -48,8 +48,14 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         [Authorize]
         public async Task<IActionResult> Put(int id, [FromBody]UserProfileViewModel userProfileViewModel)
         {
+            if (id != userProfileViewModel.UserProfileId)
+            {
+                return BadRequest();
+            }
+
             // update user profile
-            return Ok();
+            var result = await _userProfileService.Update(userProfileViewModel);
+            return Ok(result);
         }
 
     }
