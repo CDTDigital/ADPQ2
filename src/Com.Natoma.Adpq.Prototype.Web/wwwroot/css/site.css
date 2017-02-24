@@ -43,3 +43,12 @@ adpq-login h1,
 adpq-login h2 {
     text-align: center;
 }
+
+.user-form p-checkbox{
+    float: right;
+}
+
+adpq-login .alert {
+    padding: 6px;
+    margin-bottom: 0px;
+}
