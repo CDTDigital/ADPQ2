@@ -31,19 +31,18 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
 
             if (existingUser.Data != null)
             {
+                var userData = (UserProfileViewModel) existingUser.Data;
                 var requestAt = DateTime.Now;
                 var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
-                var token = TokenAuthUtils.GenerateToken((UserProfileViewModel)existingUser.Data, expiresIn);
+                var token = TokenAuthUtils.GenerateToken(userData, expiresIn);
 
                 return Ok(new RequestResult
                 {
                     State = RequestStateEnum.Success,
-                    Data = new
+                    Data = new TokenAuthViewModel
                     {
-                        requestAt = requestAt,
-                        expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
-                        tokenType = TokenAuthOption.TokenType,
-                        accessToken = token
+                        UserProfileId = userData.UserProfileId,
+                        Token = token
                     }
                 });
             }
