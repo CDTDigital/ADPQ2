@@ -25,6 +25,7 @@ gulp.task("ScriptsNStyles", function () {
             'font-awesome/fonts/*.*',
             'primeng/**/*.{js,js.map}',
             'primeng/resources/primeng.css',
+            'primeng/resources/themes/bootstrap/theme.css',
             //'angular2-cookie/**/*.{js,js.map}',
             "core-js/**/*.js", "!core-js/**/*.min.js"
 

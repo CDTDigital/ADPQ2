@@ -6,7 +6,7 @@
             <div class="form-group row">
                 <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel" 
+                    <input class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel"
                            [disabled]="isSignupVisible">
                 </div>
                 <div [hidden]="userEmail.valid || userEmail.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Email is required </div>
@@ -26,11 +26,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="no-acct-link">Don't have an account? <span (click)="doMakeSignupVisible()">Create Account</span></div>
-    </div>
-</div>
+<div *ngIf="infoMessages && infoMessages.length > 0" class="info-msg"><p-messages [value]="infoMessages"></p-messages></div>
+<div *ngIf="!infoMessages || infoMessages.length == 0" class="no-acct-link">Don't have an account? <span (click)="doMakeSignupVisible()">Create Account</span></div>
 
 <div *ngIf="isSignupVisible" class="row signup">
     <div class="col-md-8 col-md-offset-2">
@@ -84,6 +81,13 @@
             </div>
 
             <div class="form-group row">
+                <label for="user-state-input" class="col-md-2 col-form-label">State: {{newUser.state}}</label>
+                <div class="col-md-6">
+                    <p-dropdown required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
                 <div class="col-md-6">
                     <input class="form-control" type="text" value="" required [(ngModel)]="newUser.zipcode" name="user-zip-input" #userZip="ngModel">
@@ -96,3 +100,4 @@
         </form>
     </div>
 </div>
+<img class="background" />
