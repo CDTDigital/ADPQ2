@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Models.Auth;
 using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
+using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -13,18 +15,25 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
     [Route("api/[controller]")]
     public class TokenAuthController : Controller
     {
+        private readonly IUserProfileService _userProfileService;
+
+        public TokenAuthController(IUserProfileService userProfileService)
+        {
+            _userProfileService = userProfileService;
+        }
+
         [HttpPost]
-        public string GetAuthToken([FromBody]UserProfileViewModel user)
+        public async Task<string> GetAuthToken([FromBody]UserProfileViewModel user)
         {
             // test the user
-            //var existUser = UserStorage.Users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
-            var existingUser = new UserProfileViewModel();
 
-            if (existingUser != null)
+            var existingUser = await _userProfileService.Get(user.Email, user.Password);
+
+            if (existingUser.Data != null)
             {
                 var requestAt = DateTime.Now;
                 var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
-                var token = TokenAuthUtils.GenerateToken(existingUser, expiresIn);
+                var token = TokenAuthUtils.GenerateToken((UserProfileViewModel)existingUser.Data, expiresIn);
 
                 return JsonConvert.SerializeObject(new RequestResult
                 {
