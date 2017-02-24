@@ -15,7 +15,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Utils
             var handler = new JwtSecurityTokenHandler();
 
             ClaimsIdentity identity = new ClaimsIdentity(
-                new GenericIdentity(user.Username, "TokenAuth"),
+                new GenericIdentity(user.Email, "TokenAuth"),
                 new[] {
                     new Claim("ID", user.UserProfileId.ToString()),
                     new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User"), 

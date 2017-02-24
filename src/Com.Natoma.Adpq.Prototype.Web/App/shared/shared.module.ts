@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { ADPQService } from './adpq.service';
-import { UserService } from '../user.service';
+import { UserService } from '../user/user.service';
 
 import {
     InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule,

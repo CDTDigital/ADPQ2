@@ -1,9 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { User } from './user.service';
+import { User } from './user/user.service';
 import { AuthService } from './shared/auth.service';
-import { UserService } from './user.service';
+import { UserService } from './user/user.service';
 import { ADPQService, GrowlObject } from './shared/adpq.service';
-import { Message, SelectItem } from 'primeng/primeng';
+import { Message } from 'primeng/primeng';
 import { StatesFactory } from './shared/states';
 
 @Component({
@@ -14,13 +14,11 @@ import { StatesFactory } from './shared/states';
 })
 export class LoginComponent implements OnInit {
 
-    user: User = new User();
-    newUser: User = new User();
-    infoMessages: Message[] = [];
 
+    infoMessages: Message[] = [];
     isSignupVisible = false;
-    states: SelectItem[] = StatesFactory.getStatesAsSelectItems();
-    selectedStateIdx = 4;
+    loginUser: User = new User();
+    newUser: User = new User();
 
     constructor(private authService: AuthService, private userService: UserService, private adpqService: ADPQService) { }
 
@@ -28,12 +26,11 @@ export class LoginComponent implements OnInit {
     }
 
     doMakeSignupVisible() {
-        this.user = new User();
         this.isSignupVisible = true;
     }
 
     doLogin() {
-        this.authService.login(this.user.email, this.user.password)
+        this.authService.login(this.loginUser.email, this.loginUser.password)
             .then(result => {
                 if (result.State == 1) {
                     //this.router.navigate(["./home"]);
@@ -45,14 +42,12 @@ export class LoginComponent implements OnInit {
             });
     }
 
-    async doSignup(save: boolean) {
-        if (!save)
-            this.newUser = new User();
-        else {
-            this.newUser.state = StatesFactory.getStates()[this.selectedStateIdx].shortName;
-            let user = await this.userService.create(this.newUser);
-            this.infoMessages.push({ severity: 'success', summary: `Thank you ${user.firstName}! You can now log in.`, detail: 'User successfully created' });
-            this.newUser = new User();
+    async onSignupFormSubmit(event) {
+        if (event.user) {
+            event.user.state = StatesFactory.getStates()[event.selectedStateIdx].shortName;
+            let userRes = await this.userService.create(event.user);
+            this.infoMessages.push({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
+            event.user = new User();
         }
         this.isSignupVisible = false;
     }

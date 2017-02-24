@@ -6,7 +6,7 @@
             <div class="form-group row">
                 <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel"
+                    <input class="form-control" type="text" value="" required [(ngModel)]="loginUser.email" name="user-email-input" #userEmail="ngModel"
                            [disabled]="isSignupVisible">
                 </div>
                 <div [hidden]="userEmail.valid || userEmail.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Email is required </div>
@@ -15,7 +15,7 @@
             <div class="form-group row">
                 <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel"
+                    <input class="form-control" type="password" value="" required [(ngModel)]="loginUser.password" name="user-pwd-input" #userPassword="ngModel"
                            [disabled]="isSignupVisible">
                 </div>
                 <div [hidden]="userPassword.valid || userPassword.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Password is required </div>
@@ -27,77 +27,11 @@
 </div>
 
 <div *ngIf="infoMessages && infoMessages.length > 0" class="info-msg"><p-messages [value]="infoMessages"></p-messages></div>
-<div *ngIf="!infoMessages || infoMessages.length == 0" class="no-acct-link">Don't have an account? <span (click)="doMakeSignupVisible()">Create Account</span></div>
+<div *ngIf="!infoMessages || infoMessages.length == 0" class="no-acct-link">Don't have an account? <span (click)="isSignupVisible = true">Create Account</span></div>
 
 <div *ngIf="isSignupVisible" class="row signup">
     <div class="col-md-8 col-md-offset-2">
-        <form (ngSubmit)="doSignup(true)" #signupForm="ngForm">
-            <div class="form-group row">
-                <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.email" name="user-email-input" #userEmail="ngModel">
-                </div>
-                <div [hidden]="userEmail.valid || userEmail.pristine" class="col-md-4 alert alert-danger"> Email is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="password" value="" required [(ngModel)]="newUser.password" name="user-pwd-input" #userPassword="ngModel">
-                </div>
-                <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-fname-input" class="col-md-2 col-form-label">First Name</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.firstName" name="user-fname-input" #userFName="ngModel">
-                </div>
-                <div [hidden]="userFName.valid || userFName.pristine" class="col-md-4 alert alert-danger"> First Name is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-lname-input" class="col-md-2 col-form-label">Last Name</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.lastName" name="user-lname-input" #userLName="ngModel">
-                </div>
-                <div [hidden]="userLName.valid || userLName.pristine" class="col-md-4 alert alert-danger"> Last Name is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-address-input" class="col-md-2 col-form-label">Address</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.addressLine1" name="user-address-input" #userAddress="ngModel">
-                </div>
-                <div [hidden]="userAddress.valid || userAddress.pristine" class="col-md-4 alert alert-danger"> Address is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-city-input" class="col-md-2 col-form-label">City</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.city" name="user-city-input" #userCity="ngModel">
-                </div>
-                <div [hidden]="userCity.valid || userCity.pristine" class="col-md-4 alert alert-danger"> City is required </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-state-input" class="col-md-2 col-form-label">State: {{newUser.state}}</label>
-                <div class="col-md-6">
-                    <p-dropdown required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="newUser.zipcode" name="user-zip-input" #userZip="ngModel">
-                </div>
-                <div [hidden]="userZip.valid || userZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
-
-            </div>
-            <button type="submit" pButton icon="fa fa-check" label="Save" [disabled]="!signupForm.form.valid"></button>
-            <button type="button" pButton icon="fa fa-close" (click)="doSignup(false)" label="Cancel"></button>
-        </form>
+        <adpq-user-form [user]="newUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
     </div>
 </div>
 <img class="background" />

@@ -1,0 +1,89 @@
+﻿<form (ngSubmit)="onSubmit.emit({ user: user, selectedStateIdx: selectedStateIdx });" #signupForm="ngForm">
+    <div class="form-group row">
+        <label for="user-fname-input" class="col-md-2 col-form-label">First Name</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.firstName" name="user-fname-input" #userFName="ngModel">
+        </div>
+        <div [hidden]="userFName.valid || userFName.pristine" class="col-md-4 alert alert-danger"> First Name is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-lname-input" class="col-md-2 col-form-label">Last Name</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.lastName" name="user-lname-input" #userLName="ngModel">
+        </div>
+        <div [hidden]="userLName.valid || userLName.pristine" class="col-md-4 alert alert-danger"> Last Name is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel">
+        </div>
+        <div [hidden]="userEmail.valid || userEmail.pristine" class="col-md-4 alert alert-danger"> Email is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+        <div class="col-md-6">
+            <input class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel">
+        </div>
+        <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password</label>
+        <div class="col-md-6">
+            <input class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
+        </div>
+        <div [hidden]="!confPassword || confPassword == user.password" class="col-md-4 alert alert-danger"> Please confirm your password </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-address-input" class="col-md-2 col-form-label">Address</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.addressLine1" name="user-address-input" #userAddress="ngModel">
+        </div>
+        <div [hidden]="userAddress.valid || userAddress.pristine" class="col-md-4 alert alert-danger"> Address is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-city-input" class="col-md-2 col-form-label">City</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.city" name="user-city-input" #userCity="ngModel">
+        </div>
+        <div [hidden]="userCity.valid || userCity.pristine" class="col-md-4 alert alert-danger"> City is required </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-state-input" class="col-md-2 col-form-label">State</label>
+        <div class="col-md-6">
+            <p-dropdown required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
+        <div class="col-md-6">
+            <input class="form-control" type="text" value="" required [(ngModel)]="user.zipcode" name="user-zip-input" #userZip="ngModel">
+        </div>
+        <div [hidden]="userZip.valid || userZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <p-checkbox [(ngModel)]="user.isEmailNotifications" binary="true" name="user-is-email-notif"></p-checkbox>
+        </div>
+        <label for="user-is-email-notif" class="col-md-6 col-form-label">Receive Email Notifications</label>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <p-checkbox [(ngModel)]="user.isSms" binary="true" name="user-is-sms-notif"></p-checkbox>
+        </div>
+        <label for="user-is-sms-notif" class="col-md-6 col-form-label">Receive SMS Notifications</label>
+    </div>
+
+    <button type="submit" pButton icon="fa fa-check" label="{{isSignup ? 'Sign up' : 'Save'}}" [disabled]="!signupForm.form.valid"></button>
+    <button type="button" pButton icon="fa fa-close" (click)="onSubmit.emit()" label="Cancel"></button>
+</form>

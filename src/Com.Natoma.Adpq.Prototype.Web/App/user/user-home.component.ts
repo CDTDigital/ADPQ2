@@ -2,14 +2,14 @@
 import { Router } from '@angular/router';
 
 import { User } from './user.service';
-import { AuthService, RequestResult } from './shared/auth.service';
+import { AuthService, RequestResult } from '../shared/auth.service';
 import { UserService } from './user.service';
-import { ADPQService, GrowlObject } from './shared/adpq.service';
+import { ADPQService, GrowlObject } from '../shared/adpq.service';
 import { Message } from 'primeng/primeng';
 
 @Component({
-    templateUrl: '../html/user-home.component.html',
-    styleUrls: ['../css/user-home.component.css'],
+    templateUrl: '../../html/user-home.component.html',
+    styleUrls: ['../../css/user-home.component.css'],
     moduleId: module.id,
 })
 export class UserHomeComponent implements OnInit {

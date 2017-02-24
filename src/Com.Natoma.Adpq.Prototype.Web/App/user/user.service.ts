@@ -1,21 +1,24 @@
 ﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http, Request, RequestMethod } from "@angular/http";
-import { ADPQService } from './shared/adpq.service';
+import { ADPQService } from '../shared/adpq.service';
 
 import "rxjs/add/operator/toPromise";
 
 export class User {
-    email: string;
-    password: string;
+    userProfileId: number;
     firstName: string;
     lastName: string;
-
     addressLine1: string;
     city: string;
-    zipcode: number;
     state: string;
-
-    doReceiveEmailNotifications: boolean;
+    zipcode: number;
+    phone: string;
+    email: string;
+    password: string;
+    isAdmin: boolean;
+    isEmailNotifications: boolean;
+    isSms: boolean;
+    token: string;
 }
 
 @Injectable()
