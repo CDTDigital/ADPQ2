@@ -199,6 +199,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
         {
             return new UserProfileViewModel
             {
+                UserProfileId = userProfile.UserId,
                 AddressLine1 = userProfile.Address1,
                 AddressLine2 = userProfile.Address2,
                 City = userProfile.City,
