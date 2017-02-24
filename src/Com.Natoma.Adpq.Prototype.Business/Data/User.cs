@@ -1,4 +1,6 @@
-﻿namespace Com.Natoma.Adpq.Prototype.Business.Data
+﻿using System;
+
+namespace Com.Natoma.Adpq.Prototype.Business.Data
 {
     public partial class User
     {
@@ -16,5 +18,8 @@
         public double? Longitude { get; set; }
         public string Email { get; set; }
         public string PasswordSalt { get; set; }
+        public bool IsEmailNotification { get; set; }
+        public bool IsSms { get; set; }
+        public string Phone { get; set; }
     }
 }
