@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'adpq-login',
     templateUrl: '../html/login.component.html',
-    //styleUrls: ['../css/login.component.css'],
     moduleId: module.id,
 })
 export class LoginComponent implements OnInit {

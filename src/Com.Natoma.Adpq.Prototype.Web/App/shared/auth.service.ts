@@ -1,7 +1,13 @@
 ﻿import { Injectable } from "@angular/core";
 import { Headers, Http } from "@angular/http";
 import { ADPQService, GrowlObject, ErrorResponse, RequestStateEnum, RequestResult } from './adpq.service';
+import { UserService } from '../user/user.service';
 import "rxjs/add/operator/toPromise";
+
+export class TokenAuthViewModel {
+    userProfileId: number;
+    token: string;
+}
 
 @Injectable()
 export class AuthService {
@@ -15,9 +21,10 @@ export class AuthService {
             .then(response => {
                 let result = response.json() as RequestResult;
                 if (result.state == RequestStateEnum.SUCCESS) {
-                    let json = result.data as any;
+                    let json = result.data as TokenAuthViewModel;
 
-                    sessionStorage.setItem(AuthService.tokenKey, json.tokenS);
+                    sessionStorage.setItem(AuthService.tokenKey, json.token);
+                    sessionStorage.setItem(UserService.userIdSessionKey, json.userProfileId.toString());
                 }
                 return result;
             })
@@ -31,8 +38,8 @@ export class AuthService {
         return token != null;
     }
 
-    getUserInfo(): Promise<RequestResult> {
-        return this.authGet("http://localhost:61552/api/TokenAuth");
+    getUserInfo(id: number): Promise<RequestResult> {
+        return this.authGet(`http://localhost:61552/api/UserProfile/${id}`);
     }
 
     authPost(url: string, body: any): Promise<RequestResult> {

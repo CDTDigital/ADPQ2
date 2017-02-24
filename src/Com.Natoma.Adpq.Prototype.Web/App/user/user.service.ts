@@ -26,6 +26,7 @@ export class User {
 export class UserService {
 
     private adpqService: ADPQService;
+    public static readonly userIdSessionKey = "adpquserid";
 
     constructor(private http: Http, @Inject(ADPQService) _adpqService: ADPQService) {
         this.adpqService = _adpqService;
@@ -37,9 +38,10 @@ export class UserService {
             .then(response => {
                 let result = response.json() as RequestResult;
                 if (result.state == RequestStateEnum.SUCCESS) {
-                    let json = result.data as any;
+                    let json = result.data as User;
 
                     sessionStorage.setItem(AuthService.tokenKey, json.token);
+                    sessionStorage.setItem(UserService.userIdSessionKey, json.userProfileId.toString());
                 }
                 return result;
             })
