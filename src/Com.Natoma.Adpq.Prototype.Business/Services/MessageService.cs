@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Message;
+using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,5 +23,9 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return null;
         }
 
+        public Task<RequestResult> SendNotification()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

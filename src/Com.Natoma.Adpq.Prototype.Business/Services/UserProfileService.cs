@@ -30,7 +30,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             var result = user == null ? null : PopulateUserProfileViewModel(user) ;
             return new RequestResult
             {
-                State = RequestStateEnum.Success
+                State = RequestStateEnum.Success,
+                Data = user
             };
         }
 
@@ -77,8 +78,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
             // get the password hash
             var passwordHashSet = PasswordUtils.GetSaltAndHashValue(userProfileViewModel.Password);
-
-            
+   
             var newProfile = new User
             {
                 Address1 = userProfileViewModel.AddressLine1,
