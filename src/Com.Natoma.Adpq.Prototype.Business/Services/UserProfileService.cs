@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
+using Com.Natoma.Adpq.Prototype.Business.Models.Auth;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Utils;
@@ -51,11 +52,18 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                     Zipcode = userProfileViewModel.Zipcode,
                     IsAdmin = userProfileViewModel.IsAdmin,
                     Latitude = latLongSet.Latitude,
-                    Longitude = latLongSet.Longitude
+                    Longitude = latLongSet.Longitude,
+                    IsEmailNotification = userProfileViewModel.IsEmailNotifications,
+                    IsSms = userProfileViewModel.IsSms,
+                    Phone = userProfileViewModel.Phone
                 };
                 _context.User.Add(newProfile);
                 await _context.SaveChangesAsync();
                 userProfileViewModel.UserProfileId = newProfile.UserId;
+                // generate a JWT token to return with the user
+                var requestAt = DateTime.Now;
+                var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
+                userProfileViewModel.Token = TokenAuthUtils.GenerateToken(userProfileViewModel, expiresIn);
             }
             catch (Exception e)
             {
