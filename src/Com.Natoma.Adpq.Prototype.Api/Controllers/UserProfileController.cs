@@ -34,9 +34,12 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]UserProfileViewModel userProfileViewModel)
         {
+            if (userProfileViewModel.State == null)
+            {
+                userProfileViewModel.State = "CA";
+            }
             var result = await _userProfileService.Create(userProfileViewModel);
-            // create a new user profile
-            return CreatedAtAction("CreateProfile", new {id = result.UserProfileId, result = result});
+            return Ok(result);
         }
 
         [HttpPut("{id}")]

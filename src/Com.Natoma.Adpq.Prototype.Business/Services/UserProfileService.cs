@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
+using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -31,52 +32,76 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
         public async Task<UserProfileViewModel> Create(UserProfileViewModel userProfileViewModel)
         {
             var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
-            var newProfile = new User
+
+            var passwordHashSet = PasswordUtils.GetSaltAndHashValue(userProfileViewModel.Password);
+
+            try
             {
-                Address1 = userProfileViewModel.AddressLine1,
-                Address2 = userProfileViewModel.AddressLine2,
-                City = userProfileViewModel.City,
-                Email = userProfileViewModel.Email,
-                FirstName = userProfileViewModel.FirstName,
-                LastName = userProfileViewModel.LastName,
-                Password = userProfileViewModel.Password, // need to hash
-                State = userProfileViewModel.State,
-                Zipcode = userProfileViewModel.Zipcode,
-                IsAdmin = userProfileViewModel.IsAdmin,
-                Latitude = latLongSet.Latitude,
-                Longitude = latLongSet.Longitude
-            };
-            _context.User.Add(newProfile);
-            await _context.SaveChangesAsync();
-            userProfileViewModel.UserProfileId = newProfile.UserId;
+                var newProfile = new User
+                {
+                    Address1 = userProfileViewModel.AddressLine1,
+                    Address2 = userProfileViewModel.AddressLine2,
+                    City = userProfileViewModel.City,
+                    Email = userProfileViewModel.Email,
+                    FirstName = userProfileViewModel.FirstName,
+                    LastName = userProfileViewModel.LastName,
+                    Password = passwordHashSet.Hashed, // one way hash of password
+                    PasswordSalt = passwordHashSet.SaltBase64String, // base 64 string of salt used for hash
+                    State = userProfileViewModel.State,
+                    Zipcode = userProfileViewModel.Zipcode,
+                    IsAdmin = userProfileViewModel.IsAdmin,
+                    Latitude = latLongSet.Latitude,
+                    Longitude = latLongSet.Longitude
+                };
+                _context.User.Add(newProfile);
+                await _context.SaveChangesAsync();
+                userProfileViewModel.UserProfileId = newProfile.UserId;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
             return userProfileViewModel;
         }
 
         public LatLongSet GetGeoLocation(string address1, string address2, string city, string state, string zipcode)
         {
+            if (string.IsNullOrEmpty(address1) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state))
+            {
+                return new LatLongSet();
+            }
             LatLongSet latLongSet = null;
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://maps.googleapis.com");
-                var apiAddress = "/maps/api/geocode/json?" + "address=" + address1 + "+" +
-                                 city + "+" +  state + "+" +
-                                 zipcode + "&key=AIzaSyDMLoJ5K4BFV8Jqwt22R3UIrJGH_zMAe7A";
-                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
-                client.DefaultRequestHeaders.Accept.Add(contentType);
-                HttpResponseMessage response = client.GetAsync(apiAddress).Result;
-                string stringData = response.Content.ReadAsStringAsync().Result;
-               
-                dynamic data = JsonConvert.DeserializeObject<dynamic>(stringData);
-                var results = data.results;
-                var geometry = results[0].geometry;
-                var location = geometry.location;
-                latLongSet = new LatLongSet
+                try
                 {
-                    Latitude = location.lat,
-                    Longitude = location.lng
-                };
-            }
-            return latLongSet;
+                    client.BaseAddress = new Uri("https://maps.googleapis.com");
+                    var apiAddress = "/maps/api/geocode/json?" + "address=" + address1 + "+" +
+                                     city + "+" + state + "+" +
+                                     zipcode + "&key=AIzaSyDMLoJ5K4BFV8Jqwt22R3UIrJGH_zMAe7A";
+                    MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
+                    client.DefaultRequestHeaders.Accept.Add(contentType);
+                    HttpResponseMessage response = client.GetAsync(apiAddress).Result;
+                    string stringData = response.Content.ReadAsStringAsync().Result;
+
+                    dynamic data = JsonConvert.DeserializeObject<dynamic>(stringData);
+                    var results = data.results;
+                    var geometry = results[0].geometry;
+                    var location = geometry.location;
+                    latLongSet = new LatLongSet
+                    {
+                        Latitude = location.lat,
+                        Longitude = location.lng
+                    };
+                    return latLongSet;
+                }
+                catch (Exception e)
+                {
+                    return new LatLongSet();
+                }
+                
+            }    
         }
 
         private UserProfileViewModel PopulateUserProfileViewModel(User userProfile)

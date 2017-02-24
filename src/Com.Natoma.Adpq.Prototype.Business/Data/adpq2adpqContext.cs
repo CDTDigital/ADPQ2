@@ -48,14 +48,13 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Username)
-                    .IsRequired()
-                    .HasColumnType("varchar")
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.Zipcode)
                     .HasColumnType("varchar")
                     .HasMaxLength(25);
+
+                entity.Property(e => e.PasswordSalt)
+                    .HasColumnType("varchar")
+                    .HasMaxLength(100);
             });
         }
     }
