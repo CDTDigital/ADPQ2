@@ -31,7 +31,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return new RequestResult
             {
                 State = RequestStateEnum.Success,
-                Data = user
+                Data = result
             };
         }
 
