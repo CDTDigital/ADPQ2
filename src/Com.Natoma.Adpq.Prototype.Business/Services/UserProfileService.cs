@@ -115,6 +115,48 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }; 
         }
 
+        public async Task<RequestResult> Update(UserProfileViewModel userProfileViewModel)
+        {
+            var updatingUserProfile = _context.User.FirstOrDefault(x => x.UserId == userProfileViewModel.UserProfileId);
+
+            if (updatingUserProfile == null)
+            {
+                return new RequestResult
+                {
+                    State = RequestStateEnum.Failed,
+                    Msg = "User not found"
+                };
+            }
+
+            updatingUserProfile.UserId = userProfileViewModel.UserProfileId;
+            updatingUserProfile.Email = userProfileViewModel.Email;
+            updatingUserProfile.Address1 = userProfileViewModel.AddressLine1;
+            updatingUserProfile.Address2 = userProfileViewModel.AddressLine2;
+            updatingUserProfile.City = userProfileViewModel.City;
+            updatingUserProfile.State = userProfileViewModel.State;
+            updatingUserProfile.Zipcode = userProfileViewModel.Zipcode;
+            updatingUserProfile.Phone = userProfileViewModel.Phone;
+            updatingUserProfile.FirstName = userProfileViewModel.FirstName;
+            updatingUserProfile.LastName = userProfileViewModel.LastName;
+            updatingUserProfile.IsAdmin = userProfileViewModel.IsAdmin;
+            updatingUserProfile.IsEmailNotification = userProfileViewModel.IsEmailNotifications;
+            updatingUserProfile.IsSms = userProfileViewModel.IsSms;
+
+            // get latlong set
+            var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
+
+            updatingUserProfile.Latitude = latLongSet.Latitude;
+            updatingUserProfile.Longitude = latLongSet.Longitude;
+
+            await _context.SaveChangesAsync();
+
+            return new RequestResult
+            {
+                State = RequestStateEnum.Success,
+                Msg = "User updated."
+            };
+        }
+
         public LatLongSet GetGeoLocation(string address1, string address2, string city, string state, string zipcode)
         {
             if (string.IsNullOrEmpty(address1) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state))

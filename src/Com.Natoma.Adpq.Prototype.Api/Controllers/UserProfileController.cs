@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,6 +27,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> Get([FromRoute]int id)
         {
             return Ok(await _userProfileService.Get(id)); 
@@ -43,17 +45,12 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> Put(int id, [FromBody]UserProfileViewModel userProfileViewModel)
         {
             // update user profile
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute]int id)
-        {
-            // soft delete a user profile?
-            return Ok();
-        }
     }
 }
