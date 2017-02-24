@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         if (event.user) {
             event.user.state = StatesFactory.getStates()[event.selectedStateIdx].shortName;
             let userRes = await this.userService.create(event.user);
-            this.infoMessages.push({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
+            this.adpqService.growl({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
             event.user = new User();
         }
         this.isSignupVisible = false;

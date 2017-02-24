@@ -11,7 +11,7 @@ export class AuthService {
     constructor(private http: Http, private adpqService: ADPQService) { }
 
     login(userName: string, password: string): Promise<RequestResult> {
-        return this.http.post("http://localhost:61552/api/TokenAuth", { Username: userName, Password: password }).toPromise()
+        return this.http.post("http://localhost:61552/api/TokenAuth", { Email: userName, Password: password }).toPromise()
             .then(response => {
                 let result = response.json() as RequestResult;
                 if (result.state == RequestStateEnum.SUCCESS) {
