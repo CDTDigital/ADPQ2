@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Auth;
@@ -188,7 +187,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                     };
                     return latLongSet;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return new LatLongSet();
                 }

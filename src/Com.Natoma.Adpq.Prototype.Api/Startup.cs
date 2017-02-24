@@ -65,7 +65,6 @@ namespace Com.Natoma.Adpq.Prototype.Api
 
             services.AddTransient<IMessageService, MessageService>();
             services.AddTransient<IUserProfileService, UserProfileService>();
-            services.AddTransient<IEventService, EventService>();
 
             // Add service and create Policy with options
             services.AddCors(options =>
