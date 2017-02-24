@@ -32,12 +32,12 @@ export class LoginComponent implements OnInit {
     doLogin() {
         this.authService.login(this.loginUser.email, this.loginUser.password)
             .then(result => {
-                //if (result.state == RequestStateEnum.SUCCESS) {
-                    this.router.navigate(["./home"]);
-                //}
-                //else {
-                //    this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
-                //}
+                if (result.state == RequestStateEnum.SUCCESS) {
+                    this.router.navigate(["./user"]);
+                }
+                else {
+                    this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
+                }
             });
     }
 

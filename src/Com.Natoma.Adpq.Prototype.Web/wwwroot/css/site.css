@@ -53,6 +53,18 @@ adpq-login h1 {
     float: right;
 }
 
+.user-home {
+    text-align: center;
+}
+
+.user-home .content {
+    font-size: 2em !important;
+    margin-bottom: 25px;
+}
+.user-home .content h1 {
+    margin-bottom: 25px;
+}
+
 adpq-login .alert {
     padding: 6px;
     margin-bottom: 0px;
