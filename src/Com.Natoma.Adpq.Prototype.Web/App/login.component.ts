@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'adpq-login',
     templateUrl: '../html/login.component.html',
-    styleUrls: ['../css/login.component.css'],
+    //styleUrls: ['../css/login.component.css'],
     moduleId: module.id,
 })
 export class LoginComponent implements OnInit {
@@ -33,17 +33,17 @@ export class LoginComponent implements OnInit {
     doLogin() {
         this.authService.login(this.loginUser.email, this.loginUser.password)
             .then(result => {
-                if (result.state == RequestStateEnum.SUCCESS) {
+                //if (result.state == RequestStateEnum.SUCCESS) {
                     this.router.navigate(["./home"]);
-                }
-                else {
-                    this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
-                }
+                //}
+                //else {
+                //    this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
+                //}
             });
     }
 
     async onSignupFormSubmit(event) {
-        if (event.user) {
+        if (event && event.user) {
             event.user.state = StatesFactory.getStates()[event.selectedStateIdx].shortName;
             let userRes = await this.userService.create(event.user);
             this.adpqService.growl({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
