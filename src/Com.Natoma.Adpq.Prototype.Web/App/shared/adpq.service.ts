@@ -1,13 +1,28 @@
 ﻿import { Injectable, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
-import { Message } from 'primeng/primeng'; 
+import { Message } from 'primeng/primeng';
 import { Response } from "@angular/http";
+
+export enum RequestStateEnum {
+    FAILED = -1,
+    NOT_AUTH = 0,
+    SUCCESS = 1
+}
+
+export class RequestResult {
+    state: RequestStateEnum;
+    msg: string;
+    data: any;
+}
 
 @Injectable()
 export class ADPQService {
+
     // Observable sources
     private growlSource = new Subject<GrowlObject>();
 
+    constructor(private router: Router) { }
     // Observable string streams
     growl$ = this.growlSource.asObservable();
 
@@ -20,6 +35,10 @@ export class ADPQService {
     }
 
     handleNetworkError(error: ErrorResponse) {
+        if (error.status == 401) {
+            this.router.navigate(['./login']);
+        }
+
         let detail = error.ovrdDetail;
         let summary = error.ovrdSummary;
 
@@ -28,11 +47,6 @@ export class ADPQService {
 
         if (!summary)
             summary = "Network Error";
-
-        if (error.status == 422) {
-            detail = error._body;
-            summary = "An Error Occurred";
-        }
 
         this.growl({ severity: "error", summary: summary, detail: detail });
         console.error('An error occurred', error);

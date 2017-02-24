@@ -1,40 +1,33 @@
 ﻿import { Injectable } from "@angular/core";
 import { Headers, Http } from "@angular/http";
+import { ADPQService, GrowlObject, ErrorResponse, RequestStateEnum, RequestResult } from './adpq.service';
 import "rxjs/add/operator/toPromise";
-
-export class RequestResult {
-    State: number;
-    Msg: string;
-    Data: Object;
-}
 
 @Injectable()
 export class AuthService {
-    private tokeyKey = "token";
+    public static readonly tokenKey = "adpqtoken";
     private token: string;
 
-    constructor(
-        private http: Http
-    ) { }
+    constructor(private http: Http, private adpqService: ADPQService) { }
 
     login(userName: string, password: string): Promise<RequestResult> {
         return this.http.post("http://localhost:61552/api/TokenAuth", { Username: userName, Password: password }).toPromise()
             .then(response => {
                 let result = response.json() as RequestResult;
-                if (result.State == 1) {
-                    let json = result.Data as any;
+                if (result.state == RequestStateEnum.SUCCESS) {
+                    let json = result.data as any;
 
-                    sessionStorage.setItem("token", json.accessToken);
+                    sessionStorage.setItem(AuthService.tokenKey, json.tokenS);
                 }
                 return result;
             })
-            .catch(this.handleError);
+            .catch(e => this.adpqService.handleNetworkError(e));
     }
 
     logout() { }
 
     checkLogin(): boolean {
-        var token = sessionStorage.getItem(this.tokeyKey);
+        var token = sessionStorage.getItem(AuthService.tokenKey);
         return token != null;
     }
 
@@ -46,19 +39,19 @@ export class AuthService {
         let headers = this.initAuthHeaders();
         return this.http.post(url, body, { headers: headers }).toPromise()
             .then(response => response.json() as RequestResult)
-            .catch(this.handleError);
+            .catch(e => this.adpqService.handleNetworkError(e));
     }
 
     authGet(url): Promise<RequestResult> {
         let headers = this.initAuthHeaders();
         return this.http.get(url, { headers: headers }).toPromise()
             .then(response => response.json() as RequestResult)
-            .catch(this.handleError);
+            .catch(e => this.adpqService.handleNetworkError(e));
     }
 
     private getLocalToken(): string {
         if (!this.token) {
-            this.token = sessionStorage.getItem(this.tokeyKey);
+            this.token = sessionStorage.getItem(AuthService.tokenKey);
         }
         return this.token;
     }
@@ -71,10 +64,5 @@ export class AuthService {
         headers.append("Authorization", "Bearer " + token);
 
         return headers;
-    }
-
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
     }
 }

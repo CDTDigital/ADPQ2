@@ -2,9 +2,9 @@
 import { Router } from '@angular/router';
 
 import { User } from './user.service';
-import { AuthService, RequestResult } from '../shared/auth.service';
+import { AuthService } from '../shared/auth.service';
 import { UserService } from './user.service';
-import { ADPQService, GrowlObject } from '../shared/adpq.service';
+import { ADPQService, GrowlObject, RequestResult } from '../shared/adpq.service';
 import { Message } from 'primeng/primeng';
 
 @Component({
@@ -25,7 +25,7 @@ export class UserHomeComponent implements OnInit {
             let res: RequestResult;
             try {
                 res = await this.authService.getUserInfo();
-                this.userName = (res.Data as any).UserName;
+                this.userName = (res.data as any).UserName;
             }
             catch (e) {
                 this.router.navigate(["./login"]);

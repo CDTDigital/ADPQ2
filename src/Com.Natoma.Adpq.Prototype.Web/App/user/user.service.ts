@@ -1,6 +1,7 @@
 ﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http, Request, RequestMethod } from "@angular/http";
-import { ADPQService } from '../shared/adpq.service';
+import { ADPQService, RequestResult, RequestStateEnum } from '../shared/adpq.service';
+import { AuthService } from '../shared/auth.service';
 
 import "rxjs/add/operator/toPromise";
 
@@ -30,10 +31,18 @@ export class UserService {
         this.adpqService = _adpqService;
     }
 
-    async create(user: User): Promise<User> {
+    async create(user: User): Promise<RequestResult> {
         return this.http.post(`http://localhost:61552/api/UserProfile`, user)
             .toPromise()
-            .then(response => response.json() as User)
+            .then(response => {
+                let result = response.json() as RequestResult;
+                if (result.state == RequestStateEnum.SUCCESS) {
+                    let json = result.data as any;
+
+                    sessionStorage.setItem(AuthService.tokenKey, json.token);
+                }
+                return result;
+            })
             .catch(reason => this.adpqService.handleNetworkError(reason));
     }
 }

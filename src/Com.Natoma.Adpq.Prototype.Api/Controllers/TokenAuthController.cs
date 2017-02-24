@@ -40,7 +40,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
                     State = RequestStateEnum.Success,
                     Data = new
                     {
-                        requertAt = requestAt,
+                        requestAt = requestAt,
                         expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
                         tokenType = TokenAuthOption.TokenType,
                         accessToken = token
