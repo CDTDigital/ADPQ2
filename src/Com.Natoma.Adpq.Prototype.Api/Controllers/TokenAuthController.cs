@@ -42,6 +42,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
                     Data = new TokenAuthViewModel
                     {
                         UserProfileId = userData.UserProfileId,
+                        IsAdmin = userData.IsAdmin,
                         Token = token
                     }
                 });
