@@ -31,7 +31,7 @@
 
 <div *ngIf="isSignupVisible" class="row signup">
     <div class="col-md-8 col-md-offset-2">
-        <adpq-user-form [submitLabel]="'Create'" [user]="newUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
+        <adpq-user-form [userFormType]="0" [user]="newUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
     </div>
 </div>
 <img class="background" src="../images/firefighters-training-live-fire-37543.jpg" alt="firefighters"/>

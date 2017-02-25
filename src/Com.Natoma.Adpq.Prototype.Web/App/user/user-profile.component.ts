@@ -5,6 +5,7 @@ import { User, UserService } from './user.service';
 import { SelectItem } from 'primeng/primeng';
 import { UserFormViewModel } from './user-form.component';
 import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: '../../html/user-profile.component.html',
@@ -12,7 +13,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class UserProfileComponent implements OnInit {
     
-    constructor(private userService: UserService, private adpqService: ADPQService, private authService: AuthService) { }
+    constructor(private userService: UserService, private adpqService: ADPQService, private authService: AuthService, private router: Router) { }
 
     ngOnInit() {
         this.adpqService.breadcrumbItems = [{ label: 'User Home', routerLink: ['./user'] }, { label: 'User Profile', routerLink: ['./user/profile'] }];
@@ -21,9 +22,11 @@ export class UserProfileComponent implements OnInit {
     async onSignupFormSubmit(vm: UserFormViewModel) {
         if (vm && vm.user) {
             vm.user.state = StatesFactory.getStates()[vm.selectedStateIdx].shortName;
-            await this.authService.updateUserInfo(vm.user);
+            this.userService.loggedInUser = await this.authService.updateUserInfo(vm.user);
             this.adpqService.growl({ severity: 'success', summary: `Profile successfully updated` });
             vm.user = new User();
         }
+        else
+            this.router.navigate(['./user']);
     }
 }

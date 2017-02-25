@@ -9,6 +9,11 @@ export interface UserFormViewModel {
     selectedStateIdx: number;
 }
 
+export enum UserFormType {
+    SIGNUP,
+    SAVE
+}
+
 @Component({
     selector: 'adpq-user-form',
     templateUrl: '../../html/user-form.component.html',
@@ -18,9 +23,9 @@ export class UserFormComponent implements OnInit {
 
     @Input()
     user: User;
-
+    
     @Input()
-    submitLabel: string;
+    userFormType: UserFormType;
 
     @Output()
     onSubmit: EventEmitter<UserFormViewModel> = new EventEmitter();

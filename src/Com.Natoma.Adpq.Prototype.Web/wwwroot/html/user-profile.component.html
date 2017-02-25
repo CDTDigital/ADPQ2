@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <adpq-user-form [submitLabel]="'Save'" [user]="userService.loggedInUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
+            <adpq-user-form [userFormType]="1" [user]="userService.loggedInUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
         </div>
     </div>
 </div>
