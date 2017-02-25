@@ -5,7 +5,7 @@ import { User } from './user.service';
 import { AuthService } from '../shared/auth.service';
 import { UserService } from './user.service';
 import { ADPQService, GrowlObject, RequestResult } from '../shared/adpq.service';
-import { Message } from 'primeng/primeng';
+import { Message, MenuItem } from 'primeng/primeng';
 import { CookieService } from 'angular2-cookie/core';
 
 @Component({
@@ -33,6 +33,8 @@ export class UserHomeComponent implements OnInit {
         }
         else
             this.router.navigate(["./login"]);
+
+        this.adpqService.breadcrumbItems = [<MenuItem> { label: 'User Home', routerLink: ['./user'] }];
     }
 
 }

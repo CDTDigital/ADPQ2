@@ -1,4 +1,5 @@
-﻿<router-outlet></router-outlet>
+﻿<p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
+<router-outlet></router-outlet>
 
 <p-growl [value]="growls"></p-growl>
 <p-growl [value]="stickyGrowls" sticky="sticky"></p-growl>

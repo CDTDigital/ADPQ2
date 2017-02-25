@@ -15,6 +15,7 @@ export class UserProfileComponent implements OnInit {
     constructor(private userService: UserService, private adpqService: ADPQService, private authService: AuthService) { }
 
     ngOnInit() {
+        this.adpqService.breadcrumbItems = [{ label: 'User Home', routerLink: ['./user'] }, { label: 'User Profile', routerLink: ['./user/profile'] }];
     }
 
     async onSignupFormSubmit(vm: UserFormViewModel) {

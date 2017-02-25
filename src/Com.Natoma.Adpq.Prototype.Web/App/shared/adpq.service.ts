@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { Message } from 'primeng/primeng';
 import { Response } from "@angular/http";
 import { CookieService } from 'angular2-cookie/core';
+import { MenuItem } from 'primeng/primeng';
 
 export enum RequestStateEnum {
     FAILED = -1,
@@ -20,6 +21,7 @@ export class RequestResult {
 @Injectable()
 export class ADPQService {
     private cookieService: CookieService;
+    breadcrumbItems: MenuItem[] = [];
 
     // Observable sources
     private growlSource = new Subject<GrowlObject>();

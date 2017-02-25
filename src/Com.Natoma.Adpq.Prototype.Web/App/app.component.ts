@@ -1,7 +1,7 @@
-﻿import { Component, OnInit, OnDestroy} from '@angular/core';
+﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Subscription }   from 'rxjs/Subscription';
-import { Message } from 'primeng/primeng';
+import { Subscription } from 'rxjs/Subscription';
+import { Message, MenuItem } from 'primeng/primeng';
 import { ADPQService, GrowlObject } from './shared/adpq.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private stickyGrowls: Message[] = [];
 
     onGrowlSub: Subscription;
+    homeIcon = <MenuItem>{ routerLink: ['home'] };
 
     constructor(private adpqService: ADPQService) {
         this.growls = [];
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnInit() { 
+    ngOnInit() {
     }
 
     ngOnDestroy() {

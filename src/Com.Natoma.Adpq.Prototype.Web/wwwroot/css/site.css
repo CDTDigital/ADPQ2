@@ -153,3 +153,6 @@ div.no-acct-link span {
 button[disabled] {
     opacity: 0.4;
 }
+p-breadcrumb .fa.fa-home {
+    cursor: pointer;
+}

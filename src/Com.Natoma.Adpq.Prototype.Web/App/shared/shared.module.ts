@@ -10,7 +10,7 @@ import { CookieService } from 'angular2-cookie/core';
 import {
     InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule,
     GrowlModule, InputMaskModule, MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ConfirmationService, ToggleButtonModule, TooltipModule, BlockUIModule,
-    CalendarModule, MessagesModule
+    CalendarModule, MessagesModule, BreadcrumbModule
 }
     from 'primeng/primeng';
 
@@ -18,13 +18,13 @@ import {
     imports: [
         CommonModule, HttpModule, FormsModule,
         InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule, GrowlModule, InputMaskModule,
-        MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule, CalendarModule, MessagesModule
+        MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule, CalendarModule, MessagesModule, BreadcrumbModule
     ],
 
     exports: [
         CommonModule, FormsModule, HttpModule,
         InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, GrowlModule, InputMaskModule, TabViewModule,
-        MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule,
+        MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule, BreadcrumbModule,
         CalendarModule, MessagesModule
     ]
 })
