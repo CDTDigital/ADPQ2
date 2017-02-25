@@ -72,7 +72,6 @@ adpq-login .alert {
 }
 
 img.background {
-    background-image: url("../images/firefighters-training-live-fire-37543.jpg");
     background-repeat: no-repeat;
     width: 2400px;
     height: 1602px;
@@ -164,4 +163,14 @@ button[disabled] {
 }
 p-breadcrumb .fa.fa-home {
     cursor: pointer;
+}
+.header-logout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    float: right;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 1.3em;
+    color: #87CEFA;
 }

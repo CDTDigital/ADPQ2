@@ -1,4 +1,8 @@
-﻿<p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
+﻿<div *ngIf="userService.loggedInUser?.email">
+    <div class="header-logout" (click)="logout()">Logout</div>
+    <p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
+</div>
+
 <router-outlet></router-outlet>
 
 <p-growl [value]="growls"></p-growl>

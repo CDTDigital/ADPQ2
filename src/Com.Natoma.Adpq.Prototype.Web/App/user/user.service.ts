@@ -32,9 +32,11 @@ export class UserService {
 
     private _loggedInUser: User = new User();
     public get loggedInUser(): User {
-        if (!this._loggedInUser.email && !this.alreadyQueried) {
+        let userId = parseInt(this.cookieService.get(AuthService.userIdSessionKey));
+
+        if (userId && !this._loggedInUser.email && !this.alreadyQueried) {
             this.alreadyQueried = true;
-            this.authService.getUserInfo(parseInt(this.cookieService.get(AuthService.userIdSessionKey))).then((user) => {
+            this.authService.getUserInfo(userId).then((user) => {
                 this._loggedInUser = user;
             });
         }
