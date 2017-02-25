@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  com.natoma.adpq.prototype.web:
+    image: user/com.natoma.adpq.prototype.web${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80"
