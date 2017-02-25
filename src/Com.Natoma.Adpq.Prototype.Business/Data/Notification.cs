@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Data
 {
@@ -19,5 +20,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public int? CreatedBy { get; set; }
         public DateTime? UpdatedOn { get; set; }
         public int? UpdatedBy { get; set; }
+
+        public virtual ICollection<UserNotification> UserNotification { get; set; }
+        public virtual NotificationType NotificationNavigation { get; set; }
     }
 }

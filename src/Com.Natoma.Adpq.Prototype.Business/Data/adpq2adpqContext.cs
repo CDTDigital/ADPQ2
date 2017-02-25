@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Data
 {
@@ -23,6 +24,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         {
             modelBuilder.Entity<Notification>(entity =>
             {
+                entity.Property(e => e.NotificationId).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Address1)
                     .HasColumnType("varchar")
                     .HasMaxLength(100);
@@ -58,6 +61,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                 entity.Property(e => e.Zipcode)
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.NotificationNavigation)
+                    .WithOne(p => p.Notification)
+                    .HasForeignKey<Notification>(d => d.NotificationId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("fk_notification_notificationType");
             });
 
             modelBuilder.Entity<NotificationType>(entity =>
@@ -120,7 +129,25 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
 
             modelBuilder.Entity<UserNotification>(entity =>
             {
+                entity.HasIndex(e => e.NotificationId)
+                    .HasName("fki_fk_notification_userNotification");
+
+                entity.HasIndex(e => e.UserId)
+                    .HasName("fki_fk_user_userNotification");
+
                 entity.Property(e => e.NotificationDate).HasColumnType("date");
+
+                entity.HasOne(d => d.Notification)
+                    .WithMany(p => p.UserNotification)
+                    .HasForeignKey(d => d.NotificationId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("fk_notification_userNotification");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserNotification)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("fk_user_userNotification");
             });
         }
     }

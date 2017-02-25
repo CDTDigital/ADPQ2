@@ -10,5 +10,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public bool? IsEmailSent { get; set; }
         public bool? IsSmsSent { get; set; }
         public DateTime? NotificationDate { get; set; }
+
+        public virtual Notification Notification { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -143,6 +143,14 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             updatingUserProfile.IsEmailNotification = userProfileViewModel.IsEmailNotifications;
             updatingUserProfile.IsSms = userProfileViewModel.IsSms;
 
+            if (!string.IsNullOrEmpty(userProfileViewModel.Password))
+            {
+                // get the password hash
+                var passwordHashSet = PasswordUtils.GetSaltAndHashValue(userProfileViewModel.Password);
+                updatingUserProfile.Password = passwordHashSet.Hashed;
+                updatingUserProfile.PasswordSalt = passwordHashSet.SaltBase64String;
+            }
+
             // get latlong set
             var latLongSet = _geoCodeService.GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
 
