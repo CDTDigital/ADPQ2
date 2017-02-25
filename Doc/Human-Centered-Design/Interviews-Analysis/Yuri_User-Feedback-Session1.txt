@@ -1,0 +1,121 @@
+Interview Questions:
+
+1.	What data should be in the profile for parents?
+a.	basic profile, birth parents
+b.	basic profile, foster parents
+c.	perfect world profile, birth parents
+d.	perfect world profile, foster parents
+2.	What data about the foster kids should be in the profile?
+a.	Basic
+b.	Perfect world
+3.	Are there categories of correspondence that would be helpful for parents?
+a.	Birth parents
+b.	Foster parents
+4.	Would birth and foster parents have the same case worker for a specific child? (way out of scope but potentially part of backlog)
+5.	Okay to use some or all look & feel from SYS?
+6.	Ideas for fluffy parts of site? (e.g. important events or other notifications or information)
+
+
+
+Interview Content:
+
+Profile of Biological Parents (Birth Parents) - information to collect should/could include
+    Progress towards court requirements including- parenting classes and drug and alcohol classes
+    Number of family visits completed
+    Status Reunification/Parental Rights Terminated/
+    *Note* that the actual location of the foster kid's home would be kept confidential from the Biological parent(s)
+    name
+    address / treatment facility
+    age
+    best contract number
+    visitation history
+    Child specific information - favorite book etc.  How to get them to sleep
+
+Birth Parent - concerns include
+    Ability to contact the Country
+    Visits and family and Family Visits.
+    Get school report cards
+    *Note that school location may be kept confidential too
+
+Foster Kids' Profile could include:
+    Checklist for medical and dental care (useful for when a foster kid moves to another home)
+    Track medical and .dental tests and checkups.  Also TB tests
+    Track child's school (law says child has to stay in the same district and school
+     Foster kid's Individualized Education Program,(IEP)
+     ALTA regional services
+     School attendance
+     School Grades
+     Academic achievement.
+     Visitation guidelines (frequency and type)
+     Track Allowance and Clothing ?
+    JV-220 Application Regarding Psychotropic Medication (is this for the kid or the parent?)
+    Court Appointed Special Advocates  (CASA) they advocate for the youth in the court system.
+    Does the youth have a therapist (Wraparound, for example) or mental health services, family counseling
+    ALTA regional services
+    Psychological testing
+    Are relatives being considered for adoption
+    Past history of abuse and neglect
+    Ward/juvenile probation status
+    Languages spoken by the foster kid
+
+
+Foster Parent , aka Resource Parent or could be Kinship Caregiver (relative of the child being fostered)
+
+Foster Parent , aka Resource Parent, profile could include:
+    Training  the Foster Parent has (basic / higher level)
+    Ongoing training
+    Distance to School of Origin (parents report number of miles to school)
+    Name
+     Address
+     Age
+     Marital Status
+     Gender
+     Ethnicity
+     Neighborhood - closest Elementary, Middle and High schools
+     Capacity
+     Certified and certified by whom (language moved to approved)
+     Approved for kinship care
+     Approved to do Adoptive care
+     # of kids (bio or other) dependents in the house
+     # of other adults in the home
+     Fingerprinted alternate care providers that frequent the house
+     Pets (type and count)
+     Open to fostering a kid who has a pet
+     Age preferences - including (Transitional Age Youth 18-21, Pregnant and Parenting, commercially sexually exploited youth, LGBT)
+     Employment information - flexibility around transportation, sources of income, schedule may be more important
+     Languages spoken in home.
+
+Categories of communication for the direct messages:
+          Reporting Incidences
+          Request for information ()
+          Request for documentation (birth cert, Health and Education Passport- Sacramento County, only)
+          Education
+          Report positive /  progress reports
+          Post family visit - report transition back home
+          Count of visits / log
+          Warning of In Home Visit - category of message
+          Request for leaving the country
+          Reporting to the state for community care licenses
+
+Also the web site should display Events and Notifications
+           - training  and continual education hours
+           - alerts - lice outbreak - flu shot reminders - car seat reminders
+
+Yuri would like the FFA Foster Family Agency (for example Stanfield) social workers to have access to profiles so that incidences reported by the Resource Parent to Foster Family Agencies would be shared with them.  
+_____________________________________________________________________________________________
+
+Bruce walked Yuri through the prototype: Eamonn and Noelle took notes
+
+HSS Prototype
+Profile page
+
+Yuri's suggestion: Add an Alert saying "this is a secure system - OK to send PIAA/HIPPA"
+
+Discussed sophistication of their end users.  Yuri: it varies, prior to smart phones, there was a lack of connectivity and PCs in many foster homes.  Now, Yuri sees high adoption of smart phones, and there are still not a lot of desktop computers.
+
+Bruce demonstrated the Reactive design of the web-site on an iPhone 6 form factor.  It looked great!
+
+The initial version of the Profile page includes a section for adding 'Dependents'.  Yuri advised that the word Dependents will be confusing for the target uses, and suggested that we use a phrase like "Foster youth" or "Foster Children".  Better still, call it "Kids in home" and add a category of "foster kid, biological kid" etc.
+
+
+Language needs for the users of the prototype: Ideally Spanish/English/Vietnamese/Hmong/Russian.  Add to backlog
