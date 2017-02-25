@@ -4,6 +4,10 @@ import { User } from './user.service';
 import { StatesFactory } from '../shared/states';
 import { SelectItem } from 'primeng/primeng';
 
+export interface UserFormViewModel {
+    user: User;
+    selectedStateIdx: number;
+}
 
 @Component({
     selector: 'adpq-user-form',
@@ -15,16 +19,16 @@ export class UserFormComponent implements OnInit {
     @Input()
     user: User;
 
+    @Input()
+    submitLabel: string;
+
     @Output()
-    onSubmit: EventEmitter<{ user: User, selectedStateIdx: number }> = new EventEmitter();
+    onSubmit: EventEmitter<UserFormViewModel> = new EventEmitter();
 
     states: SelectItem[] = StatesFactory.getStatesAsSelectItems();
     selectedStateIdx = 4;
-    isSignup: boolean;
     confPassword: string;
 
     ngOnInit() {
-        if (!this.user.email)
-            this.isSignup = true;
     }
 }

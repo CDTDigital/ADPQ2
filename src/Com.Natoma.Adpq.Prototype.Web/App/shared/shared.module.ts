@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { ADPQService } from './adpq.service';
 import { UserService } from '../user/user.service';
+import { CookieService } from 'angular2-cookie/core'; 
 
 import {
     InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule,
@@ -31,7 +32,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthService, ADPQService, UserService]
+            providers: [AuthService, ADPQService, UserService, CookieService]
         };
     }
 }

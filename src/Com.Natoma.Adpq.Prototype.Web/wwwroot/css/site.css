@@ -57,7 +57,8 @@ adpq-login h1 {
     text-align: center;
 }
 
-.user-home .content {
+.user-home .content,
+.user-profile .content {
     font-size: 2em !important;
     margin-bottom: 25px;
 }

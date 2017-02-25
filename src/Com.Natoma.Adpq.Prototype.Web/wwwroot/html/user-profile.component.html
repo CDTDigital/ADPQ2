@@ -1,0 +1,13 @@
+﻿<div class="user-profile">
+    <div class="row content">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>User Profile</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <adpq-user-form [submitLabel]="'Save'" [user]="userService.loggedInUser" (onSubmit)="onSignupFormSubmit($event)"></adpq-user-form>
+        </div>
+    </div>
+</div>

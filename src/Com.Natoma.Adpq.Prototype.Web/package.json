@@ -21,6 +21,7 @@
     "zone.js": "0.7.6",
 
     "angular2-jwt": "0.1.28",
+    "angular2-cookie": "1.2.6",
     "primeng": "2.0.1"
   },
 

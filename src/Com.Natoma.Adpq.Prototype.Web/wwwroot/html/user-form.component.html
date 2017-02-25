@@ -92,6 +92,6 @@
         <div [hidden]="userPhone.valid || userPhone.pristine" class="col-md-3 alert alert-danger"> Phone is required </div>
     </div>
 
-    <button type="submit" pButton icon="fa fa-check" label="{{isSignup ? 'Create' : 'Save'}}" [disabled]="!signupForm.form.valid"></button>
+    <button type="submit" pButton icon="fa fa-check" label="{{submitLabel}}" [disabled]="!signupForm.form.valid"></button>
     <button type="button" pButton icon="fa fa-close" (click)="onSubmit.emit()" label="Cancel"></button>
 </form>

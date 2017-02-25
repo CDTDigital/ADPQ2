@@ -14,19 +14,13 @@ gulp.task("ScriptsNStyles", function () {
             'rxjs/**/*.{js,js.map}',
             'zone.js/dist/**/*.js',
             '@angular/**/*.{js,js.map}',
-            //'jquery/dist/jquery.*js',
-            //'jquery-validation/dist/jquery.validate.js',
-            //'select2/dist/**/select2.{js,css}',
-            //'jquery-validation-unobtrusive/jquery.validate.unobtrusive.js',
-            //'jquery.cookie/jquery.cookie.js',
-            //'jquery.uniform/dist/**',
             'bootstrap/dist/**',
             'font-awesome/css/font-awesome.css',
             'font-awesome/fonts/*.*',
             'primeng/**/*.{js,js.map}',
             'primeng/resources/primeng.css',
             'primeng/resources/themes/bootstrap/theme.css',
-            //'angular2-cookie/**/*.{js,js.map}',
+            'angular2-cookie/**/*.{js,js.map}',
             "core-js/**/*.js", "!core-js/**/*.min.js"
 
     ], {

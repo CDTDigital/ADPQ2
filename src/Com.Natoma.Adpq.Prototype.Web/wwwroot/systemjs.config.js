@@ -6,13 +6,13 @@
         //'angular2-in-memory-web-api': 'lib/angular2-in-memory-web-api',
         '@angular': 'lib/@angular',
         'primeng': 'lib/primeng',
-        //'angular2-cookie': 'lib/angular2-cookie',
+        'angular2-cookie': 'lib/angular2-cookie',
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app': { main: 'main.js', defaultExtension: 'js' },
         //'angular2-in-memory-web-api': { defaultExtension: 'js' },
-        //'angular2-cookie': { defaultExtension: 'js' },
+        'angular2-cookie': { defaultExtension: 'js' },
     };
     var ngPackageNames = [
       'common',
