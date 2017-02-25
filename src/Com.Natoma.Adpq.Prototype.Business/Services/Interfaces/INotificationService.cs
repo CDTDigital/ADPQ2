@@ -4,8 +4,10 @@ using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Services.Interfaces
 {
-    public interface IMessageService
+    public interface INotificationService
     {
+        Task<RequestResult> Get();
+        Task<RequestResult> Get(int userProfileId);
         Task<RequestResult> SendNotification();
     }
 }

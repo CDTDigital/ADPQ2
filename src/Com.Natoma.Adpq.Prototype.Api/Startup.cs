@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -63,7 +64,7 @@ namespace Com.Natoma.Adpq.Prototype.Api
                 c.SwaggerDoc("v1", new Info { Title = "ADPQ Prototype Api", Version = "v1" });
             });
 
-            services.AddTransient<IMessageService, MessageService>();
+            services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IUserProfileService, UserProfileService>();
 
             // Add service and create Policy with options

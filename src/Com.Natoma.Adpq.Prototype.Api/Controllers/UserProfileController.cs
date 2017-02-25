@@ -19,13 +19,6 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
             _userProfileService = userProfileService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        { 
-            // return a list of Userprofiles?
-            return Ok();
-        }
-
         [HttpGet("{id}")]
         [Authorize]
         public async Task<IActionResult> Get([FromRoute]int id)

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Com.Natoma.Adpq.Prototype.Business.Models.Event
+namespace Com.Natoma.Adpq.Prototype.Api.Test.Controllers
 {
-    public class EventViewModel
+    public class NotificationControlletTests
     {
+        
     }
 }

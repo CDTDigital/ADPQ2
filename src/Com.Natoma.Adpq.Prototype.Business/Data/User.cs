@@ -18,8 +18,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public double? Longitude { get; set; }
         public string Email { get; set; }
         public string PasswordSalt { get; set; }
-        public bool IsEmailNotification { get; set; }
-        public bool IsSms { get; set; }
+        public bool? IsEmailNotification { get; set; }
+        public bool? IsSms { get; set; }
         public string Phone { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public int? CreatedBy { get; set; }
+        public DateTime? UpdatedOn { get; set; }
+        public int? UpdatedBy { get; set; }
     }
 }
