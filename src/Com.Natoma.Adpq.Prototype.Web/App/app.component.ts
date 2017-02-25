@@ -1,24 +1,23 @@
 ﻿import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
 import { Message, MenuItem } from 'primeng/primeng';
 import { ADPQService, GrowlObject } from './shared/adpq.service';
-import { CookieService } from 'angular2-cookie/core';
 import { UserService, User } from './user/user.service';
 
 @Component({
     selector: 'adpq-app',
     templateUrl: '../html/home.html'
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnDestroy {
     private growls: Message[] = [];
     private stickyGrowls: Message[] = [];
 
     onGrowlSub: Subscription;
     homeIcon = <MenuItem>{ routerLink: ['home'] };
+    user: User;
 
-    constructor(private adpqService: ADPQService, private cookieService: CookieService, private router: Router, private userService: UserService) {
+    constructor(private adpqService: ADPQService, private userService: UserService) {
         this.growls = [];
 
         // This receives the message that a growl needs to be displayed
@@ -34,18 +33,19 @@ export class AppComponent implements OnInit, OnDestroy {
             else
                 this.growls.push(growlObj.message);
         });
+
+
     }
 
-    ngOnInit() {
+    async isUserLoggedIn() {
+        let user = await this.userService.getLoggedInUser();
+        if (user.email)
+            return true
+        else
+            return false;
     }
 
     ngOnDestroy() {
         this.onGrowlSub.unsubscribe();
-    }
-
-    logout() {
-        this.userService.loggedInUser = new User();
-        this.cookieService.removeAll();
-        this.router.navigate(['./login']);
     }
 }

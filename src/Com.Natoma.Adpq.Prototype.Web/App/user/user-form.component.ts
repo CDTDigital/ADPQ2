@@ -19,7 +19,7 @@ export enum UserFormType {
     templateUrl: '../../html/user-form.component.html',
     moduleId: module.id,
 })
-export class UserFormComponent implements OnInit {
+export class UserFormComponent {
 
     @Input()
     user: User;
@@ -34,7 +34,4 @@ export class UserFormComponent implements OnInit {
     selectedStateIdx = 4;
     confPassword: string;
     isShowingPassfordFields = false;
-
-    ngOnInit() {
-    }
 }

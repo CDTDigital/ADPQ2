@@ -7,6 +7,7 @@ import { LoginComponent } from './login.component';
 import { UserHomeComponent } from './user/user-home.component';
 import { UserFormComponent } from './user/user-form.component';
 import { UserProfileComponent } from './user/user-profile.component';
+import { AdminHomeComponent } from './admin/admin-home.component';
 
 import { routing } from './app.routing';
 
@@ -21,7 +22,8 @@ import { routing } from './app.routing';
         LoginComponent,
         UserHomeComponent,
         UserFormComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        AdminHomeComponent
     ],
     bootstrap: [
         AppComponent

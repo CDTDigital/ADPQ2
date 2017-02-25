@@ -2,37 +2,27 @@
 import { Router } from '@angular/router';
 
 import { User } from './user.service';
-import { AuthService } from '../shared/auth.service';
 import { UserService } from './user.service';
-import { ADPQService, GrowlObject, RequestResult } from '../shared/adpq.service';
-import { Message, MenuItem } from 'primeng/primeng';
-import { CookieService } from 'angular2-cookie/core';
+import { ADPQService } from '../shared/adpq.service';
+import { MenuItem } from 'primeng/primeng';
 
 @Component({
     templateUrl: '../../html/user-home.component.html',
     moduleId: module.id,
 })
 export class UserHomeComponent implements OnInit {
-    isLogin = false;
-    userName: string;
 
-    constructor(private authService: AuthService, private userService: UserService, private adpqService: ADPQService,
-        private router: Router, private cookieService: CookieService) { }
+    constructor(private userService: UserService, private adpqService: ADPQService, private router: Router) { }
 
     async ngOnInit() {
-        this.isLogin = this.authService.checkLogin();
-        if (this.isLogin) {
-            try {
-                setTimeout(async () => {
-                    this.userService.loggedInUser = await this.authService.getUserInfo(parseInt(this.cookieService.get(AuthService.userIdSessionKey)));
-                }, 0);
-            } 
-            catch (e) {
-                this.router.navigate(["./login"]);
-            }
-        }
-        else
+        if (!this.userService.checkLogin()) {
             this.router.navigate(["./login"]);
+            return;
+        }
+
+        let user = await this.userService.getLoggedInUser();
+        if (user.isAdmin == true)
+            this.router.navigate(["./admin"]);
 
         this.adpqService.breadcrumbItems = [<MenuItem> { label: 'User Home', routerLink: ['./user'] }];
     }
