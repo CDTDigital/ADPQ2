@@ -37,7 +37,6 @@ namespace Com.Natoma.Adpq.Prototype.Business.Utils
 
             return new SaltHashSet
             {
-                Salt = salt,
                 SaltBase64String = Convert.ToBase64String(salt),
                 Hashed = hashed
             };
@@ -46,7 +45,6 @@ namespace Com.Natoma.Adpq.Prototype.Business.Utils
 
     public class SaltHashSet
     {
-        public byte[] Salt { get; set; }
         public string SaltBase64String { get; set; }
         public string Hashed { get; set; }
     }

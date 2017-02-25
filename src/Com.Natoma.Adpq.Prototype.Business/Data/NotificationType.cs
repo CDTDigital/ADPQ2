@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Com.Natoma.Adpq.Prototype.Web.Scaffold
+﻿namespace Com.Natoma.Adpq.Prototype.Business.Data
 {
     public partial class NotificationType
     {

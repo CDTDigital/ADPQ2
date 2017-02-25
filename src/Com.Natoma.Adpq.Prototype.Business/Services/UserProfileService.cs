@@ -18,10 +18,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
     public class UserProfileService: IUserProfileService
     {
         private readonly adpq2adpqContext _context;
+        private readonly IGeoCodeService _geoCodeService;
 
-        public UserProfileService(adpq2adpqContext context)
+        public UserProfileService(adpq2adpqContext context, IGeoCodeService geoCodeService)
         {
             _context = context;
+            _geoCodeService = geoCodeService;
         }
 
         public async Task<RequestResult> Get(int id)
@@ -74,7 +76,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }
 
             // get latlong set
-            var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
+            var latLongSet = _geoCodeService.GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
 
             // get the password hash
             var passwordHashSet = PasswordUtils.GetSaltAndHashValue(userProfileViewModel.Password);
@@ -142,7 +144,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             updatingUserProfile.IsSms = userProfileViewModel.IsSms;
 
             // get latlong set
-            var latLongSet = GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
+            var latLongSet = _geoCodeService.GetGeoLocation(userProfileViewModel.AddressLine1, null, userProfileViewModel.City, userProfileViewModel.State, userProfileViewModel.Zipcode);
 
             updatingUserProfile.Latitude = latLongSet.Latitude;
             updatingUserProfile.Longitude = latLongSet.Longitude;
@@ -152,49 +154,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return new RequestResult
             {
                 State = RequestStateEnum.Success,
+                Data = userProfileViewModel,
                 Msg = "User updated."
             };
         }
-
-        public LatLongSet GetGeoLocation(string address1, string address2, string city, string state, string zipcode)
-        {
-            if (string.IsNullOrEmpty(address1) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state))
-            {
-                return new LatLongSet();
-            }
-            LatLongSet latLongSet = null;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.BaseAddress = new Uri("https://maps.googleapis.com");
-                    var apiAddress = "/maps/api/geocode/json?" + "address=" + address1 + "+" +
-                                     city + "+" + state + "+" +
-                                     zipcode + "&key=AIzaSyDMLoJ5K4BFV8Jqwt22R3UIrJGH_zMAe7A";
-                    MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
-                    client.DefaultRequestHeaders.Accept.Add(contentType);
-                    HttpResponseMessage response = client.GetAsync(apiAddress).Result;
-                    string stringData = response.Content.ReadAsStringAsync().Result;
-
-                    dynamic data = JsonConvert.DeserializeObject<dynamic>(stringData);
-                    var results = data.results;
-                    var geometry = results[0].geometry;
-                    var location = geometry.location;
-                    latLongSet = new LatLongSet
-                    {
-                        Latitude = location.lat,
-                        Longitude = location.lng
-                    };
-                    return latLongSet;
-                }
-                catch (Exception)
-                {
-                    return new LatLongSet();
-                }
-                
-            }    
-        }
-
+        
         private UserProfileViewModel PopulateUserProfileViewModel(User userProfile)
         {
             return new UserProfileViewModel

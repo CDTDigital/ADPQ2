@@ -1,5 +1,4 @@
-﻿using Com.Natoma.Adpq.Prototype.Web.Scaffold;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Data
 {

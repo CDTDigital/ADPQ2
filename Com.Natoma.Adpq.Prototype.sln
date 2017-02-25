@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Com.Natoma.Adpq.Prototype.web", "src\Com.Natoma.Adpq.Prototype.web\Com.Natoma.Adpq.Prototype.Web.xproj", "{ED508F64-5137-4DD3-A31B-59EFD04324D5}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Com.Natoma.Adpq.Prototype.Web", "src\Com.Natoma.Adpq.Prototype.web\Com.Natoma.Adpq.Prototype.Web.xproj", "{ED508F64-5137-4DD3-A31B-59EFD04324D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AA91DC0D-B3E9-4C35-A286-EEF57E34087A}"
 EndProject
@@ -21,8 +21,6 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Com.Natoma.Adpq.Prototype.Api.Test", "test\Com.Natoma.Adpq.Prototype.Api.Test\Com.Natoma.Adpq.Prototype.Api.Test.xproj", "{8A91E01D-987B-41A6-BB34-C9B62A8F72E7}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Com.Natoma.Adpq.Prototype.Business.Test", "test\Com.Natoma.Adpq.Prototype.Business.Test\Com.Natoma.Adpq.Prototype.Business.Test.xproj", "{3FC44EAE-026C-4AC4-BB8C-A866519B7365}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Com.Natoma.Adpq.Prototype.Web.Test", "test\Com.Natoma.Adpq.Prototype.Web.Test\Com.Natoma.Adpq.Prototype.Web.Test.xproj", "{06EE6ADC-DD03-484B-A110-8B898DCC3704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,10 +48,6 @@ Global
 		{3FC44EAE-026C-4AC4-BB8C-A866519B7365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC44EAE-026C-4AC4-BB8C-A866519B7365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC44EAE-026C-4AC4-BB8C-A866519B7365}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06EE6ADC-DD03-484B-A110-8B898DCC3704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06EE6ADC-DD03-484B-A110-8B898DCC3704}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06EE6ADC-DD03-484B-A110-8B898DCC3704}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06EE6ADC-DD03-484B-A110-8B898DCC3704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +58,5 @@ Global
 		{26BE6B1D-F202-42F4-8667-E51A005B96D8} = {E27EB736-6715-4111-8A94-06800D15F884}
 		{8A91E01D-987B-41A6-BB34-C9B62A8F72E7} = {AA91DC0D-B3E9-4C35-A286-EEF57E34087A}
 		{3FC44EAE-026C-4AC4-BB8C-A866519B7365} = {AA91DC0D-B3E9-4C35-A286-EEF57E34087A}
-		{06EE6ADC-DD03-484B-A110-8B898DCC3704} = {AA91DC0D-B3E9-4C35-A286-EEF57E34087A}
 	EndGlobalSection
 EndGlobal
