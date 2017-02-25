@@ -28,6 +28,7 @@ export class UserFormComponent implements OnInit {
     states: SelectItem[] = StatesFactory.getStatesAsSelectItems();
     selectedStateIdx = 4;
     confPassword: string;
+    isShowingPassfordFields = false;
 
     ngOnInit() {
     }

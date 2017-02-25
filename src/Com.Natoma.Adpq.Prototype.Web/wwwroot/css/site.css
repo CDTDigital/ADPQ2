@@ -150,6 +150,15 @@ div.no-acct-link span {
     font-size: 1.5em;
 }
 
+.pwd-chg-link {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #87CEFA;
+    font-weight: 400;
+    font-size: 1.1em;
+    margin-bottom: 20px;    
+}
+
 button[disabled] {
     opacity: 0.4;
 }

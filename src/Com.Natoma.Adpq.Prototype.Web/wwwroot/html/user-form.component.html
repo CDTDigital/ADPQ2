@@ -23,20 +23,25 @@
         <div [hidden]="userEmail.valid || userEmail.pristine" class="col-md-4 alert alert-danger"> Email is required </div>
     </div>
 
-    <div class="form-group row">
-        <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
-        <div class="col-md-6">
-            <input pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel">
-        </div>
-        <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
+    <div *ngIf="submitLabel == 'Save'" (click)="isShowingPassfordFields = !isShowingPassfordFields" class="pwd-chg-link">
+        {{isShowingPassfordFields ? 'Cancel changing your password' : 'Change your password'}}
     </div>
-
-    <div class="form-group row">
-        <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password</label>
-        <div class="col-md-6">
-            <input pInputText class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
+    <div *ngIf="submitLabel == 'Create' || isShowingPassfordFields" class="pwd-chg-content">
+        <div class="form-group row">
+            <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+            <div class="col-md-6">
+                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel">
+            </div>
+            <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
         </div>
-        <div [hidden]="!confPassword || confPassword == user.password" class="col-md-4 alert alert-danger"> Please confirm your password </div>
+
+        <div class="form-group row">
+            <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password</label>
+            <div class="col-md-6">
+                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
+            </div>
+            <div [hidden]="!confPassword || confPassword == user.password" class="col-md-4 alert alert-danger"> Please confirm your password </div>
+        </div>
     </div>
 
     <div class="form-group row">
