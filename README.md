@@ -7,7 +7,7 @@
 Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Office of Systems Integration RFI #? (RFI) and is thankful for this opportunity to present our prototype and our approach. 
 
 # [Link to the prototype web-application][prototype-url]  
-Address: http://prototype.natomadev.com/HHSPrototype/
+Address: <<need to add this when available>> http://prototype.natomadev.com/HHSPrototype/
 
 
 ## In Brief
