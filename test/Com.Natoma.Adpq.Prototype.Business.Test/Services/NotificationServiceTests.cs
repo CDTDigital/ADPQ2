@@ -10,6 +10,7 @@ using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Test.TestUtils;
 using Moq;
 using Org.BouncyCastle.Asn1.Cmp;
+using Twilio.Rest.Api.V2010.Account;
 using Xunit;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
@@ -93,7 +94,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
 
             var result = await service.CreateAndSendNotification(notificationViewModel);
             Assert.True(result.State == RequestStateEnum.Success);
-            
+
         }
 
         private void PopulateContextSend(adpq2adpqContext context)

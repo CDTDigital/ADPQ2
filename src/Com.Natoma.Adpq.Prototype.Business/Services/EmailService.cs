@@ -17,7 +17,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             {
                 var emailMessage = new MimeMessage();
 
-                emailMessage.From.Add(new MailboxAddress("California Notifications", "CalNotification@example.com"));
+                emailMessage.From.Add(new MailboxAddress("ADPQ2", "adpq2@natomatech.com"));
                 emailMessage.To.Add(new MailboxAddress("", email));
                 emailMessage.Subject = subject;
                 var bodyBuilder = new BodyBuilder { HtmlBody = message };
@@ -25,8 +25,9 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
                 using (var client = new SmtpClient())
                 {
-                    client.LocalDomain = "some.domain.com";
-                    await client.ConnectAsync("smtp.need.server", 25, SecureSocketOptions.None).ConfigureAwait(false);
+                    client.Connect("email-smtp.us-west-2.amazonaws.com", 587);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    client.Authenticate("AKIAIYHSSHMRLYEMH4JQ", "Ajw/wsncU3ppLhZIMCDjfR2uZqqkRM44mTe/ewx0BgNl");
                     await client.SendAsync(emailMessage).ConfigureAwait(false);
                     await client.DisconnectAsync(true).ConfigureAwait(false);
                 }
