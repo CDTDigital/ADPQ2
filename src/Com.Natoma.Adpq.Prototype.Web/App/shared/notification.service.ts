@@ -1,6 +1,6 @@
 ﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http } from "@angular/http";
-import { ADPQService, RequestResult } from './adpq.service';
+import { ADPQService, RequestResult, RequestStateEnum, ErrorResponse } from './adpq.service';
 import "rxjs/add/operator/toPromise";
 import { AuthService, TokenAuthViewModel } from '../shared/auth.service';
 
@@ -46,7 +46,13 @@ export class NotificationService {
 
     async postNotification(notification: Notification): Promise<Notification> {
         return this.authService.authPost(`${NotificationService.notificationsUrl}`, notification).
-            then(response => response.data as Notification)
-            .catch(e => this.adpqService.handleNetworkError(e));
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return response.data as Notification;
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
     }
 }

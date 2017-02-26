@@ -59,8 +59,13 @@ export class AdminNotificationComponent implements OnInit {
         if (save) {
             this.notification.state = StatesFactory.getStates()[this.selectedStateIdx].shortName;
             let res = await this.notificationService.postNotification(this.notification);
-            if (res)
+            if (res) {
                 this.adpqService.growl({ severity: 'success', summary: `Notification request was successful` });
+                this.router.navigate(['./admin']);
+            }
         }
+        else
+            this.router.navigate(['./admin']);
+
     }
 }
