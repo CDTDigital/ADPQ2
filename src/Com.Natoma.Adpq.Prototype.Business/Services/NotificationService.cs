@@ -157,6 +157,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 UserNotificationId = notification.UserNotificationId,
                 NotificationSubject = notification.Notification.EmailSubject,
                 NotificationMessage = notification.Notification.EmailMessage,
+                NotificationSmsMessage = notification.Notification.SmsMessage,
                 IsEmail = notification.IsEmailSent,
                 IsSms = notification.IsSmsSent,
                 Result = notification.Result,
