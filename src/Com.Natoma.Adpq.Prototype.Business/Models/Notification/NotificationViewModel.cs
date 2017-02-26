@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Com.Natoma.Adpq.Prototype.Business.Models.Notification
+﻿namespace Com.Natoma.Adpq.Prototype.Business.Models.Notification
 {
     public class NotificationViewModel
     {

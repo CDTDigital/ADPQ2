@@ -68,6 +68,7 @@ namespace Com.Natoma.Adpq.Prototype.Api
             // Configure using a sub-section of the appsettings.json file.
             services.Configure<EmailOptions>(Configuration.GetSection("EmailOptions"));
             services.Configure<SmsOptions>(Configuration.GetSection("SmsOptions"));
+            services.Configure<GeoCodeOptions>(Configuration.GetSection("GeoCodeOptions"));
 
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IUserProfileService, UserProfileService>();

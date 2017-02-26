@@ -8,7 +8,6 @@ using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Notification;
 using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
-using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Services

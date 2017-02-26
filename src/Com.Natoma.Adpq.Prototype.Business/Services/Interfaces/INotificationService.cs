@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Models.Notification;
 using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 

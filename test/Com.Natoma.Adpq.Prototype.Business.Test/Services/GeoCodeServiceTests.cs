@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
+using Com.Natoma.Adpq.Prototype.Business.Options;
 using Com.Natoma.Adpq.Prototype.Business.Services;
 using Com.Natoma.Adpq.Prototype.Business.Test.TestUtils;
+using Microsoft.Extensions.Options;
+using Moq;
 using Xunit;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
@@ -16,8 +19,9 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
         {
             var options = DbContextUtils.CreateNewContextOptions();
             var context = new adpq2adpqContext(options);
+            var mockGeoCodeOptions = new Mock<IOptions<GeoCodeOptions>>();
             PopulateContext(context);
-            var service = new GeoCodeService(context);
+            var service = new GeoCodeService(context, mockGeoCodeOptions.Object);
 
             var result = service.GetUsersInRadius(38.616777, -121.3601732, 1);
             

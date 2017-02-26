@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Options;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using MailKit.Net.Smtp;
-using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
 

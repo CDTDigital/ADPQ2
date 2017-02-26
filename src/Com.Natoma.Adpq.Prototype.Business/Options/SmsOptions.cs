@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Com.Natoma.Adpq.Prototype.Business.Options
+﻿namespace Com.Natoma.Adpq.Prototype.Business.Options
 {
     public class SmsOptions
     {
