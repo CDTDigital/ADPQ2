@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 import { User } from './user.service';
 import { StatesFactory } from '../shared/states';
@@ -19,7 +19,7 @@ export enum UserFormType {
     templateUrl: '../../html/user-form.component.html',
     moduleId: module.id,
 })
-export class UserFormComponent {
+export class UserFormComponent implements OnInit {
 
     @Input()
     user: User;
@@ -34,4 +34,10 @@ export class UserFormComponent {
     selectedStateIdx = 4;
     confPassword: string;
     isShowingPassfordFields = false;
+
+    constructor(private el: ElementRef) { }
+
+    ngOnInit() {
+        this.el.nativeElement.querySelectorAll('[name="user-fname-input"]')[0].focus();
+    }
 }
