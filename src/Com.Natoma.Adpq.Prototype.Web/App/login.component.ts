@@ -48,10 +48,12 @@ export class LoginComponent {
         if (event && event.user) {
             event.user.state = StatesFactory.getStates()[event.selectedStateIdx].shortName;
             let userRes = await this.userService.create(event.user);
-            this.adpqService.growl({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
-            event.user = new User();
+            if (userRes) {
+                this.adpqService.growl({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
+                this.newUser = new User();
 
-            this.routeUser(userRes.isAdmin);
+                this.routeUser(userRes.isAdmin); 
+            }
         }
         this.isSignupVisible = false;
     }

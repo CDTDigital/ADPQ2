@@ -1,6 +1,6 @@
 ﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http, Request, RequestMethod, Response } from "@angular/http";
-import { ADPQService, RequestResult, RequestStateEnum } from '../shared/adpq.service';
+import { ADPQService, RequestResult, RequestStateEnum, ErrorResponse } from '../shared/adpq.service';
 import { AuthService, TokenAuthViewModel } from '../shared/auth.service';
 import { CookieService } from 'angular2-cookie/core';
 import "rxjs/add/operator/toPromise";
@@ -79,6 +79,10 @@ export class UserService {
                 let user = await this.getLoggedInUser();
                 this.cookieService.put(AuthService.tokenKey, user.token);
                 this.cookieService.put(AuthService.userIdSessionKey, user.userProfileId.toString());
+            }
+            else {
+                this.adpqService.handleNetworkError(<ErrorResponse>{ statusText: result.msg });
+                return null;
             }
             return result.data;
         }
