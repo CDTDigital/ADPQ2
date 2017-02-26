@@ -114,7 +114,10 @@ export class UserService {
 
     getUserInfo(id: number): Promise<User> {
         return this.authService.authGet(`${UserService.userProfileUrl}/${id}`).
-            then(response => response.data as User)
+            then(response => {
+                this._loggedInUser = response.data as User;
+                return this._loggedInUser;
+            })
             .catch((e) => {
                 this._loggedInUserPromise = null;
                 return null;

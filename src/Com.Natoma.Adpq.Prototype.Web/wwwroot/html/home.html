@@ -1,9 +1,16 @@
-﻿<div *ngIf="userService.checkLogin()">
-    <div class="header-logout" (click)="userService.logUserOut()">Logout</div>
-    <p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
-</div>
+﻿<div class="content">
+    <div *ngIf="userService.checkLogin()">
+        <header>
+            <div class="header-logout" (click)="userService.logUserOut()">Logout</div>
+            <div class="user-name">{{userService._loggedInUser?.firstName}} {{userService._loggedInUser?.lastName}}</div>
+        </header>
+        <p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
+    </div>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+
+    <footer class="footer">Issues? contact <a href="mailto:adpq2@natomatech.com">adpq2@natomatech.com</a></footer>
+</div>
 
 <p-growl [value]="growls"></p-growl>
 <p-growl [value]="stickyGrowls" sticky="sticky"></p-growl>
