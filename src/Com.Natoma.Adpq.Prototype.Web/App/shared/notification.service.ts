@@ -1,24 +1,30 @@
-﻿import { Injectable } from "@angular/core";
+﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http } from "@angular/http";
 import { ADPQService, RequestResult } from './adpq.service';
 import "rxjs/add/operator/toPromise";
+import { AuthService, TokenAuthViewModel } from '../shared/auth.service';
 
 export class Notification {
-    type: NotificationType;
-    geoType: NotificationGeoType;
-    refStreet: string;
-    refCity: string;
-    refZip: string;
-    radius: number;
+    notificationId: number;
+    notificationType: NotificationGeoType;
+    addressLine1: string;
+    city: string;
+    zip: string;
+    state: string;
+    radiusMiles: number;
+    numberOfRecipients: number;
 
     emailSubject: string;
     emailMessage: string;
 
-    textMessage: string;
+    smsMessage: string;
+
+    latitude: number;
+    longitude: number;
 
     constructor() {
-        this.radius = 20;
-        this.geoType = NotificationGeoType.BLAST;
+        this.radiusMiles = 20;
+        this.notificationType = NotificationGeoType.BLAST;
         this.emailMessage = "";
         this.emailSubject = "";
     }
@@ -27,24 +33,20 @@ export enum NotificationGeoType {
     BLAST,
     REGIONAL
 }
-export enum NotificationType {
-    SMS,
-    EMAIL
-}
 
 @Injectable()
 export class NotificationService {
+    private static readonly notificationsUrl = `http://localhost:61552/api/Notification`;
 
-    constructor(private http: Http, private adpqService: ADPQService) { }
+    private authService: AuthService;
 
-    async postNotification(notification: Notification): Promise<RequestResult> {
-        return null;
+    constructor(private http: Http, private adpqService: ADPQService, @Inject(AuthService) _authService: AuthService) {
+        this.authService = _authService;
+    }
 
-        //return this.authService.authPost(`${UserService.userProfileUrl}/${user.userProfileId}`, user).
-        //    then(response => {
-        //        this._loggedInUser = response.data as User;
-        //        return this._loggedInUser;
-        //    })
-        //    .catch(e => this.adpqService.handleNetworkError(e));
+    async postNotification(notification: Notification): Promise<Notification> {
+        return this.authService.authPost(`${NotificationService.notificationsUrl}`, notification).
+            then(response => response.data as Notification)
+            .catch(e => this.adpqService.handleNetworkError(e));
     }
 }

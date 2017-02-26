@@ -23,6 +23,7 @@ export class AdminHomeComponent implements OnInit {
         if (user.isAdmin == false)
             this.router.navigate(["./user"]);
 
+        this.userService.getLoggedInUser();
 
         this.adpqService.breadcrumbItems = [<MenuItem> { label: 'Admin Home', routerLink: ['./admin'] }];
     }

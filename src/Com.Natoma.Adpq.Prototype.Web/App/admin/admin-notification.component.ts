@@ -5,7 +5,8 @@ import { UserService } from '../user/user.service';
 import { ADPQService } from '../shared/adpq.service';
 import { MenuItem, SelectItem } from 'primeng/primeng';
 import { CookieService } from 'angular2-cookie/core';
-import { Notification } from '../shared/notification.service';
+import { Notification, NotificationService } from '../shared/notification.service';
+import { StatesFactory } from '../shared/states';
 
 @Component({
     templateUrl: '../../html/admin-notification.component.html',
@@ -13,10 +14,9 @@ import { Notification } from '../shared/notification.service';
 })
 export class AdminNotificationComponent implements OnInit {
     private textWasEnteredIntoEditor: boolean;
-    private _isEmailDisabled;
-    get isEmailDisabled(): boolean {
-        return (this.notification.textMessage && this.notification.textMessage != '') == true;
-    }
+
+    selectedStateIdx: number = 4;
+    states: SelectItem[] = StatesFactory.getStatesAsSelectItems();
 
     notification: Notification = new Notification();
 
@@ -31,7 +31,8 @@ export class AdminNotificationComponent implements OnInit {
         { value: 100, label: '100' }
     ];
 
-    constructor(private userService: UserService, private adpqService: ADPQService, private router: Router) { }
+    constructor(private userService: UserService, private adpqService: ADPQService, private router: Router,
+        private notificationService: NotificationService) { }
 
     async ngOnInit() {
         if (!this.userService.checkLogin()) {
@@ -53,7 +54,13 @@ export class AdminNotificationComponent implements OnInit {
     onEditorTextChange() {
         this.textWasEnteredIntoEditor = true;
     }
-    isTextDisabled() {
-        return this.notification.emailMessage || this.notification.emailSubject != '';
+
+    async onSubmit(save = false) {
+        if (save) {
+            this.notification.state = StatesFactory.getStates()[this.selectedStateIdx].shortName;
+            let res = await this.notificationService.postNotification(this.notification);
+            if (res)
+                this.adpqService.growl({ severity: 'success', summary: `Notification request was successful` });
+        }
     }
 }

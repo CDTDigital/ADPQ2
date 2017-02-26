@@ -29,7 +29,9 @@ export class LoginComponent {
         this.userService.login(this.loginUser.email, this.loginUser.password)
             .then((result: RequestResult) => {
                 if (result.state == RequestStateEnum.SUCCESS) {
-                    this.routeUser(result.data.isAdmin);
+                    setTimeout(() => {
+                        this.routeUser(result.data.isAdmin);
+                    }, 200);
                 }
                 else {
                     this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
@@ -52,7 +54,7 @@ export class LoginComponent {
                 this.adpqService.growl({ severity: 'success', summary: `Thank you ${event.user.firstName}! You can now log in.`, detail: 'User successfully created' });
                 this.newUser = new User();
 
-                this.routeUser(userRes.isAdmin); 
+                this.routeUser(userRes.isAdmin);
             }
         }
         this.isSignupVisible = false;

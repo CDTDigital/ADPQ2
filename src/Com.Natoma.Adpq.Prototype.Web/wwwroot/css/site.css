@@ -179,15 +179,7 @@ p-breadcrumb .fa.fa-home {
     min-height: 34px;
     padding-left: 25px;
 }
-p-editor.disabled .ui-widget.ui-editor-container {
-    opacity: 0.5;
-}
-.block-editor {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 10000;
-}
+
 .admin-notifs {
     margin-top: 20px;
 }

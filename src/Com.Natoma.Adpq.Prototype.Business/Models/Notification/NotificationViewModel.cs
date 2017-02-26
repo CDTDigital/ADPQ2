@@ -17,6 +17,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Models.Notification
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public int RadiusMiles { get; set; }
+        public int NumberOfRecipients { get; set; }
         public int CreatedBy { get; set; }
     }
 }

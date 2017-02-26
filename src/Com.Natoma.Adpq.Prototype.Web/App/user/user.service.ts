@@ -114,7 +114,11 @@ export class UserService {
 
     getUserInfo(id: number): Promise<User> {
         return this.authService.authGet(`${UserService.userProfileUrl}/${id}`).
-            then(response => response.data as User);
+            then(response => response.data as User)
+            .catch((e) => {
+                this._loggedInUserPromise = null;
+                return null;
+            });
     }
 
     updateUserInfo(user: User): Promise<User> {

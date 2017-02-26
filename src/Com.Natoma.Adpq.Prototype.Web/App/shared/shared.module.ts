@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { ADPQService } from './adpq.service';
 import { UserService } from '../user/user.service';
+import { NotificationService } from '../shared/notification.service';
 import { CookieService } from 'angular2-cookie/core'; 
 
 import {
@@ -33,7 +34,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthService, ADPQService, UserService, CookieService]
+            providers: [AuthService, ADPQService, UserService, CookieService, NotificationService]
         };
     }
 }
