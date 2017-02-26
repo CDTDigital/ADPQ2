@@ -14,6 +14,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
         public async Task<bool> SendSms(string phoneNumber, string smsMessage)
         {
             // Your Account SID from twilio.com/console
+            // TODO: Test credentials not sending real messages
             var accountSid = "ACc9873a96e6d9ee87f5bda07a0262e03b";
             // Your Auth Token from twilio.com/console
             var authToken = "9b7088a2b119932b4cf4048f257422a5";
@@ -22,15 +23,16 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             {
                 TwilioClient.Init(accountSid, authToken);
 
-                var message = await MessageResource.CreateAsync(
+                var message = MessageResource.Create(
                     to: new PhoneNumber(phoneNumber),
-                    from: new PhoneNumber("(916)318-5266"),
+                    from: new PhoneNumber("+15005550006"),
                     body: smsMessage);
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var stuff = ex.Message;
                 return false;
             }
             
