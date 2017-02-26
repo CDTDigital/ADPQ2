@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Notification;
 using Com.Natoma.Adpq.Prototype.Business.Models.Request;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
+using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Services
@@ -12,30 +16,152 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
     public class NotificationService: INotificationService
     {
         private readonly adpq2adpqContext _context;
+        private readonly IGeoCodeService _geoCodeService;
+        private readonly IEmailService _emailService;
+        private readonly ISmsService _smsService;
 
-        public NotificationService(adpq2adpqContext context)
+        public NotificationService(adpq2adpqContext context, IGeoCodeService geoCodeService, IEmailService emailService, ISmsService smsService)
         {
             _context = context;
+            _geoCodeService = geoCodeService;
+            _emailService = emailService;
+            _smsService = smsService;
         }
 
-        public async Task<RequestResult> Get()
+        public RequestResult Get()
         {
             return null;
         }
 
-        public async Task<RequestResult> Get(int userProfileId)
+        public RequestResult Get(int userProfileId)
         {
-            return null;
+            var result = new RequestResult();
+            var userNotifications = _context.UserNotification.Include(x => x.Notification)
+                .Where(x => x.UserId == userProfileId).Select(PopulateUserNotificationViewModel).ToList();
+            result.State = RequestStateEnum.Success;
+            result.Data = userNotifications;
+            return result;
         }
 
-        public Task<RequestResult> SendNotification()
+        public async Task<RequestResult> CreateAndSendNotification(NotificationViewModel notificationViewModel)
         {
-            throw new System.NotImplementedException();
+            var result = new RequestResult();
+            
+            // prepare the new objects for context updates
+            var newNotification = new Notification
+            {
+                State = notificationViewModel.State,
+                Zipcode = notificationViewModel.Zipcode,
+                Address1 = notificationViewModel.AddressLine1,
+                Address2 = notificationViewModel.AddressLine2,
+                City = notificationViewModel.City,
+                EmailSubject = notificationViewModel.EmailSubject,
+                EmailMessage = notificationViewModel.EmailMessage,
+                SmsMessage = notificationViewModel.SmsMessage,
+                NotificationType = _context.NotificationType.First(x => x.Name == notificationViewModel.NotificationType.ToString()),
+                CreatedOn = DateTime.Now,
+                CreatedBy = notificationViewModel.CreatedBy,
+                UpdatedBy = notificationViewModel.CreatedBy,
+                UpdatedOn = DateTime.Now
+            };
+
+            List<User> usersToRecieve;
+            if (notificationViewModel.NotificationType == NotificationTypeEnum.Regional)
+            {
+                //  geocode the notification
+                // TODO: Doing this here assumes that lat/long will be found.  A refactor would push this check to the client.
+                var latLongSet = _geoCodeService.GetGeoLocation(notificationViewModel.AddressLine1, notificationViewModel.AddressLine2,
+                    notificationViewModel.City, notificationViewModel.State, notificationViewModel.Zipcode);
+
+                // get a list of users to send notifications to
+                usersToRecieve = GetUserToNotify(latLongSet.Latitude, latLongSet.Longitude,
+                    notificationViewModel.RadiusMiles);
+            }
+            else
+            {
+                // blast, send to everyone
+                usersToRecieve = _context.User.Where(x => x.IsEmailNotification|| x.IsSms).ToList();
+            }
+
+            await ProcessNotifications(newNotification, usersToRecieve);
+
+            _context.Notification.Add(newNotification);
+            await _context.SaveChangesAsync();
+
+            result.State = RequestStateEnum.Success;
+
+            return result;
         }
 
-        private List<User> GetUserToNotify(int notificatinId)
+        private async Task ProcessNotifications(Notification notification, List<User> usersToRecieve)
         {
-            return null;
+            // TODO: In a real production app, this functionality should be accomplished using a third party email tool to avoid domain spam issues.
+
+            var tasks = new List<Task>();
+            // semaphore, allow to run 10 tasks in parallel
+            var semaphore = new SemaphoreSlim(10);
+            foreach (var user in usersToRecieve)
+            {
+                // await here until there is a room for this task
+                await semaphore.WaitAsync();
+                tasks.Add(SendNotification(semaphore, notification, user));
+            }
+            // await for the rest of tasks to complete
+            await Task.WhenAll(tasks);
+        }
+        
+        private async Task SendNotification(SemaphoreSlim semaphore, Notification notification, User user)
+        {
+            var resultMessage = new StringBuilder();
+            var newUserNotification = new UserNotification
+            {
+                UserId = user.UserId,
+                NotificationId = notification.NotificationId,
+                IsEmailSent = user.IsEmailNotification,
+                IsSmsSent = user.IsSms
+            };
+
+            if (user.IsEmailNotification)
+            {
+                // send an email
+                var emailResult = await _emailService.SendEmailAsync(user.Email, notification.EmailSubject, notification.EmailMessage);
+                if (!emailResult)
+                {
+                    resultMessage.AppendLine("Email attempted but failed. ");
+                }
+            }
+            if (user.IsSms)
+            {
+                // send sms message
+                var smsResult = await _smsService.SendSms(user.Phone, notification.SmsMessage);
+                if (!smsResult)
+                {
+                    resultMessage.AppendLine("Sms attempted but failed. ");
+                }
+            }
+            newUserNotification.Result = resultMessage.ToString();
+            notification.UserNotification.Add(newUserNotification);
+            semaphore.Release(); // release the semaphore to free up queue
+        }
+
+        private List<User> GetUserToNotify(double latitude, double longtitude, int radiusMiles)
+        {
+            return _geoCodeService.GetUsersInRadius(latitude, longtitude, radiusMiles);
+        }
+
+        private UserNotificationViewModel PopulateUserNotificationViewModel(UserNotification notification)
+        {
+            return new UserNotificationViewModel
+            {
+                NotificationId = notification.NotificationId,
+                UserNotificationId = notification.UserNotificationId,
+                NotificationSubject = notification.Notification.EmailSubject,
+                NotificationMessage = notification.Notification.EmailMessage,
+                IsEmail = notification.IsEmailSent,
+                IsSms = notification.IsSmsSent,
+                Result = notification.Result,
+                CreatedOn = notification.NotificationDate
+            };
         }
     }
 }

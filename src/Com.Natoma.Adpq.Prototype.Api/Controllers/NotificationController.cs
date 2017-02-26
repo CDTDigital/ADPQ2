@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Com.Natoma.Adpq.Prototype.Business.Models.Notification;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,25 +19,22 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
             _notificationService = notificationService;
         }
 
-        // GET: api/values
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            return Ok();
+            return Ok(_notificationService.Get());
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromRoute]int id)
+        public IActionResult Get([FromRoute]int id)
         {
-            return Ok();
+            return Ok(_notificationService.Get(id));
         }
 
-        // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]NotificationViewModel notificationViewModel)
         {
-            return Ok();
+            return Ok(await _notificationService.CreateAndSendNotification(notificationViewModel));
         }
         
     }

@@ -5,6 +5,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
 {
     public partial class Notification
     {
+        public Notification()
+        {
+            UserNotification = new HashSet<UserNotification>();
+        }
+
         public int NotificationId { get; set; }
         public int NotificationTypeId { get; set; }
         public string Address1 { get; set; }
@@ -22,6 +27,6 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public int? UpdatedBy { get; set; }
 
         public virtual ICollection<UserNotification> UserNotification { get; set; }
-        public virtual NotificationType NotificationNavigation { get; set; }
+        public virtual NotificationType NotificationType { get; set; }
     }
 }

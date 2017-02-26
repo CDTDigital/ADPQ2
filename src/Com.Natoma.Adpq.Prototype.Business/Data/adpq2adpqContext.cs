@@ -12,7 +12,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
 
         public adpq2adpqContext(DbContextOptions options) : base(options)
         {
-            
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -24,7 +24,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         {
             modelBuilder.Entity<Notification>(entity =>
             {
-                entity.Property(e => e.NotificationId).ValueGeneratedOnAdd();
+                entity.HasIndex(e => e.NotificationTypeId)
+                    .HasName("fki_fk_notification_notificationtype");
 
                 entity.Property(e => e.Address1)
                     .HasColumnType("varchar")
@@ -62,11 +63,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                     .HasColumnType("varchar")
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.NotificationNavigation)
-                    .WithOne(p => p.Notification)
-                    .HasForeignKey<Notification>(d => d.NotificationId)
+                entity.HasOne(d => d.NotificationType)
+                    .WithMany(p => p.Notification)
+                    .HasForeignKey(d => d.NotificationTypeId)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("fk_notification_notificationType");
+                    .HasConstraintName("fk_notification_notificationtype");
             });
 
             modelBuilder.Entity<NotificationType>(entity =>
@@ -99,6 +100,10 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                 entity.Property(e => e.FirstName)
                     .HasColumnType("varchar")
                     .HasMaxLength(100);
+
+                entity.Property(e => e.IsEmailNotification).HasDefaultValueSql("false");
+
+                entity.Property(e => e.IsSms).HasDefaultValueSql("true");
 
                 entity.Property(e => e.LastName)
                     .HasColumnType("varchar")
@@ -135,7 +140,17 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
                 entity.HasIndex(e => e.UserId)
                     .HasName("fki_fk_user_userNotification");
 
-                entity.Property(e => e.NotificationDate).HasColumnType("date");
+                entity.Property(e => e.IsEmailSent).HasDefaultValueSql("false");
+
+                entity.Property(e => e.IsSmsSent).HasDefaultValueSql("false");
+
+                entity.Property(e => e.NotificationDate)
+                    .HasColumnType("date")
+                    .HasDefaultValueSql("now()");
+
+                entity.Property(e => e.Result)
+                    .HasColumnType("varchar")
+                    .HasMaxLength(500);
 
                 entity.HasOne(d => d.Notification)
                     .WithMany(p => p.UserNotification)
