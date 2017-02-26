@@ -13,6 +13,10 @@ import { Notification } from '../shared/notification.service';
 })
 export class AdminNotificationComponent implements OnInit {
     private textWasEnteredIntoEditor: boolean;
+    private _isEmailDisabled;
+    get isEmailDisabled(): boolean {
+        return (this.notification.textMessage && this.notification.textMessage != '') == true;
+    }
 
     notification: Notification = new Notification();
 
