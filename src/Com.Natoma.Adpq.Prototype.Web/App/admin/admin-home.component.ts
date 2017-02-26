@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { UserService } from '../user/user.service';
 import { ADPQService } from '../shared/adpq.service';
 import { MenuItem } from 'primeng/primeng';
-import { CookieService } from 'angular2-cookie/core';
 
 @Component({
     templateUrl: '../../html/admin-home.component.html',
@@ -12,8 +11,7 @@ import { CookieService } from 'angular2-cookie/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-    constructor(private userService: UserService, private adpqService: ADPQService,
-        private router: Router, private cookieService: CookieService) { }
+    constructor(private userService: UserService, private adpqService: ADPQService, private router: Router) { }
 
     async ngOnInit() {
         if (!this.userService.checkLogin()) {

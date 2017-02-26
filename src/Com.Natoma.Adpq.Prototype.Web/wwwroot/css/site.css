@@ -66,7 +66,7 @@ adpq-login h1 {
     margin-bottom: 25px;
 }
 
-adpq-login .alert {
+.alert {
     padding: 6px;
     margin-bottom: 0px;
 }
@@ -173,4 +173,7 @@ p-breadcrumb .fa.fa-home {
     cursor: pointer;
     font-size: 1.3em;
     color: #87CEFA;
+}
+.notif-msg-err {
+    margin-top: 10px;
 }

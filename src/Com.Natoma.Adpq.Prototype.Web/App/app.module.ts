@@ -8,6 +8,8 @@ import { UserHomeComponent } from './user/user-home.component';
 import { UserFormComponent } from './user/user-form.component';
 import { UserProfileComponent } from './user/user-profile.component';
 import { AdminHomeComponent } from './admin/admin-home.component';
+import { AdminNotificationComponent } from './admin/admin-notification.component';
+
 
 import { routing } from './app.routing';
 
@@ -23,7 +25,8 @@ import { routing } from './app.routing';
         UserHomeComponent,
         UserFormComponent,
         UserProfileComponent,
-        AdminHomeComponent
+        AdminHomeComponent,
+        AdminNotificationComponent
     ],
     bootstrap: [
         AppComponent

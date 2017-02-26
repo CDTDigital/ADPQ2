@@ -24,6 +24,13 @@ export class AuthService {
             .catch(e => this.adpqService.handleNetworkError(e));
     }
 
+    authPost(url: string, body: any): Promise<RequestResult> {
+        let headers = this.initAuthHeaders();
+        return this.http.post(url, body, { headers: headers }).toPromise()
+            .then(response => response.json() as RequestResult)
+            .catch(e => this.adpqService.handleNetworkError(e));
+    }
+
     authGet(url: string): Promise<RequestResult> {
         let headers = this.initAuthHeaders();
         return this.http.get(url, { headers: headers }).toPromise()

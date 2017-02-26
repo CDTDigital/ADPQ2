@@ -2,6 +2,7 @@
 import { LoginComponent } from './login.component';
 import { UserHomeComponent } from './user/user-home.component';
 import { AdminHomeComponent } from './admin/admin-home.component';
+import { AdminNotificationComponent } from './admin/admin-notification.component';
 import { UserProfileComponent } from './user/user-profile.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: "user", component: UserHomeComponent },
 
     { path: "admin/profile", component: UserProfileComponent },
+    { path: "admin/notification", component: AdminNotificationComponent },
     { path: "admin", component: AdminHomeComponent }
     
 ];
