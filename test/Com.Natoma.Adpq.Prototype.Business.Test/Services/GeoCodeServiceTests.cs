@@ -12,7 +12,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
     public class GeoCodeServiceTests
     {
         [Fact]
-        public async void GeoCodeServiceTest_GetUsersInRadius()
+        public void GeoCodeServiceTest_GetUsersInRadius()
         {
             var options = DbContextUtils.CreateNewContextOptions();
             var context = new adpq2adpqContext(options);
@@ -35,14 +35,18 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
                 UserId = 120,
                 FirstName = "Less than a mile",
                 Latitude = 38.615967,
-                Longitude = -121.360219
+                Longitude = -121.360219,
+                IsSms = true,
+                IsAdmin = false
             };
             var user2 = new User
             {
                 UserId = 250,
                 FirstName = "less than 20 miles",
                 Latitude = 38.576486,
-                Longitude = -121.493858
+                Longitude = -121.493858,
+                IsEmailNotification = true,
+                IsAdmin = false
             };
             context.User.Add(user1);
             context.User.Add(user2);

@@ -180,7 +180,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 LastName = userProfile.LastName,
                 State = userProfile.State,
                 Zipcode = userProfile.Zipcode,
-                IsAdmin = userProfile.IsAdmin ?? false
+                IsAdmin = userProfile.IsAdmin 
             };
         }
     }
