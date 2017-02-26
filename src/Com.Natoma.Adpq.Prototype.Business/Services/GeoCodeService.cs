@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
@@ -65,7 +66,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             var radiusMeters = radiusMiles * 1609.344;  // 1609.344 meters per mile
             var center = new GeoCoordinate(latitude, longitude);
             var result = _adpq2AdpqContext.User.Select(x => new { coord = new GeoCoordinate((double)x.Latitude, (double)x.Longitude), user = x })
-                                  .Where(x => x.coord.GetDistanceTo(center) < radiusMeters && (x.user.IsEmailNotification || x.user.IsSms))
+                                  .Where(x => x.coord.GetDistanceTo(center) < radiusMeters && ((x.user.IsEmailNotification || x.user.IsSms) && !x.user.IsAdmin))
                                   .Select(x => x.user).ToList();
             return result;
         }

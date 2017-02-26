@@ -80,7 +80,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             else
             {
                 // blast, send to everyone
-                usersToRecieve = _context.User.Where(x => x.IsEmailNotification|| x.IsSms).ToList();
+                usersToRecieve = _context.User.Where(x => (x.IsEmailNotification|| x.IsSms) && !x.IsAdmin).ToList();
             }
 
             await ProcessNotifications(newNotification, usersToRecieve);
@@ -121,7 +121,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 IsSmsSent = user.IsSms
             };
 
-            if (user.IsEmailNotification)
+            if (user.IsEmailNotification && !string.IsNullOrEmpty(notification.EmailSubject))
             {
                 // send an email
                 var emailResult = await _emailService.SendEmailAsync(user.Email, notification.EmailSubject, notification.EmailMessage);
@@ -130,7 +130,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                     resultMessage.AppendLine("Email attempted but failed. ");
                 }
             }
-            if (user.IsSms)
+            if (user.IsSms && !string.IsNullOrEmpty(notification.SmsMessage))
             {
                 // send sms message
                 var smsResult = await _smsService.SendSms(user.Phone, notification.SmsMessage);

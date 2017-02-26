@@ -18,7 +18,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Data
         public string City { get; set; }
         public string State { get; set; }
         public string Zipcode { get; set; }
-        public bool? IsAdmin { get; set; }
+        public bool IsAdmin { get; set; }
         public string Password { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
