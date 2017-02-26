@@ -95,7 +95,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
         private async Task ProcessNotifications(Notification notification, List<User> usersToRecieve)
         {
-            // TODO: In a real production app, this functionality should be accomplished using a third party email tool to avoid domain spam issues.
+            // NOTE: In a real production app, this functionality should be accomplished using a third party email tool to avoid domain spam issues.
 
             var tasks = new List<Task>();
             // semaphore, allow to run 10 tasks in parallel
@@ -125,10 +125,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             {
                 // send an email
                 var emailResult = await _emailService.SendEmailAsync(user.Email, notification.EmailSubject, notification.EmailMessage);
-                if (!emailResult)
-                {
-                    resultMessage.AppendLine("Email attempted but failed. ");
-                }
+                resultMessage.AppendLine(!emailResult ? "Email Failed. " : "Email Success. ");
             }
             if (user.IsSms && !string.IsNullOrEmpty(notification.SmsMessage))
             {
@@ -136,7 +133,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 var smsResult = await _smsService.SendSms(user.Phone, notification.SmsMessage);
                 if (!smsResult)
                 {
-                    resultMessage.AppendLine("Sms attempted but failed. ");
+                    resultMessage.AppendLine("Sms Failed. ");
+                }
+                else
+                {
+                    resultMessage.AppendLine("Sms Success. ");
                 }
             }
             newUserNotification.Result = resultMessage.ToString();

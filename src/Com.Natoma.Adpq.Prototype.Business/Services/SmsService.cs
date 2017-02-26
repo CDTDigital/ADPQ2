@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Com.Natoma.Adpq.Prototype.Business.Options;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
+using Microsoft.Extensions.Options;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -11,21 +13,25 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 {
     public class SmsService: ISmsService
     {
+        private readonly IOptions<SmsOptions> _smsOptions;
+
+        public SmsService(IOptions<SmsOptions> smsOptions)
+        {
+            _smsOptions = smsOptions;
+        }
+
         public async Task<bool> SendSms(string phoneNumber, string smsMessage)
         {
-            // Your Account SID from twilio.com/console
-            // TODO: Test credentials not sending real messages
-            var accountSid = "ACc9873a96e6d9ee87f5bda07a0262e03b";
-            // Your Auth Token from twilio.com/console
-            var authToken = "9b7088a2b119932b4cf4048f257422a5";
+            var accountSid = _smsOptions.Value.AccountSid;
+            var authToken = _smsOptions.Value.AuthToken;
 
             try
             {
                 TwilioClient.Init(accountSid, authToken);
 
                 var message = MessageResource.Create(
-                    to: new PhoneNumber(phoneNumber),
-                    from: new PhoneNumber("+15005550006"),
+                    to: new PhoneNumber("+1" + phoneNumber.Replace("(","").Replace(")","").Replace("-","")),
+                    from: new PhoneNumber(_smsOptions.Value.AccountPhone),
                     body: smsMessage);
 
                 return true;
