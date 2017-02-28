@@ -2,7 +2,7 @@
     <div class="form-group row">
         <label for="user-fname-input" class="col-md-2 col-form-label">First Name</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.firstName" name="user-fname-input" #userFName="ngModel">
+            <input id="user-fname-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.firstName" name="user-fname-input" #userFName="ngModel">
         </div>
         <div [hidden]="userFName.valid || userFName.pristine" class="col-md-4 alert alert-danger"> First Name is required </div>
     </div>
@@ -10,7 +10,7 @@
     <div class="form-group row">
         <label for="user-lname-input" class="col-md-2 col-form-label">Last Name</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.lastName" name="user-lname-input" #userLName="ngModel">
+            <input id="user-lname-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.lastName" name="user-lname-input" #userLName="ngModel">
         </div>
         <div [hidden]="userLName.valid || userLName.pristine" class="col-md-4 alert alert-danger"> Last Name is required </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="form-group row">
         <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel">
+            <input id="user-email-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel">
         </div>
         <div [hidden]="userEmail.valid || userEmail.pristine" class="col-md-4 alert alert-danger"> Email is required </div>
     </div>
@@ -30,7 +30,7 @@
         <div class="form-group row">
             <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
             <div class="col-md-6">
-                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" 
+                <input id="user-pwd-input" pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" 
                        minlength="8" #userPassword="ngModel">
             </div>
             <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required (at least 8 characters) </div>
@@ -39,7 +39,7 @@
         <div class="form-group row">
             <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password</label>
             <div class="col-md-6">
-                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
+                <input id="user-conf-pwd-input" pInputText class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
             </div>
             <div [hidden]="!confPassword || confPassword == user.password" class="col-md-4 alert alert-danger"> Please confirm your password </div>
         </div>
@@ -48,7 +48,7 @@
     <div class="form-group row">
         <label for="user-address-input" class="col-md-2 col-form-label">Address</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.addressLine1" name="user-address-input" #userAddress="ngModel">
+            <input id="user-address-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.addressLine1" name="user-address-input" #userAddress="ngModel">
         </div>
         <div [hidden]="userAddress.valid || userAddress.pristine" class="col-md-4 alert alert-danger"> Address is required </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="form-group row">
         <label for="user-city-input" class="col-md-2 col-form-label">City</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.city" name="user-city-input" #userCity="ngModel">
+            <input id="user-city-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.city" name="user-city-input" #userCity="ngModel">
         </div>
         <div [hidden]="userCity.valid || userCity.pristine" class="col-md-4 alert alert-danger"> City is required </div>
     </div>
@@ -64,28 +64,28 @@
     <div class="form-group row">
         <label for="user-state-input" class="col-md-2 col-form-label">State</label>
         <div class="col-md-6">
-            <p-dropdown disabled [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+            <p-dropdown id="user-state-input" disabled [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
         <div class="col-md-6">
-            <p-inputMask  [(ngModel)]="user.zipcode" mask="99999" required name="user-zip-input" #userZip="ngModel" styleClass="signup-zip"></p-inputMask>
+            <p-inputMask id="user-zip-input"  [(ngModel)]="user.zipcode" mask="99999" required name="user-zip-input" #userZip="ngModel" styleClass="signup-zip"></p-inputMask>
         </div>
         <div [hidden]="userZip.pristine || (user.zipcode >= 90000 && user.zipcode <= 96999)" class="col-md-4 alert alert-danger"> A valid CA ZIP is required </div>
     </div>
 
     <div class="form-group row">
         <div class="col-md-2">
-            <p-checkbox [(ngModel)]="user.isEmailNotifications" binary="true" name="user-is-email-notif"></p-checkbox>
+            <p-checkbox id="user-is-email-notif" [(ngModel)]="user.isEmailNotifications" binary="true" name="user-is-email-notif"></p-checkbox>
         </div>
         <label for="user-is-email-notif" class="col-md-6 col-form-label">Receive Email Notifications</label>
     </div>
 
     <div class="form-group row">
         <div class="col-md-2">
-            <p-checkbox [(ngModel)]="user.isSms" binary="true" name="user-is-sms-notif"></p-checkbox>
+            <p-checkbox [(ngModel)]="user.isSms" binary="true" name="user-is-sms-notif" [id]="'user-is-sms-notif'"></p-checkbox>
         </div>
         <label for="user-is-sms-notif" class="col-md-6 col-form-label">Receive Text Notifications (carrier charges may apply)</label>
     </div>
@@ -93,7 +93,7 @@
     <div *ngIf="user.isSms" class="form-group row">
         <label for="user-phone-input" class="col-md-3 col-form-label col-md-offset-2">Mobile Phone</label>
         <div class="col-md-4">
-            <p-inputMask mask="(999) 999-9999" required [(ngModel)]="user.phone" placeholder="(999) 999-9999" name="user-phone-input" #userPhone="ngModel"></p-inputMask>
+            <p-inputMask id="user-phone-input" mask="(999) 999-9999" required [(ngModel)]="user.phone" placeholder="(999) 999-9999" name="user-phone-input" #userPhone="ngModel"></p-inputMask>
         </div>
         <div [hidden]="userPhone.valid || userPhone.pristine" class="col-md-3 alert alert-danger"> Phone is required </div>
     </div>

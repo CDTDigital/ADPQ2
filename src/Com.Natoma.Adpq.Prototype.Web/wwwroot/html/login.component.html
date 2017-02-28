@@ -6,7 +6,7 @@
             <div class="form-group row">
                 <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" value="" required [(ngModel)]="loginUser.email" name="user-email-input" #userEmail="ngModel"
+                    <input id="user-email-input" class="form-control" type="text" value="" required [(ngModel)]="loginUser.email" name="user-email-input" #userEmail="ngModel"
                            [disabled]="isSignupVisible">
                 </div>
                 <div [hidden]="userEmail.valid || userEmail.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Email is required </div>
@@ -15,7 +15,7 @@
             <div class="form-group row">
                 <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="password" value="" required [(ngModel)]="loginUser.password" name="user-pwd-input" #userPassword="ngModel"
+                    <input id="user-pwd-input" class="form-control" type="password" value="" required [(ngModel)]="loginUser.password" name="user-pwd-input" #userPassword="ngModel"
                            [disabled]="isSignupVisible">
                 </div>
                 <div [hidden]="userPassword.valid || userPassword.pristine || isSignupVisible" class="col-md-4 alert alert-danger"> Password is required </div>
