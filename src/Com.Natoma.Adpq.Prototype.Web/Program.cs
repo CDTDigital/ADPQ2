@@ -12,7 +12,7 @@ namespace Com.Natoma.Adpq.Prototype.Web
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls("http://*:5000")
+                .UseUrls("http://0.0.0.0:5000")
                 .Build();
 
             host.Run();
