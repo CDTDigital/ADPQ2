@@ -40,6 +40,13 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
         {
             return Ok(await _notificationService.CreateAndSendNotification(notificationViewModel));
         }
+
+        [HttpGet("30DayReport")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetNotificationsByDay()
+        {
+            return Ok(_notificationService.GetNotificationsByDay());
+        }
         
     }
 }
