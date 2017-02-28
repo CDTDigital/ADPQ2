@@ -30,9 +30,10 @@
         <div class="form-group row">
             <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
             <div class="col-md-6">
-                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" #userPassword="ngModel">
+                <input pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" 
+                       minlength="8" #userPassword="ngModel">
             </div>
-            <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required </div>
+            <div [hidden]="userPassword.valid || userPassword.pristine" class="col-md-4 alert alert-danger"> Password is required (at least 8 characters) </div>
         </div>
 
         <div class="form-group row">
@@ -63,16 +64,17 @@
     <div class="form-group row">
         <label for="user-state-input" class="col-md-2 col-form-label">State</label>
         <div class="col-md-6">
-            <p-dropdown required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+            <p-dropdown disabled [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
         <div class="col-md-6">
-            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.zipcode" name="user-zip-input" #userZip="ngModel">
+            <p-inputMask  [(ngModel)]="user.zipcode" mask="99999" required name="user-zip-input" #userZip="ngModel" styleClass="signup-zip"></p-inputMask>
+            <!--<input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.zipcode" name="user-zip-input" #userZip="ngModel">-->
         </div>
-        <div [hidden]="userZip.valid || userZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
+        <div [hidden]="userZip.pristine || (user.zipcode >= 90000 && user.zipcode <= 96999)" class="col-md-4 alert alert-danger"> A valid CA ZIP is required </div>
     </div>
 
     <div class="form-group row">
