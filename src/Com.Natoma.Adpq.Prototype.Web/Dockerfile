@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore:1.0.1
+FROM FROM microsoft/dotnet
 WORKDIR /app
 COPY out ./app/
 EXPOSE 80
