@@ -11,47 +11,50 @@
                 <div class="form-group row">
                     <label for="user-fname-input" class="col-md-2 col-form-label">Notification Type</label>
                     <div class="col-md-6">
-                        <p-dropdown id="user-fname-input" required [options]="notifTypes" [(ngModel)]="notification.notificationType" [style]="{'width':'100px'}" name="admin-geo-notif-dd" #adminNotifGeo></p-dropdown>
+                        <p-dropdown id="user-fname-input" required [options]="notifTypes" [(ngModel)]="notification.notificationType" [style]="{'width':'100px'}" name="admin-geo-notif-dd" #adminNotifGeo
+                                    alt="Select the type of notification to send, Blast for all subscribers, Regional for subscribers by location"></p-dropdown>
                     </div>
                 </div>
 
-                <div *ngIf="notification.notificationType == 2">
-
-                    <div class="form-group row">
-                        <label for="admin-ref-street-input" class="col-md-2 col-form-label col-md-offset-2">Street</label>
-                        <div class="col-md-4">
-                            <input id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel">
+                <div class="row" *ngIf="notification.notificationType == 2">
+                    <div class="col-md-offset-2">
+                        <h4 style="text-decoration:underline">Reference Address</h4>
+                        <div class="form-group row">
+                            <label for="admin-ref-street-input" class="col-md-2 col-form-label">Street</label>
+                            <div class="col-md-4">
+                                <input alt="<1234 Streetname St.>" id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel">
+                            </div>
+                            <div [hidden]="adminRefStreet.valid || adminRefStreet.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
                         </div>
-                        <div [hidden]="adminRefStreet.valid || adminRefStreet.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="admin-ref-city-input" class="col-md-2 col-form-label col-md-offset-2">City</label>
-                        <div class="col-md-4">
-                            <input id="admin-ref-city-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.city" name="admin-ref-city-input" #adminRefCity="ngModel">
+                        <div class="form-group row">
+                            <label for="admin-ref-city-input" class="col-md-2 col-form-label">City</label>
+                            <div class="col-md-4">
+                                <input id="admin-ref-city-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.city" name="admin-ref-city-input" #adminRefCity="ngModel">
+                            </div>
+                            <div [hidden]="adminRefCity.valid || adminRefCity.pristine" class="col-md-4 alert alert-danger"> City is required </div>
                         </div>
-                        <div [hidden]="adminRefCity.valid || adminRefCity.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="user-state-input" class="col-md-2 col-form-label">State</label>
-                        <div class="col-md-6">
-                            <p-dropdown id="user-state-input" required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+                        <div class="form-group row">
+                            <label for="user-state-input" class="col-md-2 col-form-label">State</label>
+                            <div class="col-md-6">
+                                <p-dropdown disabled id="user-state-input" required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="admin-ref-street-input" class="col-md-2 col-form-label col-md-offset-2">Zip</label>
-                        <div class="col-md-2">
-                            <input id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zip" name="admin-ref-street-input" #adminRefZip="ngModel">
+                        <div class="form-group row">
+                            <label for="admin-ref-zip-input" class="col-md-2 col-form-label">Zip</label>
+                            <div class="col-md-2">
+                                <input id="admin-ref-zip-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zip" name="admin-ref-zip-input" #adminRefZip="ngModel">
+                            </div>
+                            <div [hidden]="adminRefZip.valid || adminRefZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
                         </div>
-                        <div [hidden]="adminRefZip.valid || adminRefZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="admin-radius-dd" class="col-md-4 col-form-label">Send to residents within selected radius</label>
-                        <div class="col-md-2">
-                            <p-dropdown id="admin-radius-dd" required [options]="radiuses" [(ngModel)]="notification.radiusMiles" [style]="{'width':'75px'}" name="admin-radius-dd" #adminNotifRadius></p-dropdown>
+                        <div class="form-group row">
+                            <label for="admin-radius-dd" class="col-md-4 col-form-label">Send to residents within selected radius (in miles)</label>
+                            <div class="col-md-2">
+                                <p-dropdown id="admin-radius-dd" required [options]="radiuses" [(ngModel)]="notification.radiusMiles" [style]="{'width':'75px'}" name="admin-radius-dd" #adminNotifRadius></p-dropdown>
+                            </div>
                         </div>
                     </div>
 
@@ -64,7 +67,7 @@
                     </div>
                     <div [hidden]="adminEmailSubj.valid || adminEmailSubj.pristine" class="col-md-4 alert alert-danger"> Subject is required </div>
                 </div>
-
+                <hr />
                 <div class="form-group row">
                     <label for="user-smail-subj-input" class="col-md-2 col-form-label">Email Message</label>
                     <div class="col-md-10">
