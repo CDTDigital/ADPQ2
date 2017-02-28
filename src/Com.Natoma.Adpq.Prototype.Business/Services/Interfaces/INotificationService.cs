@@ -8,6 +8,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services.Interfaces
     {
         RequestResult Get();
         RequestResult Get(int userProfileId);
+        RequestResult GetNotificationsByDay();
         Task<RequestResult> CreateAndSendNotification(NotificationViewModel notificationViewModel);
     }
 }

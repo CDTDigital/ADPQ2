@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,6 +44,53 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return result;
         }
 
+        public RequestResult GetNotificationsByDay()
+        {
+            var result = new List<NotificationsByDayViewModel>();
+            var notificationGroups =
+                _context.Notification.Include(x => x.UserNotification)
+                    .Where(x => x.CreatedOn >= DateTime.Now.AddDays(-30) && x.CreatedOn <= DateTime.Now)
+                    .GroupBy(g => g.CreatedOn)
+                    .Select(gi => new {Items = gi })
+                    .ToList();
+            
+            foreach (var group in notificationGroups)
+            {
+                
+                var emailNotes = group.Items.Where(x => x.EmailSubject != null).ToList();
+                int totalEmails = emailNotes.Sum(item => item.UserNotification.Where(x => x.IsEmailSent).ToList().Count);
+                if (emailNotes.Count > 0)
+                {
+                    var emailItem = new NotificationsByDayViewModel
+                    {
+                        DateSent = (DateTime)group.Items.First().CreatedOn,
+                        Count = totalEmails,
+                        SendType = NotificationSendTypeEnum.Email,
+                        SendTypeDisplay = NotificationSendTypeEnum.Email.ToString()
+                    };
+                    result.Add(emailItem);
+                }
+                var smsNotes = group.Items.Where(x => x.SmsMessage != null).ToList();
+                int totalTexts = smsNotes.Sum(item => item.UserNotification.Where(x => x.IsSmsSent).ToList().Count);
+                if (smsNotes.Count > 0)
+                {
+                    var smsItem = new NotificationsByDayViewModel
+                    {
+                        DateSent = (DateTime)group.Items.First().CreatedOn,
+                        Count = totalTexts,
+                        SendType = NotificationSendTypeEnum.Text,
+                        SendTypeDisplay = NotificationSendTypeEnum.Text.ToString()
+                    };
+                    result.Add(smsItem);
+                } 
+            }
+            return new RequestResult
+            {
+                 State = RequestStateEnum.Success,
+                 Data = result
+            };
+        }
+        
         public async Task<RequestResult> CreateAndSendNotification(NotificationViewModel notificationViewModel)
         {
             var result = new RequestResult();
@@ -166,3 +215,4 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
         }
     }
 }
+
