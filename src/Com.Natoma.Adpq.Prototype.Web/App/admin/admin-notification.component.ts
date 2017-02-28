@@ -21,8 +21,8 @@ export class AdminNotificationComponent implements OnInit {
     notification: Notification = new Notification();
 
     notifTypes: SelectItem[] = [
-        { value: 0, label: 'Blast' },
-        { value: 1, label: 'Regional' }
+        { value: 1, label: 'Blast' },
+        { value: 2, label: 'Regional' }
     ];
 
     radiuses: SelectItem[] = [
