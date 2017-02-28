@@ -22,7 +22,8 @@ gulp.task("ScriptsNStyles", function () {
             'primeng/resources/themes/bootstrap/theme.css',
             'angular2-cookie/**/*.{js,js.map}',
             "core-js/**/*.js", "!core-js/**/*.min.js",
-            'quill/dist/**/*.{js,css}'
+            'quill/dist/**/*.{js,css}',
+            'chart.js/dist/Chart.js'
 
     ], {
         cwd: "node_modules/**"

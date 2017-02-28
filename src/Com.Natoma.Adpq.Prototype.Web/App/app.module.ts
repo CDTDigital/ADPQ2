@@ -10,7 +10,7 @@ import { UserProfileComponent } from './user/user-profile.component';
 import { UserNotificationsComponent } from './user/user-notifications.component';
 import { AdminHomeComponent } from './admin/admin-home.component';
 import { AdminNotificationComponent } from './admin/admin-notification.component';
-
+import { AdminMetricsComponent } from './admin/admin-metrics.component';
 
 import { routing } from './app.routing';
 
@@ -28,7 +28,8 @@ import { routing } from './app.routing';
         UserProfileComponent,
         AdminHomeComponent,
         AdminNotificationComponent,
-        UserNotificationsComponent
+        UserNotificationsComponent,
+        AdminMetricsComponent
     ],
     bootstrap: [
         AppComponent

@@ -3,6 +3,7 @@ import { LoginComponent } from './login.component';
 import { UserHomeComponent } from './user/user-home.component';
 import { AdminHomeComponent } from './admin/admin-home.component';
 import { AdminNotificationComponent } from './admin/admin-notification.component';
+import { AdminMetricsComponent } from './admin/admin-metrics.component';
 import { UserProfileComponent } from './user/user-profile.component';
 import { UserNotificationsComponent } from './user/user-notifications.component';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
 
     { path: "admin/profile", component: UserProfileComponent },
     { path: "admin/notification", component: AdminNotificationComponent },
+    { path: "admin/metrics", component: AdminMetricsComponent },
     { path: "admin", component: AdminHomeComponent }
     
 ];

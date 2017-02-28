@@ -47,10 +47,21 @@ export class UserNotificationViewModel {
     notificationTypeId: number;
 }
 
+export enum DeliveryMethodEnum {
+    EMAIL,
+    SMS
+}
+
+export class NotificationMetricsViewModel {
+    dateSent: string;
+    sendType: DeliveryMethodEnum;
+    sendTypeDisplay: string;
+    count: number
+    dateSentDisplay: string;
+}
+
 @Injectable()
 export class NotificationService {
-    private static readonly notificationsUrl = `http://localhost:61552/api/Notification`;
-
     private authService: AuthService;
 
     constructor(private http: Http, private adpqService: ADPQService, @Inject(AuthService) _authService: AuthService) {
@@ -58,7 +69,7 @@ export class NotificationService {
     }
 
     async postNotification(notification: Notification): Promise<Notification> {
-        return this.authService.authPost(`${NotificationService.notificationsUrl}`, notification).
+        return this.authService.authPost(`${ADPQService.apiUrl}/api/Notification`, notification).
             then(response => {
                 if (response.state == RequestStateEnum.SUCCESS)
                     return new Notification();
@@ -70,10 +81,22 @@ export class NotificationService {
     }
 
     async getNotificationsForUser(userId: number): Promise<Notification[]> {
-        return this.authService.authGet(`${NotificationService.notificationsUrl}/${userId}`).
+        return this.authService.authGet(`${ADPQService.apiUrl}/api/Notification/${userId}`).
             then(response => {
                 if (response.state == RequestStateEnum.SUCCESS)
                     return response.data as Notification[];
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
+    }
+
+    async getMetricsData(): Promise<NotificationMetricsViewModel[]> {
+        return this.authService.authGet(`${ADPQService.apiUrl}/api/Notification/30DayReport`).
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return response.data as NotificationMetricsViewModel[];
                 else {
                     this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
                     return null;

@@ -2,7 +2,7 @@
     <div *ngIf="userService.checkLogin()">
         <header>
             <div class="header-logout" (click)="userService.logUserOut()">Logout</div>
-            <div class="user-name">{{userService._loggedInUser?.firstName}} {{userService._loggedInUser?.lastName}}</div>
+            <div class="user-name">{{userService._loggedInUser?.firstName}} {{userService._loggedInUser?.lastName}}{{userService._loggedInUser?.isAdmin ? ' (Admin)' : ''}}</div>
         </header>
         <p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
     </div>

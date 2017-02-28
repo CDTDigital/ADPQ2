@@ -228,3 +228,10 @@ p-breadcrumb .fa.fa-home {
 .notif-table .notif-type {
     width: 55px;
 }
+
+.admin-metrics .header {
+    padding-bottom: 25px;
+}
+.admin-metrics .chart {
+    padding-top: 60px;
+}
