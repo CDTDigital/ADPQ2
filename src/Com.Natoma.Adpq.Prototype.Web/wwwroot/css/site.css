@@ -18,7 +18,7 @@ header {
     background-color: #87CEFA;
     width: 100%;
     color: #f8f8ff;
-    padding-top: 18px;
+    padding-top: 8px;
     padding-right: 25px;
 }
 /* Wrapping element */
@@ -34,7 +34,7 @@ header {
     padding-top: 10px;
 }
 .content {
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -215,4 +215,16 @@ p-breadcrumb .fa.fa-home {
     font-size: 1.2em;
     margin-left: 15px;
     font-style: italic;
+}
+
+.notif-table .notif-msg {
+    width: 300px;
+}
+
+.notif-table .notif-cb {
+    width: 34px;
+}
+
+.notif-table .notif-type {
+    width: 55px;
 }

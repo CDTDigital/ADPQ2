@@ -210,7 +210,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 IsEmail = notification.IsEmailSent,
                 IsSms = notification.IsSmsSent,
                 Result = notification.Result,
-                CreatedOn = notification.NotificationDate
+                CreatedOn = notification.NotificationDate,
+                NotificationTypeId = notification.Notification.NotificationTypeId
             };
         }
     }
