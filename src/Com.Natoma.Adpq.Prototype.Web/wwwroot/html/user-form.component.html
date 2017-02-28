@@ -72,7 +72,6 @@
         <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
         <div class="col-md-6">
             <p-inputMask  [(ngModel)]="user.zipcode" mask="99999" required name="user-zip-input" #userZip="ngModel" styleClass="signup-zip"></p-inputMask>
-            <!--<input pInputText class="form-control" type="text" value="" required [(ngModel)]="user.zipcode" name="user-zip-input" #userZip="ngModel">-->
         </div>
         <div [hidden]="userZip.pristine || (user.zipcode >= 90000 && user.zipcode <= 96999)" class="col-md-4 alert alert-danger"> A valid CA ZIP is required </div>
     </div>

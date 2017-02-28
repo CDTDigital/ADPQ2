@@ -3,11 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Com.Natoma.Adpq.Prototype.Web
 {
     public class Startup
     {
+        public static string ApiUrl { get; set; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -22,6 +25,10 @@ namespace Com.Natoma.Adpq.Prototype.Web
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
             Configuration = builder.Build();
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+                Startup.ApiUrl = Configuration["ApiDevUrl"];
+            else
+                Startup.ApiUrl = Configuration["ApiProdUrl"];
         }
 
         public IConfigurationRoot Configuration { get; }

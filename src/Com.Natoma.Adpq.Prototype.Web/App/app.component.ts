@@ -18,6 +18,9 @@ export class AppComponent implements OnDestroy {
     user: User;
 
     constructor(private adpqService: ADPQService, private userService: UserService) {
+        // get the API URL
+        ADPQService.apiUrl = document.getElementById("api-url").getAttribute("data-api-url");
+
         this.growls = [];
 
         // This receives the message that a growl needs to be displayed

@@ -6,6 +6,7 @@ namespace Com.Natoma.Adpq.Prototype.Web.Controllers
     {
         public IActionResult Index()
         {
+            @ViewData["ApiUrl"] = Startup.ApiUrl;
             return View();
         }
 
