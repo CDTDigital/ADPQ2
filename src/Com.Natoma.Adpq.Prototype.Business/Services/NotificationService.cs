@@ -68,6 +68,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                         SendType = NotificationSendTypeEnum.Email,
                         SendTypeDisplay = NotificationSendTypeEnum.Email.ToString()
                     };
+                    emailItem.DateSentDisplay = emailItem.DateSent.ToString("d");
                     result.Add(emailItem);
                 }
                 var smsNotes = group.Items.Where(x => x.SmsMessage != null).ToList();
@@ -77,17 +78,19 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                     var smsItem = new NotificationsByDayViewModel
                     {
                         DateSent = (DateTime)group.Items.First().CreatedOn,
+                        DateSentDisplay = string.Format("d", (DateTime)group.Items.First().CreatedOn),
                         Count = totalTexts,
                         SendType = NotificationSendTypeEnum.Text,
                         SendTypeDisplay = NotificationSendTypeEnum.Text.ToString()
                     };
+                    smsItem.DateSentDisplay = smsItem.DateSent.ToString("d");
                     result.Add(smsItem);
                 } 
             }
             return new RequestResult
             {
                  State = RequestStateEnum.Success,
-                 Data = result
+                 Data = result.OrderBy(x=> x.DateSent)
             };
         }
         
