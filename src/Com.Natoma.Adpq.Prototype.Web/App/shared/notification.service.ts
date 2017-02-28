@@ -1,50 +1,106 @@
-﻿import { Injectable } from "@angular/core";
+﻿import { Injectable, Inject } from "@angular/core";
 import { Headers, Http } from "@angular/http";
-import { ADPQService, RequestResult } from './adpq.service';
+import { ADPQService, RequestResult, RequestStateEnum, ErrorResponse } from './adpq.service';
 import "rxjs/add/operator/toPromise";
+import { AuthService, TokenAuthViewModel } from '../shared/auth.service';
 
 export class Notification {
-    type: NotificationType;
-    geoType: NotificationGeoType;
-    refStreet: string;
-    refCity: string;
-    refZip: string;
-    radius: number;
+    notificationId: number;
+    notificationType: NotificationGeoType;
+    addressLine1: string;
+    city: string;
+    zip: string;
+    state: string;
+    radiusMiles: number;
+    numberOfRecipients: number;
 
     emailSubject: string;
     emailMessage: string;
 
-    textMessage: string;
+    smsMessage: string;
+
+    latitude: number;
+    longitude: number;
 
     constructor() {
-        this.radius = 20;
-        this.geoType = NotificationGeoType.BLAST;
+        this.radiusMiles = 20;
+        this.notificationType = NotificationGeoType.BLAST;
         this.emailMessage = "";
         this.emailSubject = "";
     }
 }
 export enum NotificationGeoType {
-    BLAST,
-    REGIONAL
+    BLAST = 1,
+    REGIONAL = 2
 }
-export enum NotificationType {
-    SMS,
-    EMAIL
+
+export class UserNotificationViewModel {
+    userNotificationId: number;
+    notificationId: number;
+    notificationSubject: string;
+    notificationMessage: string;
+    notificationSmsMessage: string;
+    isEmail: boolean;
+    isSms: boolean;
+    result: string;
+    createdOn: string;  
+    notificationTypeId: number;
+}
+
+export enum DeliveryMethodEnum {
+    EMAIL,
+    SMS
+}
+
+export class NotificationMetricsViewModel {
+    dateSent: string;
+    sendType: DeliveryMethodEnum;
+    sendTypeDisplay: string;
+    count: number
+    dateSentDisplay: string;
 }
 
 @Injectable()
 export class NotificationService {
+    private authService: AuthService;
 
-    constructor(private http: Http, private adpqService: ADPQService) { }
+    constructor(private http: Http, private adpqService: ADPQService, @Inject(AuthService) _authService: AuthService) {
+        this.authService = _authService;
+    }
 
-    async postNotification(notification: Notification): Promise<RequestResult> {
-        return null;
+    async postNotification(notification: Notification): Promise<Notification> {
+        return this.authService.authPost(`${ADPQService.apiUrl}/api/Notification`, notification).
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return new Notification();
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
+    }
 
-        //return this.authService.authPost(`${UserService.userProfileUrl}/${user.userProfileId}`, user).
-        //    then(response => {
-        //        this._loggedInUser = response.data as User;
-        //        return this._loggedInUser;
-        //    })
-        //    .catch(e => this.adpqService.handleNetworkError(e));
+    async getNotificationsForUser(userId: number): Promise<Notification[]> {
+        return this.authService.authGet(`${ADPQService.apiUrl}/api/Notification/${userId}`).
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return response.data as Notification[];
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
+    }
+
+    async getMetricsData(): Promise<NotificationMetricsViewModel[]> {
+        return this.authService.authGet(`${ADPQService.apiUrl}/api/Notification/30DayReport`).
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return response.data as NotificationMetricsViewModel[];
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
     }
 }

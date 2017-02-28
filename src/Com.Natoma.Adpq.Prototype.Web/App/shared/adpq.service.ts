@@ -22,6 +22,7 @@ export class RequestResult {
 export class ADPQService {
     private cookieService: CookieService;
     breadcrumbItems: MenuItem[] = [];
+    static readonly apiUrl = `http://localhost:61552`;
 
     // Observable sources
     private growlSource = new Subject<GrowlObject>();

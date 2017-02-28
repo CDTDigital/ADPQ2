@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Com.Natoma.Adpq.Prototype.Business.Models.Notification;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,25 +20,32 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
             _notificationService = notificationService;
         }
 
-        // GET: api/values
         [HttpGet]
-        public async Task<IActionResult> Get()
+        [Authorize(Roles = "Admin")]
+        public IActionResult Get()
         {
-            return Ok();
+            return Ok(_notificationService.Get());
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromRoute]int id)
+        [Authorize]
+        public IActionResult Get([FromRoute]int id)
         {
-            return Ok();
+            return Ok(_notificationService.Get(id));
         }
 
-        // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]string value)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Post([FromBody]NotificationViewModel notificationViewModel)
         {
-            return Ok();
+            return Ok(await _notificationService.CreateAndSendNotification(notificationViewModel));
+        }
+
+        [HttpGet("30DayReport")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetNotificationsByDay()
+        {
+            return Ok(_notificationService.GetNotificationsByDay());
         }
         
     }

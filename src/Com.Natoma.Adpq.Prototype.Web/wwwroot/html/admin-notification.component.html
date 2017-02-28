@@ -1,7 +1,7 @@
 ﻿<div class="admin-notifs">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <p>Please enter the information needed for your notification.</p>
+            <h3>Please enter the information needed for your notification.</h3>
         </div>
     </div>
     <div class="row">
@@ -11,16 +11,16 @@
                 <div class="form-group row">
                     <label for="user-fname-input" class="col-md-2 col-form-label">Notification Type</label>
                     <div class="col-md-6">
-                        <p-dropdown required [options]="notifTypes" [(ngModel)]="notification.geoType" [style]="{'width':'75px'}" name="admin-geo-notif-dd" #adminNotifGeo></p-dropdown>
+                        <p-dropdown required [options]="notifTypes" [(ngModel)]="notification.notificationType" [style]="{'width':'100px'}" name="admin-geo-notif-dd" #adminNotifGeo></p-dropdown>
                     </div>
                 </div>
 
-                <div *ngIf="notification.geoType == 1">
+                <div *ngIf="notification.notificationType == 2">
 
                     <div class="form-group row">
                         <label for="admin-ref-street-input" class="col-md-2 col-form-label col-md-offset-2">Street</label>
                         <div class="col-md-4">
-                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.refStreet" name="admin-ref-street-input" #adminRefStreet="ngModel">
+                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel">
                         </div>
                         <div [hidden]="adminRefStreet.valid || adminRefStreet.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
                     </div>
@@ -28,15 +28,22 @@
                     <div class="form-group row">
                         <label for="admin-ref-city-input" class="col-md-2 col-form-label col-md-offset-2">City</label>
                         <div class="col-md-4">
-                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.refCity" name="admin-ref-city-input" #adminRefCity="ngModel">
+                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.city" name="admin-ref-city-input" #adminRefCity="ngModel">
                         </div>
                         <div [hidden]="adminRefCity.valid || adminRefCity.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
                     </div>
 
                     <div class="form-group row">
+                        <label for="user-state-input" class="col-md-2 col-form-label">State</label>
+                        <div class="col-md-6">
+                            <p-dropdown required [options]="states" [(ngModel)]="selectedStateIdx" [style]="{'width':'75px'}" name="user-state-input" #userState></p-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="admin-ref-street-input" class="col-md-2 col-form-label col-md-offset-2">Zip</label>
-                        <div class="col-md-4">
-                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.refZip" name="admin-ref-street-input" #adminRefZip="ngModel">
+                        <div class="col-md-2">
+                            <input pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zip" name="admin-ref-street-input" #adminRefZip="ngModel">
                         </div>
                         <div [hidden]="adminRefZip.valid || adminRefZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
                     </div>
@@ -44,7 +51,7 @@
                     <div class="form-group row">
                         <label for="admin-radius-dd" class="col-md-4 col-form-label">Send to residents within selected radius</label>
                         <div class="col-md-2">
-                            <p-dropdown required [options]="radiuses" [(ngModel)]="notification.radius" [style]="{'width':'75px'}" name="admin-radius-dd" #adminNotifRadius></p-dropdown>
+                            <p-dropdown required [options]="radiuses" [(ngModel)]="notification.radiusMiles" [style]="{'width':'75px'}" name="admin-radius-dd" #adminNotifRadius></p-dropdown>
                         </div>
                     </div>
 
@@ -53,7 +60,7 @@
                 <div class="form-group row">
                     <label for="user-email-subj-input" class="col-md-2 col-form-label">Email Subject</label>
                     <div class="col-md-6">
-                        <input [disabled]="notification.textMessage != ''" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.emailSubject" name="user-email-subj-input" #adminEmailSubj="ngModel">
+                        <input pInputText class="form-control" type="text" value="" [(ngModel)]="notification.emailSubject" name="user-email-subj-input" #adminEmailSubj="ngModel">
                     </div>
                     <div [hidden]="adminEmailSubj.valid || adminEmailSubj.pristine" class="col-md-4 alert alert-danger"> Subject is required </div>
                 </div>
@@ -61,7 +68,7 @@
                 <div class="form-group row">
                     <label for="user-smail-subj-input" class="col-md-2 col-form-label">Email Message</label>
                     <div class="col-md-10">
-                        <p-editor [readOnly]="notification.textMessage != ''" (onTextChange)="onEditorTextChange()" name="user-smail-subj-input" [(ngModel)]="notification.emailMessage" [style]="{'height':'320px'}"></p-editor>
+                        <p-editor (onTextChange)="onEditorTextChange()" name="user-smail-subj-input" [(ngModel)]="notification.emailMessage" [style]="{'height':'320px'}"></p-editor>
                     </div>
                     <div class="row">
                         <div class="notif-msg-err col-md-4 col-md-offset-2">
@@ -73,13 +80,12 @@
                 <div class="form-group row">
                     <label for="user-sms-subj-input" class="col-md-2 col-form-label">Text Message</label>
                     <div class="col-md-6">
-                        <input pInputText class="form-control" type="text" value="" required [disabled]="this.notification.emailMessage || this.notification.emailSubject != ''"
-                               [(ngModel)]="notification.textMessage" name="user-sms-subj-input" #adminSmsSubj="ngModel">
+                        <input pInputText class="form-control" type="text" value="" [(ngModel)]="notification.smsMessage" name="user-sms-subj-input" #adminSmsSubj="ngModel">
                     </div>
-                    <div [hidden]="adminSmsSubj.valid || adminSmsSubj.pristine || adminSmsSubj.disabled" class="col-md-4 alert alert-danger"> Text Message is required </div>
+                    <div [hidden]="adminSmsSubj.valid || adminSmsSubj.pristine" class="col-md-4 alert alert-danger"> Text Message is required </div>
                 </div>
                 
-                <button type="submit" pButton icon="fa fa-check" label="Send" [disabled]="!notifForm.form.valid || (notifForm.form.valid && !notification.emailMessage)"></button>
+                <button type="submit" pButton icon="fa fa-check" label="Send" [disabled]="!notifForm.form.valid"></button>
                 <button type="button" pButton icon="fa fa-close" (click)="onSubmit(false)" label="Cancel"></button>
             </form>
 

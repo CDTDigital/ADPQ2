@@ -26,9 +26,6 @@ export class User {
 @Injectable()
 export class UserService {
 
-    private static readonly userProfileUrl = `http://localhost:61552/api/UserProfile`;
-    private static readonly tokenAuthUrl = `http://localhost:61552/api/TokenAuth`;
-
     private adpqService: ADPQService;
     private cookieService: CookieService;
     private authService: AuthService;
@@ -93,7 +90,7 @@ export class UserService {
     }
 
     login(userName: string, password: string): Promise<RequestResult> {
-        return this.http.post(UserService.tokenAuthUrl, { Email: userName, Password: password }).toPromise()
+        return this.http.post(`${ADPQService.apiUrl}/api/TokenAuth`, { Email: userName, Password: password }).toPromise()
             .then(response => {
                 let result = response.json() as RequestResult;
                 if (result.state == RequestStateEnum.SUCCESS) {
@@ -113,12 +110,19 @@ export class UserService {
     }
 
     getUserInfo(id: number): Promise<User> {
-        return this.authService.authGet(`${UserService.userProfileUrl}/${id}`).
-            then(response => response.data as User);
+        return this.authService.authGet(`${ADPQService.apiUrl}/api/UserProfile/${id}`).
+            then(response => {
+                this._loggedInUser = response.data as User;
+                return this._loggedInUser;
+            })
+            .catch((e) => {
+                this._loggedInUserPromise = null;
+                return null;
+            });
     }
 
     updateUserInfo(user: User): Promise<User> {
-        return this.authService.authPut(`${UserService.userProfileUrl}/${user.userProfileId}`, user).
+        return this.authService.authPut(`${ADPQService.apiUrl}/api/UserProfile/${user.userProfileId}`, user).
             then(response => {
                 this._loggedInUser = response.data as User;
                 return this._loggedInUser;

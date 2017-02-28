@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Com.Natoma.Adpq.Prototype.Api.Test.Controllers
 {
-    public class NotificationControlletTests
+    public class NotificationControllerTests
     {
         
     }

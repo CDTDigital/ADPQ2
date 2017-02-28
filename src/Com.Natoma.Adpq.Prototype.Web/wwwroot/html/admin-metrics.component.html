@@ -1,0 +1,22 @@
+﻿<div class="admin-metrics">
+    <div class="row header">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Track, Analyze and Visualize the Notifications Data</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p-dataTable [value]="metrics" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+                <p-column field="dateSentDisplay" header="Date"></p-column>
+                <p-column field="sendTypeDisplay" header="Delivery Method"></p-column>
+                <p-column field="count" header="count"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+
+    <div *ngIf="isChartDataReady" class="row chart">
+        <div class="col-md-10 col-md-offset-1">
+            <p-chart type="line" [data]="chartData"></p-chart>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Auth;
 using Com.Natoma.Adpq.Prototype.Business.Models.Request;
+using Com.Natoma.Adpq.Prototype.Business.Options;
 using Com.Natoma.Adpq.Prototype.Business.Services;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -64,9 +65,16 @@ namespace Com.Natoma.Adpq.Prototype.Api
                 c.SwaggerDoc("v1", new Info { Title = "ADPQ Prototype Api", Version = "v1" });
             });
 
+            // Configure using a sub-section of the appsettings.json file.
+            services.Configure<EmailOptions>(Configuration.GetSection("EmailOptions"));
+            services.Configure<SmsOptions>(Configuration.GetSection("SmsOptions"));
+            services.Configure<GeoCodeOptions>(Configuration.GetSection("GeoCodeOptions"));
+
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IUserProfileService, UserProfileService>();
             services.AddTransient<IGeoCodeService, GeoCodeService>();
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ISmsService, SmsService>();
 
             // Add service and create Policy with options
             services.AddCors(options =>

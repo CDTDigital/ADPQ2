@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Com.Natoma.Adpq.Prototype.Business.Data;
 using Com.Natoma.Adpq.Prototype.Business.Models.Auth;
@@ -10,7 +8,6 @@ using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 
 namespace Com.Natoma.Adpq.Prototype.Business.Services
@@ -98,7 +95,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 Longitude = latLongSet.Longitude,
                 IsEmailNotification = userProfileViewModel.IsEmailNotifications,
                 IsSms = userProfileViewModel.IsSms,
-                Phone = userProfileViewModel.Phone
+                Phone = userProfileViewModel.Phone,
+                CreatedBy = 0,
+                CreatedOn = DateTime.Now,
+                UpdatedOn = DateTime.Now,
+                UpdatedBy = 0
             };
             _context.User.Add(newProfile);
             await _context.SaveChangesAsync();
@@ -142,6 +143,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             updatingUserProfile.IsAdmin = userProfileViewModel.IsAdmin;
             updatingUserProfile.IsEmailNotification = userProfileViewModel.IsEmailNotifications;
             updatingUserProfile.IsSms = userProfileViewModel.IsSms;
+            updatingUserProfile.UpdatedBy = userProfileViewModel.UserProfileId;
+            updatingUserProfile.UpdatedOn = DateTime.Now;
 
             if (!string.IsNullOrEmpty(userProfileViewModel.Password))
             {
@@ -180,7 +183,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 LastName = userProfile.LastName,
                 State = userProfile.State,
                 Zipcode = userProfile.Zipcode,
-                IsAdmin = userProfile.IsAdmin ?? false
+                IsAdmin = userProfile.IsAdmin 
             };
         }
     }

@@ -5,12 +5,13 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { ADPQService } from './adpq.service';
 import { UserService } from '../user/user.service';
+import { NotificationService } from '../shared/notification.service';
 import { CookieService } from 'angular2-cookie/core'; 
 
 import {
     InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule,
     GrowlModule, InputMaskModule, MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ConfirmationService, ToggleButtonModule, TooltipModule, BlockUIModule,
-    CalendarModule, MessagesModule, BreadcrumbModule, EditorModule, SharedModule as pngSharedModule
+    CalendarModule, MessagesModule, BreadcrumbModule, EditorModule, SharedModule as pngSharedModule, ChartModule
 }
     from 'primeng/primeng';
 
@@ -19,21 +20,21 @@ import {
         CommonModule, HttpModule, FormsModule,
         InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, TabViewModule, GrowlModule, InputMaskModule,
         MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule, CalendarModule, MessagesModule, BreadcrumbModule,
-        EditorModule, pngSharedModule
+        EditorModule, pngSharedModule, ChartModule
     ],
 
     exports: [
         CommonModule, FormsModule, HttpModule,
         InputTextModule, DataTableModule, ButtonModule, DialogModule, PanelModule, DropdownModule, InputSwitchModule, InputTextareaModule, ProgressBarModule, GrowlModule, InputMaskModule, TabViewModule,
         MultiSelectModule, CheckboxModule, FileUploadModule, ConfirmDialogModule, ToggleButtonModule, TooltipModule, BlockUIModule, BreadcrumbModule,
-        CalendarModule, MessagesModule, EditorModule, pngSharedModule
+        CalendarModule, MessagesModule, EditorModule, pngSharedModule, ChartModule
     ]
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthService, ADPQService, UserService, CookieService]
+            providers: [AuthService, ADPQService, UserService, CookieService, NotificationService]
         };
     }
 }

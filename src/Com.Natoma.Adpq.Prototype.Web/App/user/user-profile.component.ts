@@ -16,14 +16,17 @@ export class UserProfileComponent implements OnInit {
     constructor(private userService: UserService, private adpqService: ADPQService, private router: Router) { }
 
     async ngOnInit() {
-        this.adpqService.breadcrumbItems = [{ label: 'User Home', routerLink: ['./user'] }, { label: 'User Profile', routerLink: ['./user/profile'] }];
+        
 
         this.user = await this.userService.getLoggedInUser();
-        if (this.user.isAdmin)
+        if (this.user.isAdmin) {
             this.title = "Admin Profile";
-        else
+            this.adpqService.breadcrumbItems = [{ label: 'Admin Home', routerLink: ['./admin'] }, { label: 'Admin Profile', routerLink: ['./admin/profile'] }];
+        }
+        else {
+            this.adpqService.breadcrumbItems = [{ label: 'User Home', routerLink: ['./user'] }, { label: 'User Profile', routerLink: ['./user/profile'] }];
             this.title = "User Profile";
-
+        }
     }
 
     async onSignupFormSubmit(vm: UserFormViewModel) {
