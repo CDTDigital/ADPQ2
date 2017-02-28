@@ -1,4 +1,4 @@
-FROM FROM microsoft/dotnet
+FROM microsoft/dotnet
 WORKDIR /app
 COPY out ./app/
 EXPOSE 80
