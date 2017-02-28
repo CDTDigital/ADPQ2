@@ -1,0 +1,18 @@
+﻿<div class="user-home">
+    <div class="row content">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>List of Notifications Sent to You</h1>
+        </div>
+    </div>
+    <div class="row notif-table">
+        <div class="col-md-8 col-md-offset-2">
+            <p-dataTable [value]="notifications" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+                <p-column header="Type">
+                    <template let-notif="rowData" pTemplate="body">
+                        {{notif.notificationType == 0 ? 'Blast' : 'Regional'}}
+                    </template>
+                </p-column>
+                <p-column field="addressLine1" header="Address"></p-column>
+            </p-dataTable>
+        </div>
+    </div>

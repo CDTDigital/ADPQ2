@@ -55,4 +55,16 @@ export class NotificationService {
                 }
             });
     }
+
+    async getNotificationsForUser(userId: number): Promise<Notification[]> {
+        return this.authService.authGet(`${NotificationService.notificationsUrl}/${userId}`).
+            then(response => {
+                if (response.state == RequestStateEnum.SUCCESS)
+                    return response.data as Notification[];
+                else {
+                    this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
+                    return null;
+                }
+            });
+    }
 }
