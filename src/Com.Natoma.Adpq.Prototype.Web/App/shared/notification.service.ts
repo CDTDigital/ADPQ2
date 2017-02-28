@@ -48,7 +48,7 @@ export class NotificationService {
         return this.authService.authPost(`${NotificationService.notificationsUrl}`, notification).
             then(response => {
                 if (response.state == RequestStateEnum.SUCCESS)
-                    return response.data as Notification;
+                    return new Notification();
                 else {
                     this.adpqService.growl({ severity: 'error', summary: `Server Error`, detail: response.msg });
                     return null;

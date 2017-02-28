@@ -12,13 +12,13 @@ body {
 }
 header {
     height: 45px;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     background-color: #87CEFA;
     width: 100%;
     color: #f8f8ff;
-    padding-top: 8px;
+    padding-top: 18px;
     padding-right: 25px;
 }
 /* Wrapping element */
@@ -33,7 +33,9 @@ header {
     height: 51px;
     padding-top: 10px;
 }
-
+.content {
+    padding-bottom: 20px;
+}
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
