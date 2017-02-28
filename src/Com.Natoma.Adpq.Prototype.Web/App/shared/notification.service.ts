@@ -30,8 +30,21 @@ export class Notification {
     }
 }
 export enum NotificationGeoType {
-    BLAST,
-    REGIONAL
+    BLAST = 1,
+    REGIONAL = 2
+}
+
+export class UserNotificationViewModel {
+    userNotificationId: number;
+    notificationId: number;
+    notificationSubject: string;
+    notificationMessage: string;
+    notificationSmsMessage: string;
+    isEmail: boolean;
+    isSms: boolean;
+    result: string;
+    createdOn: string;  
+    notificationTypeId: number;
 }
 
 @Injectable()
