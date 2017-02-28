@@ -65,7 +65,7 @@
   },
   "scripts": {
     "prepublish": [
-      "bower install",
+      "bower install --allow-root",
       "dotnet bundle"
     ],
     "postpublish": [
