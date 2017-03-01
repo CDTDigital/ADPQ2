@@ -11,6 +11,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
     public class EmailService: IEmailService
     {
         private readonly IOptions<EmailOptions> _emailOptions;
+        private SmtpClient _client;
 
         public EmailService(IOptions<EmailOptions> emailOptions)
         {
@@ -19,6 +20,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
         public async Task<bool> SendEmailAsync(string email, string subject, string message)
         {
+            if (_client == null)
+            {
+                _client = new SmtpClient();
+                _client.Connect(_emailOptions.Value.SmtpServer, _emailOptions.Value.Port);
+                _client.Authenticate(_emailOptions.Value.Username, _emailOptions.Value.Password);
+            }
             try
             {
                 var emailMessage = new MimeMessage();
@@ -28,22 +35,25 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 emailMessage.Subject = subject;
                 var bodyBuilder = new BodyBuilder { HtmlBody = message };
                 emailMessage.Body = bodyBuilder.ToMessageBody();
-
-                using (var client = new SmtpClient())
-                {
-                    client.Connect(_emailOptions.Value.SmtpServer, _emailOptions.Value.Port);
-                    //client.AuthenticationMechanisms.Remove("XOAUTH2");
-                    client.Authenticate(_emailOptions.Value.Username, _emailOptions.Value.Password);
-                    await client.SendAsync(emailMessage).ConfigureAwait(false);
-                    await client.DisconnectAsync(true).ConfigureAwait(false);
-                }
+                    
+                await _client.SendAsync(emailMessage).ConfigureAwait(false);
+                
                 return true;
             }
             catch (Exception e)
             {
                 return false;
             }
+        }
 
+        public void Disconnect()
+        {
+            if (_client != null && _client.IsConnected)
+            {
+                _client.Disconnect(true);
+                _client.Dispose();
+            }
         }
     }
 }
+
