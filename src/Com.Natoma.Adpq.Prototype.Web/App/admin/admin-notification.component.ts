@@ -68,4 +68,10 @@ export class AdminNotificationComponent implements OnInit {
             this.router.navigate(['./admin']);
 
     }
+
+    onNotifTypeDropdownChange() {
+        // Working around a PrimeNG bug
+        let tooltip = document.querySelector(".ui-widget.ui-tooltip.ui-tooltip-right");
+        tooltip.parentNode.removeChild(tooltip);
+    }
 }

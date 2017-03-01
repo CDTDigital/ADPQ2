@@ -10,9 +10,9 @@
             <form class="notif-form" (ngSubmit)="onSubmit(true)" #notifForm="ngForm">
                 <div class="form-group row">
                     <label for="user-fname-input" class="col-md-2 col-form-label">Notification Type</label>
-                    <div class="col-md-6">
-                        <p-dropdown id="user-fname-input" required [options]="notifTypes" [(ngModel)]="notification.notificationType" [style]="{'width':'100px'}" name="admin-geo-notif-dd" #adminNotifGeo
-                                    alt="Select the type of notification to send, Blast for all subscribers, Regional for subscribers by location"></p-dropdown>
+                    <div class="col-md-2">
+                        <p-dropdown pTooltip="Select the type of notification to send, Blast for all subscribers, Regional for subscribers by location" (onChange)="onNotifTypeDropdownChange()"
+                                    id="user-fname-input" required [options]="notifTypes" [(ngModel)]="notification.notificationType" [style]="{'width':'100px'}" name="admin-geo-notif-dd" #adminNotifGeo></p-dropdown>
                     </div>
                 </div>
 
@@ -22,7 +22,8 @@
                         <div class="form-group row">
                             <label for="admin-ref-street-input" class="col-md-2 col-form-label">Street</label>
                             <div class="col-md-4">
-                                <input alt="<1234 Streetname St.>" id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel">
+                                <input id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel"
+                                       pTooltip="e.g. 1234 Streetname St.">
                             </div>
                             <div [hidden]="adminRefStreet.valid || adminRefStreet.pristine" class="col-md-4 alert alert-danger"> Street is required </div>
                         </div>
@@ -87,7 +88,7 @@
                     </div>
                     <div [hidden]="adminSmsSubj.valid || adminSmsSubj.pristine" class="col-md-4 alert alert-danger"> Text Message is required </div>
                 </div>
-                
+
                 <button type="submit" pButton icon="fa fa-check" label="Send" [disabled]="!notifForm.form.valid"></button>
                 <button type="button" pButton icon="fa fa-close" (click)="onSubmit(false)" label="Cancel"></button>
             </form>
