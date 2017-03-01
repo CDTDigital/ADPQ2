@@ -20,7 +20,7 @@
                     <div class="col-md-offset-2">
                         <h4 style="text-decoration:underline">Reference Address</h4>
                         <div class="form-group row">
-                            <label for="admin-ref-street-input" class="col-md-2 col-form-label">Street</label>
+                            <label for="admin-ref-street-input" class="col-md-2 col-form-label">Street<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                             <div class="col-md-4">
                                 <input id="admin-ref-street-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.addressLine1" name="admin-ref-street-input" #adminRefStreet="ngModel"
                                        pTooltip="e.g. 1234 Streetname St.">
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="admin-ref-city-input" class="col-md-2 col-form-label">City</label>
+                            <label for="admin-ref-city-input" class="col-md-2 col-form-label">City<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                             <div class="col-md-4">
                                 <input id="admin-ref-city-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.city" name="admin-ref-city-input" #adminRefCity="ngModel">
                             </div>
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="admin-ref-zip-input" class="col-md-2 col-form-label">Zip</label>
+                            <label for="admin-ref-zip-input" class="col-md-2 col-form-label">Zip<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                             <div class="col-md-2">
                                 <input id="admin-ref-zip-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zip" name="admin-ref-zip-input" #adminRefZip="ngModel">
                             </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row">
                         <div class="notif-msg-err col-md-4 col-md-offset-2">
-                            <div [hidden]="!textWasEnteredIntoEditor || notification.emailMessage" class="alert alert-danger"> Message is required </div>
+                            <div [hidden]="!textWasEnteredIntoEditor || notification.emailMessage || !notification.emailSubject" class="alert alert-danger"> Message is required </div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,8 @@
                     <div [hidden]="adminSmsSubj.valid || adminSmsSubj.pristine" class="col-md-4 alert alert-danger"> Text Message is required </div>
                 </div>
 
-                <button type="submit" pButton icon="fa fa-check" label="Send" [disabled]="!notifForm.form.valid"></button>
+                <button type="submit" pButton icon="fa fa-check" label="Send" 
+                        [disabled]="!notifForm.form.valid || (!notification.emailSubject && notification.emailMessage) || (notification.emailSubject && !notification.emailMessage) || (!notification.emailSubject && !notification.emailMessage && !notification.smsMessage)"></button>
                 <button type="button" pButton icon="fa fa-close" (click)="onSubmit(false)" label="Cancel"></button>
             </form>
 

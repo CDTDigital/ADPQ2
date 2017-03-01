@@ -1,6 +1,6 @@
 ﻿<form class="user-form" (ngSubmit)="onSubmit.emit({ user: user, selectedStateIdx: selectedStateIdx });" #signupForm="ngForm">
     <div class="form-group row">
-        <label for="user-fname-input" class="col-md-2 col-form-label">First Name</label>
+        <label for="user-fname-input" class="col-md-2 col-form-label">First Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <input id="user-fname-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.firstName" name="user-fname-input" #userFName="ngModel">
         </div>
@@ -8,7 +8,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="user-lname-input" class="col-md-2 col-form-label">Last Name</label>
+        <label for="user-lname-input" class="col-md-2 col-form-label">Last Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <input id="user-lname-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.lastName" name="user-lname-input" #userLName="ngModel">
         </div>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
+        <label for="user-email-input" class="col-md-2 col-form-label">Email<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <input id="user-email-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.email" name="user-email-input" #userEmail="ngModel">
         </div>
@@ -28,7 +28,7 @@
     </div>
     <div *ngIf="userFormType == 0 || isShowingPassfordFields" class="pwd-chg-content">
         <div class="form-group row">
-            <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+            <label for="user-pwd-input" class="col-md-2 col-form-label">Password<i class="fa fa-asterisk" aria-hidden="true"></i></label>
             <div class="col-md-6">
                 <input id="user-pwd-input" pInputText class="form-control" type="password" value="" required [(ngModel)]="user.password" name="user-pwd-input" 
                        minlength="8" #userPassword="ngModel">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password</label>
+            <label for="user-conf-pwd-input" class="col-md-2 col-form-label">Confirm Password<i class="fa fa-asterisk" aria-hidden="true"></i></label>
             <div class="col-md-6">
                 <input id="user-conf-pwd-input" pInputText class="form-control" type="password" value="" required [(ngModel)]="confPassword" name="user-conf-pwd-input" #userConfPassword="ngModel">
             </div>
@@ -46,7 +46,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="user-address-input" class="col-md-2 col-form-label">Address</label>
+        <label for="user-address-input" class="col-md-2 col-form-label">Address<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <input id="user-address-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.addressLine1" name="user-address-input" #userAddress="ngModel">
         </div>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="user-city-input" class="col-md-2 col-form-label">City</label>
+        <label for="user-city-input" class="col-md-2 col-form-label">City<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <input id="user-city-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="user.city" name="user-city-input" #userCity="ngModel">
         </div>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="user-zip-input" class="col-md-2 col-form-label">ZIP</label>
+        <label for="user-zip-input" class="col-md-2 col-form-label">ZIP<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-6">
             <p-inputMask id="user-zip-input"  [(ngModel)]="user.zipcode" mask="99999" required name="user-zip-input" #userZip="ngModel" styleClass="signup-zip"></p-inputMask>
         </div>
@@ -91,7 +91,7 @@
     </div>
 
     <div *ngIf="user.isSms" class="form-group row">
-        <label for="user-phone-input" class="col-md-3 col-form-label col-md-offset-2">Mobile Phone</label>
+        <label for="user-phone-input" class="col-md-3 col-form-label col-md-offset-2">Mobile Phone<i class="fa fa-asterisk" aria-hidden="true"></i></label>
         <div class="col-md-4">
             <p-inputMask id="user-phone-input" mask="(999) 999-9999" required [(ngModel)]="user.phone" placeholder="(999) 999-9999" name="user-phone-input" #userPhone="ngModel"></p-inputMask>
         </div>

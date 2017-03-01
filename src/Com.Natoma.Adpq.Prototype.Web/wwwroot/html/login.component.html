@@ -4,7 +4,7 @@
     <div class="col-md-8 col-md-offset-2">
         <form (ngSubmit)="doLogin()" #loginForm="ngForm">
             <div class="form-group row">
-                <label for="user-email-input" class="col-md-2 col-form-label">Email</label>
+                <label for="user-email-input" class="col-md-2 col-form-label">Email<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <div class="col-md-6">
                     <input id="user-email-input" class="form-control" type="text" value="" required [(ngModel)]="loginUser.email" name="user-email-input" #userEmail="ngModel"
                            [disabled]="isSignupVisible">
@@ -13,7 +13,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="user-pwd-input" class="col-md-2 col-form-label">Password</label>
+                <label for="user-pwd-input" class="col-md-2 col-form-label">Password<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <div class="col-md-6">
                     <input id="user-pwd-input" class="form-control" type="password" value="" required [(ngModel)]="loginUser.password" name="user-pwd-input" #userPassword="ngModel"
                            [disabled]="isSignupVisible">

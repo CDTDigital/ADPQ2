@@ -238,3 +238,9 @@ p-breadcrumb .fa.fa-home {
 .signup-zip {
     width: 65px;
 }
+.fa.fa-asterisk {
+    padding-left: 5px;
+    font-size: 0.6em;
+    top: -5px;
+    position: relative;
+}
