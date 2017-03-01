@@ -135,6 +135,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }
 
             await ProcessNotifications(newNotification, usersToRecieve);
+            _emailService.Disconnect();
 
             _context.Notification.Add(newNotification);
             await _context.SaveChangesAsync();
