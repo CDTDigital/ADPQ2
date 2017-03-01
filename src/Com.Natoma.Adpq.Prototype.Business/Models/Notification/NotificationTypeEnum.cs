@@ -2,7 +2,7 @@
 {
     public enum NotificationTypeEnum
     {
-        Blast,
-        Regional
+        Blast = 1,
+        Regional = 2 
     }
 }
