@@ -183,7 +183,10 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 LastName = userProfile.LastName,
                 State = userProfile.State,
                 Zipcode = userProfile.Zipcode,
-                IsAdmin = userProfile.IsAdmin 
+                IsAdmin = userProfile.IsAdmin,
+                IsSms = userProfile.IsSms,
+                IsEmailNotifications = userProfile.IsEmailNotification,
+                Phone = userProfile.Phone
             };
         }
     }
