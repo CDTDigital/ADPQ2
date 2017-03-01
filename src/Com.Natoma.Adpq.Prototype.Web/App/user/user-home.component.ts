@@ -21,7 +21,7 @@ export class UserHomeComponent implements OnInit {
         }
 
         let user = await this.userService.getLoggedInUser();
-        if (user.isAdmin == true)
+        if (user && user.isAdmin == true)
             this.router.navigate(["./admin"]);
 
         this.adpqService.breadcrumbItems = [<MenuItem> { label: 'User Home', routerLink: ['./user'] }];

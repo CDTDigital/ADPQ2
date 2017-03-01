@@ -23,7 +23,7 @@ export class UserNotificationsComponent implements OnInit {
         }
 
         let user = await this.userService.getLoggedInUser();
-        if (user.isAdmin == true)
+        if (user && user.isAdmin == true)
             this.router.navigate(["./admin"]);
 
         this.adpqService.breadcrumbItems = [<MenuItem>{ label: 'User Home', routerLink: ['./user'] }, <MenuItem>{ label: 'User Notifications', routerLink: ['./user/notifications'] }];

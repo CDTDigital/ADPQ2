@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
         
 
         this.user = await this.userService.getLoggedInUser();
-        if (this.user.isAdmin) {
+        if (this.user && this.user.isAdmin) {
             this.title = "Admin Profile";
             this.adpqService.breadcrumbItems = [{ label: 'Admin Home', routerLink: ['./admin'] }, { label: 'Admin Profile', routerLink: ['./admin/profile'] }];
         }

@@ -41,7 +41,7 @@ export class AdminNotificationComponent implements OnInit {
         }
 
         let user = await this.userService.getLoggedInUser();
-        if (user.isAdmin == false)
+        if (user && user.isAdmin == false)
             this.router.navigate(["./user"]);
 
 

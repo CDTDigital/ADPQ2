@@ -67,15 +67,15 @@ export class UserService {
     async create(user: User): Promise<User> {
         let response: Response;
         try {
-            response = await this.http.post(`http://localhost:61552/api/UserProfile`, user).toPromise();
+            response = await this.http.post(`${ADPQService.apiUrl}/api/UserProfile`, user).toPromise();
 
             let result = response.json() as RequestResult;
             if (result.state == RequestStateEnum.SUCCESS) {
                 this._loggedInUser = result.data as User;
 
-                let user = await this.getLoggedInUser();
-                this.cookieService.put(AuthService.tokenKey, user.token);
-                this.cookieService.put(AuthService.userIdSessionKey, user.userProfileId.toString());
+                //let user = await this.getLoggedInUser();
+                this.cookieService.put(AuthService.tokenKey, this._loggedInUser.token);
+                this.cookieService.put(AuthService.userIdSessionKey, this._loggedInUser.userProfileId.toString());
             }
             else {
                 this.adpqService.handleNetworkError(<ErrorResponse>{ statusText: result.msg });

@@ -36,7 +36,7 @@ export class AdminMetricsComponent implements OnInit {
         }
 
         let user = await this.userService.getLoggedInUser();
-        if (user.isAdmin == false)
+        if (user && user.isAdmin == false)
             this.router.navigate(["./user"]);
 
         this.adpqService.breadcrumbItems = [<MenuItem>{ label: 'Admin Home', routerLink: ['./admin'] }, <MenuItem>{ label: 'Admin Metrics', routerLink: ['./admin/metrics'] }];
