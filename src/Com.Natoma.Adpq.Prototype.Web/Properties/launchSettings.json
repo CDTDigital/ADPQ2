@@ -16,7 +16,8 @@
     },
     "com.natoma.hhs.prototype.web": {
       "commandName": "Project",
-      "launchUrl": "http://localhost:5000/index.html",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5000/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
