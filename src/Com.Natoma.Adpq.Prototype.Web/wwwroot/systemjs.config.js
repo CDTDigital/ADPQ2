@@ -40,10 +40,10 @@
     var config = {
         map: map,
         packages: packages,
-        bundles: {
-            "lib/bundles/rxjs.min.js": ["rxjs/*"],
-            "lib/bundles/primeng.min.js": ["primeng/*"]
-        }
+        //bundles: {
+        //    "lib/bundles/rxjs.min.js": ["rxjs/*"],
+        //    "lib/bundles/primeng.min.js": ["primeng/*"]
+        //}
     };
     System.config(config);
 })(this);
