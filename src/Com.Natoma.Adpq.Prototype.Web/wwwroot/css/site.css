@@ -33,6 +33,9 @@ header {
     height: 51px;
     padding-top: 10px;
 }
+.footer a {
+    color: #00008B;
+}
 .content {
     padding-bottom: 50px;
 }
@@ -66,7 +69,7 @@ textarea {
 adpq-login h1,
 adpq-login h4 {
     text-align: center;
-    color: #f8f8ff;
+    color: #00008B;
 }
 
 adpq-login h1 {
@@ -96,6 +99,7 @@ adpq-login h1 {
 }
 
 img.background {
+    opacity: 0.6;
     background-repeat: no-repeat;
     width: 2400px;
     height: 1602px;
@@ -168,7 +172,7 @@ div.info-msg {
 div.no-acct-link span {
     text-decoration: underline;
     cursor: pointer;
-    color: #87CEFA;
+    color: #00008B;
     font-weight: 700;
     font-size: 1.5em;
 }
