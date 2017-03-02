@@ -3,6 +3,7 @@ import { Headers, Http } from "@angular/http";
 import { ADPQService, RequestResult, RequestStateEnum, ErrorResponse } from './adpq.service';
 import "rxjs/add/operator/toPromise";
 import { AuthService, TokenAuthViewModel } from '../shared/auth.service';
+import { UserService } from '../user/user.service';
 
 export class Notification {
     notificationId: number;
@@ -13,6 +14,7 @@ export class Notification {
     state: string;
     radiusMiles: number;
     numberOfRecipients: number;
+    createdBy: number;
 
     emailSubject: string;
     emailMessage: string;
@@ -63,12 +65,17 @@ export class NotificationMetricsViewModel {
 @Injectable()
 export class NotificationService {
     private authService: AuthService;
+    private userService: UserService;
 
-    constructor(private http: Http, private adpqService: ADPQService, @Inject(AuthService) _authService: AuthService) {
+    constructor(private http: Http, private adpqService: ADPQService, @Inject(AuthService) _authService: AuthService,
+        @Inject(UserService) _userService: UserService) {
         this.authService = _authService;
+        this.userService = _userService;
     }
 
     async postNotification(notification: Notification): Promise<Notification> {
+        notification.createdBy = (await this.userService.getLoggedInUser()).userProfileId; 
+
         return this.authService.authPost(`${ADPQService.apiUrl}/api/Notification`, notification).
             then(response => {
                 if (response.state == RequestStateEnum.SUCCESS)
