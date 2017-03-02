@@ -1,6 +1,7 @@
-FROM microsoft/dotnet
+FROM microsoft/aspnetcore:1.0.1
+#FROM microsoft/dotnet
 WORKDIR /app
-EXPOSE 80
+EXPOSE 61552
 COPY out ./
 ENTRYPOINT ["dotnet", "Com.Natoma.Adpq.Prototype.Api.dll"]
 
