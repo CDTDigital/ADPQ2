@@ -43,7 +43,7 @@ export class UserService {
     public async getLoggedInUser(): Promise<User> {
         let userId = parseInt(this.cookieService.get(AuthService.userIdSessionKey));
         if (!userId) {
-            this.logUserOut();
+            this.logUserOut(false);
             return;
         }
 
@@ -57,11 +57,12 @@ export class UserService {
             return this._loggedInUserPromise;
     }
 
-    public logUserOut() {
+    public logUserOut(withRedirect = true) {
         this._loggedInUser = new User();
         this._loggedInUserPromise = null;
         this.cookieService.removeAll();
-        this.router.navigate(['./login']);
+        if (withRedirect)
+            this.router.navigate(['./login']);
     }
 
     async create(user: User): Promise<User> {

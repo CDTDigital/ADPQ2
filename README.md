@@ -1,6 +1,7 @@
-# California Department of Technology, Request for Interest #CDT-ADQP-0117
+# California Department of Technology, Request for Interest #CDT-ADQP-0117 Pre-Qualified Vendor Pool for Digital Services – Agile Development
 
-# Prequalified-Vendor Pool for Digital Services – Agile Development
+
+
 ![Natoma Technologies, Inc. Logo][logo]
 
 
@@ -9,7 +10,7 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 “The working prototype will be an application that will allow California residents to establish and manage their profile and receive emergency and non-emergency notifications via email, Short Message Service (SMS), and/or push notification based on the location and contact information provided in their profile and/or the geo-location of their cellphone if they have opted in for this service. In addition, the working prototype will provide the authorized administrative users with the ability to publish notifications and track, and analyze and visualize related data. The working prototype does not need to implement any authentication or authorization against an external directory or authentication mechanism.”
 
- 
+
 
 # [Link to the prototype web-application][prototype-url]  
 Address: <<need to add this when available>> http://prototype.natomadev.com/HHSPrototype/
@@ -52,28 +53,36 @@ We must begin digital projects by exploring and pinpointing the needs of the peo
 
 #### Natoma’s Response to Key Questions
 1.	Who are your primary users?
-- California residents from across the State. 
+
+    California residents from across the State. 
 
 2.	What user needs will this service address?
-- California residents can register to receive email and/or text notifications of emergency or non-emergency events based on their selected location within the state of California.
+
+    California residents can register to receive email and/or text notifications of emergency or non-emergency events based on their selected location within the state of California.
 
 3.	Why does the user want or need this service?
-- California users want to know of events or situations such as heavy rain, fog, flooding, fires, large traffic jams, police action, etc that may impact their homes, schools, work places, travel destinations, commute, etc.
+
+    California users want to know of events or situations such as heavy rain, fog, flooding, fires, large traffic jams, police action, etc that may impact their homes, schools, work places, travel destinations, commute, etc.
 
 4.	Which people will have the most difficulty with the service?
-- People who are not used to or comfortable using internet-based services. Easy registration and sign up is necessary.
+
+    People who are not used to or comfortable using internet-based services. Easy registration and sign up is necessary.
 
 5.	Which research methods were used?
-- End user interviews and internet-based research around emergency notification systems with focus on the usability of the system and the technologies that support it.
+
+    End user interviews and internet-based research around emergency notification systems with focus on the usability of the system and   the technologies that support it.
 
 6.	What were the key findings?
-- For purposes of the Working Prototype, the Natoma Product Manager determined that the Prototype requires two basic functions/epics: the ability to establish a user profile based on alert notification types and location; and, the ability to create the notifications. 
+
+    For purposes of the Working Prototype, the Natoma Product Manager determined that the Prototype requires two basic functions/epics: the ability to establish a user profile based on alert notification types and location; and, the ability to create the notifications. 
 
 7.	How were the findings documented? Where can future team members access the documentation?
-- The findings of the interviews and research were documented as epics and user stories within Pivotal Tracker. The Product Manager provided team members with access to Pivotal Tracker, as needed, to review the user stories. Future team members requires access to the Pivotal Tracker project.
+
+    The findings of the interviews and research were documented as epics and user stories within Pivotal Tracker. The Product Manager provided team members with access to Pivotal Tracker, as needed, to review the user stories. Future team members requires access to the Pivotal Tracker project.
 
 8.	How often are you testing with real people?
-- Natoma team members conducted testing with each sprint. 
+
+    Natoma team members conducted testing with each sprint. 
 
 ### PLAY 2 ADDRESS THE WHOLE EXPERIENCE, FROM START TO FINISH
 
@@ -88,16 +97,20 @@ We need to understand the different ways people will interact with our services,
 
 #### Natoma’s Response to Key Questions
 1.	What are the different ways (both online and offline) that people currently accomplish the task the digital service is designed to help with?
-- California residents currently receive alert notifications via television, radio, internet alerts, mobile phone-based web applications for weather and traffic, police alerts, and via word of mouth. 
+
+    California residents currently receive alert notifications via television, radio, internet alerts, mobile phone-based web applications for weather and traffic, police alerts, and via word of mouth. 
 
 2.	Where are user pain points in the current way people accomplish the task?
-- Alert notifications are usually driven by the type of alert requested – weather alerts are given on weather-based programs or weather-applications; traffic alerts are given on the radio or television in increments requiring the user to monitor them or through traffic-based application. Users are required to monitor or subscribe to a wide variety of services to stay informed of emergencies or other events.
+
+    Alert notifications are usually driven by the type of alert requested – weather alerts are given on weather-based programs or weather-applications; traffic alerts are given on the radio or television in increments requiring the user to monitor them or through traffic-based application. Users are required to monitor or subscribe to a wide variety of services to stay informed of emergencies or other events.
 
 3.	Where does this specific project fit into the larger way people currently obtain the service being offered?
-- The Working Prototype, if further developed, would be an internet-based web application allowing users to sign up to receive alert notifications for events based on their choice of events and their selected location via email or mobile text messaging.
+
+    The Working Prototype, if further developed, would be an internet-based web application allowing users to sign up to receive alert notifications for events based on their choice of events and their selected location via email or mobile text messaging.
 
 4.	What metrics will best indicate how well the service is working for its users?
-- The diversity of alert notifications available through the services. The number of users registered to receive the service and performance metrics indicating the time between notification of an emergency event and distribution of the notification to end users.
+
+    The diversity of alert notifications available through the services. The number of users registered to receive the service and performance metrics indicating the time between notification of an emergency event and distribution of the notification to end users.
 
 
 
@@ -114,23 +127,32 @@ Using a government service shouldn’t be stressful, confusing, or daunting. It�
 
 #### Natoma’s Response to Key Questions
 1.	What primary tasks are the user trying to accomplish?
--  Establish a web-based application that allows users to 1) register to participate 2) create a user login 3) create a user profile that includes selecting the medium for receiving the alert (email, text) providing location, providing phone numbers for text messages, providing an email address. 4) Establishing an alert notification process 5) Identifying open source based technologies on which this system can operate
+
+    Establish a web-based application that allows users to 1) register to participate 2) create a user login 3) create a user profile that includes selecting the medium for receiving the alert (email, text) providing location, providing phone numbers for text messages, providing an email address. 4) Establishing an alert notification process 5) Identifying open source based technologies on which this system can operate
 
 2.	Is the language as plain and universal as possible?
--  The Natoma team performed multiple reviews with the end user to validate that the language used in the prototype is minimal and straight forward.
+
+    The Natoma team performed multiple reviews with the end user to validate that the language used in the prototype is minimal and straight forward.
 
 3.	What languages is your service offered in?
-- Natoma’s Working Prototype was built in standard American English. The team identified and created a user story requesting Spanish translation. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
+
+    Natoma’s Working Prototype was built in standard American English. The team identified and created a user story requesting Spanish translation. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
 
 4.	If a user needs help while using the service, how do they go about getting it?
-- The Working Prototype provides an email address allowing users to contact the application administrator. The team identified and created a user story requesting a Frequently Asked Questions (FAQ) page. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
+
+    The Working Prototype provides an email address allowing users to contact the application administrator. The team identified and created a user story requesting a Frequently Asked Questions (FAQ) page. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
 
 5.	How does the service’s design visually relate to other government services?  
-- Natoma reviewed other State of California web sites that provide or are related to the providing alert notifications. They are as follows:
-http://www.caloes.ca.gov/cal-oes-divisions/warning-center
-https://www.fcc.gov/consumers/guides/emergency-alert-system-eas
-http://www.calalerts.org/
-The service offered by the Working Prototype would be unique to existing State services but the language and visual design of the sites listed here were considered within the Prototype design. If the Prototype were being built for a known State agency, Natoma review that agency’s existing web pages and use established standards related to look and feel.
+
+    Natoma looked at the following government-sponsored web sites supporting alert notications:
+
+    http://www.caloes.ca.gov/cal-oes-divisions/warning-center
+
+    https://www.fcc.gov/consumers/guides/emergency-alert-system-eas
+
+    http://www.calalerts.org/
+
+    The service offered by the Working Prototype would be unique to existing State services but the language and visual design of the sites listed here were considered within the Prototype design. If the Prototype were being built for a known State agency, Natoma review that agency’s existing web pages and use established standards related to look and feel.
 
 ### PLAY 4 BUILD THE SERVICE USING AGILE AND ITERATIVE PRACTICES
 We should use an incremental, fast-paced style of software development to reduce the risk of failure. We want to get working software into users’ hands as early as possible to give the design and development team opportunities to adjust based on user feedback about the service. A critical capability is being able to automatically test and deploy the service so that new features can be added often and be put into production easily.
@@ -151,31 +173,40 @@ We should use an incremental, fast-paced style of software development to reduce
 #### Natoma’s Response to Key Questions
 
 1.	How long did it take to ship the MVP? If it hasn't shipped yet, when will it?
-- The MVP was deployed after the first sprint – three (3) days 
+
+    The MVP was deployed after the first sprint – three (3) days 
 
 2.	How long does it take for a production deployment?
-- Natoma Integrated GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations. Once automation was established, production deployment occurred within minutes.
+
+    Natoma Integrated GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations. Once automation was established, production deployment occurred within minutes.
 
 3.	How many days or weeks are in each iteration/sprint?
--Five (5) days.  
+
+    Five (5) days.  
 
 2.	Which version control system is being used?
-- Natoma used GitHub to maintain version control using a Team Foundation Server plugin. 
+
+    Natoma used GitHub to maintain version control using a Team Foundation Server plugin. 
 
 3.	How are bugs tracked and tickets issued? What tool is used?
-- Each user story was entered into GitHub created with acceptance criteria that were then translated into test cases. The Natoma usability tester executed the tests cases within the prototype and tracked defects also within GitHub. Defects/bugs identified are created in TFS, triaged, assigned priority and severity, and tracked to completion.  Test cases were then automated for continued reuse with follow on sprints.
+
+    Each user story was entered into GitHub created with acceptance criteria that were then translated into test cases. The Natoma usability tester executed the tests cases within the prototype and tracked defects also within GitHub. Defects/bugs identified are created in TFS, triaged, assigned priority and severity, and tracked to completion.  Test cases were then automated for continued reuse with follow on sprints.
 
 4.	How is the feature backlog managed? What tool is used?
-- Features are written as user stories, which are entered into Pivotal Tracker as User Stories.  During Backlog Grooming the Product Owner prioritized the stories, and during Sprint Planning, the team moved the User Stories that were committed to into the Sprint Backlog and kept the remaining in the Product Backlog or Icebox.
+
+    Features are written as user stories, which are entered into Pivotal Tracker as User Stories.  During Backlog Grooming the Product Owner prioritized the stories, and during Sprint Planning, the team moved the User Stories that were committed to into the Sprint Backlog and kept the remaining in the Product Backlog or Icebox.
   
 5.	How often do you review and reprioritize the feature and bug backlog?
-- At the end of each Sprint. Prototype development used five (5) day sprints.
+
+    At the end of each Sprint. Prototype development used five (5) day sprints.
  
 6.	How do you collect user feedback during development? How is that feedback used to improve the service?
-- In addition to scheduling reviews with subject matter experts that approximate users, the prototype was made continuously available to the entire Natoma team who were instructed to utilize all features of the system to evaluate quality and completeness based on the MVP. The team then provided suggestions for improvement in the form of new user stories that were either incorporated into the backlog for the following sprint or added to the icebox for future consideration.
+
+    In addition to scheduling reviews with subject matter experts that approximate users, the prototype was made continuously available to the entire Natoma team who were instructed to utilize all features of the system to evaluate quality and completeness based on the MVP. The team then provided suggestions for improvement in the form of new user stories that were either incorporated into the backlog for the following sprint or added to the icebox for future consideration.
    
 7.	At each stage of usability testing, which gaps were identified in addressing user needs?
-- Two gaps were identified. 1) Provide a mechanism for forgotten passwords. 2) Create a mechanism to use existing external data for existing notifications. The Project Director determined that these two gaps could be developed as future enhancements to the product since they are not necessary for MVP.  The user stories were added to the Icebox. 
+
+    Two gaps were identified. 1) Provide a mechanism for forgotten passwords. 2) Create a mechanism to use existing external data for existing notifications. The Project Director determined that these two gaps could be developed as future enhancements to the product since they are not necessary for MVP.  The user stories were added to the Icebox. 
 
 ### PLAY 5 STRUCTURE BUDGETS AND CONTRACTS TO SUPPORT DELIVERY
 To improve our chances of success when contracting out development work, we need to work with experienced budgeting and contracting officers. In cases where we use third parties to help build a service, a well-defined contract can facilitate good development practices like conducting a research and prototyping phase, refining product requirements as the service is built, evaluating open source alternatives, ensuring frequent delivery milestones, and allowing the flexibility to purchase cloud computing resources.
@@ -213,13 +244,16 @@ There must be a single product owner who has the authority and responsibility to
 
 #### Natoma’s Response to Key Questions
 1.	Who is the product owner?
-- Veronica Westlund, Vice President COO of Natoma Technologies, Inc.  
+
+    Veronica Westlund, Vice President COO of Natoma Technologies, Inc.  
 
 2.	What organizational changes have been made to ensure the product owner has sufficient authority over and support for the project?
--As Vice President and COO of Natoma, the Product Owner has sufficient authority over the Working Prototype.
+
+    As Vice President and COO of Natoma, the Product Owner has sufficient authority over the Working Prototype.
 
 3.	What does it take for the product owner to add or remove a feature from the service?
-- The Product Owner determined the Minimum Viable Product requirements or features with the initiation of the project. The project team working with an identified user community defined user stories. The Product Owner mapped user stories to product epics creating the MVP. She then evaluated additional user stories to determine if they resulted in additional features to be added to the Prototype based on the impact to MVP.
+
+    The Product Owner determined the Minimum Viable Product requirements or features with the initiation of the project. The project team working with an identified user community defined user stories. The Product Owner mapped user stories to product epics creating the MVP. She then evaluated additional user stories to determine if they resulted in additional features to be added to the Prototype based on the impact to MVP.
 
 
 ### PLAY 7 BRING IN EXPERIENCED TEAMS
@@ -256,13 +290,16 @@ The technology decisions we make need to enable development teams to work effici
 
 
 1.	What is your development stack and why did you choose it?
-- Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
+
+    Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
 
 2.	Which databases are you using and why did you choose them?
-- Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
+
+    Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
 
 3.	How long does it take for a new team member to start developing?
-- Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
+
+    Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
 
 ### PLAY 9 DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
 Our services should be deployed on flexible infrastructure, where resources can be provisioned in real-time to meet spikes traffic and user demand. Our digital services are crippled when we host them in data centers that market themselves as “cloud hosting” but require us to manage and maintain hardware directly. This outdated practice wastes time, weakens our disaster recovery plans, and results in significantly higher costs.
@@ -278,43 +315,56 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 #### Natoma’s Response to Key Questions
 1.	Where is your service hosted?
-- Amazon Web Services.
+
+    Amazon Web Services.
 
 2.	What hardware does your service use to run?
-- The hardware is abstracted by the cloud services used and that information is not provided by the service. The service runs on a virtual machine.  
+
+    The hardware is abstracted by the cloud services used and that information is not provided by the service. The service runs on a virtual machine.  
 
 3.	What is the demand or usage pattern for your service?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 4.	What happens to your service when it experiences a surge in traffic or load?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 5.	How much capacity is available in your hosting environment?
-- Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
+
+    Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
 
 6.	How long does it take you to provision a new resource, like an application server?
-- Approximately five (5) minutes to provision a new Windows application server.
+
+    Approximately five (5) minutes to provision a new Windows application server.
 
 7.	How have you designed your service to scale based on demand?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 8.	How are you paying for your hosting infrastructure (e.g., by the minute, hourly, daily, monthly, fixed)?
-- By the minute although AWS offers a fixed cost if reserving for a minimum of one year.
+
+    By the minute although AWS offers a fixed cost if reserving for a minimum of one year.
 
 9.	Is your service hosted in multiple regions, availability zones, or data centers?
-- No. This question does not apply to the Working Prototype.
+
+    No. This question does not apply to the Working Prototype.
 
 10.	In the event of a catastrophic disaster to a datacenter, how long will it take to have the service operational?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 11.	What would be the impact of a prolonged downtime window?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 12.	What data redundancy do you have built into the system, and what would be the impact of a catastrophic data loss?
-- This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
+
+    This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
   
 13.	How often do you need to contact a person from your hosting provider to get resources or to fix an issue?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ### PLAY 10 AUTOMATE TESTING AND DEPLOYMENTS
 Today, developers write automated scripts that can verify thousands of scenarios in minutes and then deploy updated code into production environments multiple times a day. They use automated performance tests which simulate surges in traffic to identify performance bottlenecks. While manual tests and quality assurance are still necessary, automated tests provide consistent and reliable protection against unintentional regressions, and make it possible for developers to confidently release frequent updates to the service.
@@ -329,36 +379,46 @@ Today, developers write automated scripts that can verify thousands of scenarios
 
 #### Natoma’s Response to Key Questions
 1.	What percentage of the code base is covered by automated tests?
-- Natoma estimates that 75% of the code is covered by automated testing.
+
+    Natoma estimates that 75% of the code is covered by automated testing.
 
 2.	How long does it take to build, test, and deploy a typical bug fix?
-- Less than 10 minutes with deployment automation.
+
+    Less than 10 minutes with deployment automation.
 
 3.	How long does it take to build, test, and deploy a new feature into production?
-- Less than 10 minutes with deployment automation
+
+    Less than 10 minutes with deployment automation
 
 4.	How frequently are builds created?
-- Builds are created with each check in of code. This occurred on a daily basis throughout Prototype development.
+
+    Builds are created with each check in of code. This occurred on a daily basis throughout Prototype development.
 
 5.	What test tools are used?
-The following test tools are used:
--	Unit testing / Unit integration testing are supported by Moq and XUnit
--	GitHub using the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub.   
+
+    The following test tools are used:
+        Unit testing / Unit integration testing are supported by Moq and XUnit
+        GitHub using the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub.   
 
 6.	Which deployment automation or continuous integration tools are used?
-- GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations.  
+
+    GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations.  
  
 7.	What is the estimated maximum number of concurrent users who will want to use the system?
-- Natoma’s Working Prototype is anticipated to have ten or fewer concurrent users.  
+
+    Natoma’s Working Prototype is anticipated to have ten or fewer concurrent users.  
 
 8.	How many simultaneous users could the system handle, according to the most recent capacity test?
-- This prototype does not require formal capacity testing.   Informal testing demonstrated that five concurrent users resulted in no performance degradation.  
+
+    This prototype does not require formal capacity testing. Informal testing demonstrated that five concurrent users resulted in no performance degradation.  
 
 9.	How does the service perform when you exceed the expected target usage volume? Does it degrade gracefully or catastrophically?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 10.	What is your scaling strategy when demand increases suddenly?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ### PLAY 11 MANAGE SECURITY AND PRIVACY THROUGH REUSABLE PROCESSES 
 Our digital services have to protect sensitive information and keep systems secure. This is typically a process of continuous review and improvement which should be built into the development and maintenance of the service. At the start of designing a new service or feature, the team lead should engage the appropriate privacy, security, and legal officer(s) to discuss the type of information collected, how it should be secured, how long it is kept, and how it may be used and shared. The sustained engagement of a privacy specialist helps ensure that personal data is properly managed. In addition, a key process to building a secure service is comprehensively testing and certifying the components in each layer of the technology stack for security vulnerabilities, and then to re-use these same pre-certified components for multiple services.
@@ -376,22 +436,28 @@ The following checklist provides a starting point, but teams should work closely
 #### Natoma’s Response to Key Questions
 
 1.	Does the service collect personal information from the user? How is the user notified of this collection?
-- In order to receive alert notifications, user musts enter information regarding phone number, email address and location. The application includes a statement telling users that the purpose of the application is to obtain user emails and phone numbers in order to provide them with the alert notifications requested.
+
+    In order to receive alert notifications, user musts enter information regarding phone number, email address and location. The application includes a statement telling users that the purpose of the application is to obtain user emails and phone numbers in order to provide them with the alert notifications requested.
 
 2.	Does it collect more information than necessary? Could the data be used in ways an average user wouldn't expect?
-- The application only collects that information necessary to geocode their address in order to send requested notifications.  The data collected cannot be used in ways the average user would not expect.
+
+    The application only collects that information necessary to geocode their address in order to send requested notifications.  The data collected cannot be used in ways the average user would not expect.
 
 3.	How does a user access, correct, delete, or remove personal information?
-- A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
+
+    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
 
 4.	Will any of the personal information stored in the system be shared with other services, people, or partners?
-- No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
+
+    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
 
 5.	How and how often is the service tested for security vulnerabilities?
-- Natoma performed limited security testing for purposes of the Working Prototype given the limited nature of the development effort.
+
+    Natoma performed limited security testing for purposes of the Working Prototype given the limited nature of the development effort.
 
 6.	How can someone from the public report a security issue?
-- Yes, the site includes an email address for users to report any issues.
+
+    Yes, the site includes an email address for users to report any issues.
 
 
 ### PLAY 12 USE DATA TO DRIVE DECISIONS
@@ -410,43 +476,56 @@ At every stage of a project, we should measure how well our service is working f
 
 #### Key Questions
 1.	What are the key metrics for the service?  
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 2.	How have these metrics performed over the life of the service?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 3.	Which system monitoring tools are in place?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 4.	What is the targeted average response time for your service? What percent of requests take more than 1 second, 2 seconds, 4 seconds, and 8 seconds?
--The Working Prototype does not require response time tracking.
+
+    The Working Prototype does not require response time tracking.
     
 5.	What is the average response time and percentile breakdown (percent of requests taking more than 1s, 2s, 4s, and 8s) for the top 10 transactions?
--Response time testing was not required for the Working Prototype. 
+
+    Response time testing was not required for the Working Prototype. 
 
 6.	What is the volume of each of your service’s top 10 transactions? What is the percentage of transactions started vs. completed?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 7.	What is your service’s monthly uptime target?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 8.	What is your service’s monthly uptime percentage, including scheduled maintenance? Excluding scheduled maintenance?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 9.	How does your team receive automated alerts when incidents occur?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+     Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 10.	How does your team respond to incidents? What is your post-mortem process?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 11.	Which tools are in place to measure user behavior?
--Natoma has integrated Google Analytics into the prototype.
+
+    Natoma has integrated Google Analytics into the prototype.
 
 12.	What tools or technologies are used for A/B testing?
--A/B testing has not been performed, Natoma has integrated Google Analytics into the prototype and this would support gathering analytics during A/B testing, if used.  
+
+    A/B testing has not been performed, Natoma has integrated Google Analytics into the prototype and this would support gathering analytics during A/B testing, if used.  
 
 13.	How do you measure customer satisfaction?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ####PLAY 13 DEFAULT TO OPEN
 
@@ -464,20 +543,26 @@ When we collaborate in the open and publish our data publicly, we can improve Go
 9.	When appropriate, share your development process and progress publicly
 
 Key Questions
+
 1.	How are you collecting user feedback for bugs and issues?
-- End-users have the ability to provide feedback directly through a link on the About pages and on the Error page.  In addition, the site records page-by-page activity via Google Analytics and analysis of these metrics can provide insight into difficulties experienced by end-users.  
+
+    End-users have the ability to provide feedback directly through a link on the About pages and on the Error page.  In addition, the site records page-by-page activity via Google Analytics and analysis of these metrics can provide insight into difficulties experienced by end-users.  
 
 2.	If there is an API, what capabilities does it provide? Who uses it? How is it documented?
-- The User Interface (UI) utilized an API to access the Prototype’s data access layer. It has been documented with Swagger.
+
+    The User Interface (UI) utilized an API to access the Prototype’s data access layer. It has been documented with Swagger.
 
 3.	If the codebase has not been released under an open source license, explain why.
-- This question does not apply. The codebase has been released to the GitHub directory as a public project.
+
+    This question does not apply. The codebase has been released to the GitHub directory as a public project.
 
 4.	What components are made available to the public as open source?
-- The entire project is available to the public as open source.
+
+    The entire project is available to the public as open source.
 
 5.	What datasets are made available to the public?
-- The Working Prototype application as currently envisioned is a data consumer and not a data provider.  As such, the datasets are not being made public at this time. The code is available to the public.
+
+    The Working Prototype application as currently envisioned is a data consumer and not a data provider.  As such, the datasets are not being made public at this time. The code is available to the public.
 
 ## Natoma’s ReadME.md File References the RFI Requirements
 “The README.md file should also make reference to the following (items A through T in the RFI)”
@@ -608,7 +693,6 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
 
-(939 words)
  
 [prototype-url]: <http://prototype.natomadev.com/HHSPrototype/>
 [sys-url]:<http://www.youthsolutions.org/>

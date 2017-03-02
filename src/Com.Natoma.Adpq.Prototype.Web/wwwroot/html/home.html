@@ -2,7 +2,6 @@
     <div *ngIf="userService.checkLogin()">
         <header>
             <div class="header-logout">
-                <a class="faq-link" routerLink="faq" routerLinkActive="active">FAQ</a>
                 <span class="logout-link" (click)="userService.logUserOut()">Logout</span>
             </div>
             <div class="user-name">{{userService._loggedInUser?.firstName}} {{userService._loggedInUser?.lastName}}{{userService._loggedInUser?.isAdmin ? ' (Admin)' : ''}}</div>
@@ -14,7 +13,10 @@
     <router-outlet></router-outlet>
 
 </div>
-<footer class="footer">Issues? contact <a href="mailto:adpq2@natomatech.com">adpq2@natomatech.com</a></footer>
+<footer class="footer">
+    Issues? contact <a href="mailto:adpq2@natomatech.com">adpq2@natomatech.com</a>
+    <a class="faq-link" routerLink="faq" routerLinkActive="active">FAQ</a>
+</footer>
 
 <p-growl [value]="growls"></p-growl>
 <p-growl [value]="stickyGrowls" sticky="sticky"></p-growl>
