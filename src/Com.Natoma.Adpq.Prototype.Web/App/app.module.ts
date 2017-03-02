@@ -11,6 +11,7 @@ import { UserNotificationsComponent } from './user/user-notifications.component'
 import { AdminHomeComponent } from './admin/admin-home.component';
 import { AdminNotificationComponent } from './admin/admin-notification.component';
 import { AdminMetricsComponent } from './admin/admin-metrics.component';
+import { FaqComponent } from './faq.component';
 
 import { routing } from './app.routing';
 
@@ -29,7 +30,8 @@ import { routing } from './app.routing';
         AdminHomeComponent,
         AdminNotificationComponent,
         UserNotificationsComponent,
-        AdminMetricsComponent
+        AdminMetricsComponent,
+        FaqComponent
     ],
     bootstrap: [
         AppComponent

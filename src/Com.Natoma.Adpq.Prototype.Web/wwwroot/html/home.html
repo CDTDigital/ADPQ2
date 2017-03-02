@@ -1,8 +1,12 @@
 ﻿<div class="content">
     <div *ngIf="userService.checkLogin()">
         <header>
-            <div class="header-logout" (click)="userService.logUserOut()">Logout</div>
+            <div class="header-logout">
+                <a class="faq-link" routerLink="faq" routerLinkActive="active">FAQ</a>
+                <span class="logout-link" (click)="userService.logUserOut()">Logout</span>
+            </div>
             <div class="user-name">{{userService._loggedInUser?.firstName}} {{userService._loggedInUser?.lastName}}{{userService._loggedInUser?.isAdmin ? ' (Admin)' : ''}}</div>
+
         </header>
         <p-breadcrumb [model]="adpqService.breadcrumbItems" [home]="homeIcon"></p-breadcrumb>
     </div>

@@ -114,6 +114,23 @@ img.background {
          -o-animation: fadein 6s; /* Opera < 12.1 */
             animation: fadein 6s;
 }
+a.faq-link {
+    margin-right: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+span.logout-link:hover {
+    color:#00008B;
+}
+
+p.adpq-question {
+    font-weight: 700;
+    color: #87CEFA;
+    font-size: 1.2em;
+}
+div.faq-content {
+    margin-top: 35px;
+}
 
 @keyframes fadein {
     from { opacity: 0; }

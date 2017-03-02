@@ -1,0 +1,35 @@
+﻿<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Frequently Asked Questions</h1>
+    </div>
+</div>
+
+<div *ngIf="!isAdmin" class="row faq-content">
+    <div class="col-md-8 col-md-offset-2">
+        <p class="adpq-question">What is the purpose of this site?</p>
+        <p class="adpq-answer">This site is a demonstration prorotype project developed for the state of California.  A user that registers may receive notifications via text and/or emmail from someone testing the system.</p>
+        <p class="adpq-question">How do I create an account?</p>
+        <p class="adpq-answer">To create an account click the Create Account link on the login page.  You will be prompted to enter account information.</p>
+        <p class="adpq-question">What if I want to change my information after I've created an account?</p>
+        <p class="adpq-answer">To update your account, login and select the option to Update Profile.  You can then change your information including your password.</p>
+        <p class="adpq-question">I forgot my password, how do I reset it?</p>
+        <p class="adpq-answer">Unfortunately, the option to reset your password is not available.  You may need to create a new account with a different email at this time, since the demonstration project did not include a change password feature at this time.</p>
+    </div>
+</div>
+
+<div *ngIf="isAdmin" class="row faq-content">
+    <div class="col-md-8 col-md-offset-2">
+        <p class="adpq-question">How do I send Notifications?</p>
+        <p class="adpq-answer">To send notifications, click the Send notifications option on your home page.  Once on the page select the type of notification you will be sending.  The type of notification can be blast to send to all subscribers or regional to send to subscribers in a defined region.  </p>
+        <p class="adpq-question">How do I use the notification type of Region?</p>
+        <p class="adpq-answer">The notificaition type of region requires a reference address to use as the reference location for the radius in miles.  When selected, the system will send notifications only to those subscribers with addresses within the radius, in miles of the reference location.</p>
+        <p class="adpq-question">What information is needed to send a notification?</p>
+        <p class="adpq-answer">To send a notification you need to provide an email subject for the notification being sent, an email message that you can format in HTML, and the equivalent message to send via SMS as a text.</p>
+        <p class="adpq-question">How do I find analytical information on the notifications I've sent?</p>
+        <p class="adpq-answer">To view information click on the option for Notification Metrics on your home page.  This will provide you with a summary of information on the notifications sent in the last 30 days as well as a chart with a graphical representation of your metrics.</p>
+        <p class="adpq-question">What if I want to change my information after I've created an account?</p>
+        <p class="adpq-answer">To update your account, login and select the option to Update Profile.  You can then change your information including your password.</p>
+        <p class="adpq-question">I forgot my password, how do I reset it?</p>
+        <p class="adpq-answer">Unfortunately, the option to reset your password is not available.  You may need to create a new account with a different email at this time, since the demonstration project did not include a change password feature at this time.</p>
+    </div>
+</div>
