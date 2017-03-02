@@ -1,6 +1,6 @@
-FROM microsoft/aspnetcore:1.0.1
-ENTRYPOINT ["dotnet", "Com.Natoma.Adpq.Prototype.Api.dll"]
-ARG source=.
+FROM microsoft/dotnet
 WORKDIR /app
 EXPOSE 80
-COPY $source .
+COPY out ./
+ENTRYPOINT ["dotnet", "Com.Natoma.Adpq.Prototype.Api.dll"]
+
