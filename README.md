@@ -53,7 +53,8 @@ We must begin digital projects by exploring and pinpointing the needs of the peo
 
 #### Natoma’s Response to Key Questions
 1.	Who are your primary users?
-- California residents from across the State. 
+
+California residents from across the State. 
 
 2.	What user needs will this service address?
 - California residents can register to receive email and/or text notifications of emergency or non-emergency events based on their selected location within the state of California.
