@@ -290,13 +290,16 @@ The technology decisions we make need to enable development teams to work effici
 
 
 1.	What is your development stack and why did you choose it?
-- Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
+
+Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
 
 2.	Which databases are you using and why did you choose them?
-- Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
+
+Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
 
 3.	How long does it take for a new team member to start developing?
-- Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
+
+Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
 
 ### PLAY 9 DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
 Our services should be deployed on flexible infrastructure, where resources can be provisioned in real-time to meet spikes traffic and user demand. Our digital services are crippled when we host them in data centers that market themselves as “cloud hosting” but require us to manage and maintain hardware directly. This outdated practice wastes time, weakens our disaster recovery plans, and results in significantly higher costs.
@@ -312,43 +315,56 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 #### Natoma’s Response to Key Questions
 1.	Where is your service hosted?
-- Amazon Web Services.
+
+    Amazon Web Services.
 
 2.	What hardware does your service use to run?
-- The hardware is abstracted by the cloud services used and that information is not provided by the service. The service runs on a virtual machine.  
+
+    The hardware is abstracted by the cloud services used and that information is not provided by the service. The service runs on a virtual machine.  
 
 3.	What is the demand or usage pattern for your service?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 4.	What happens to your service when it experiences a surge in traffic or load?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 5.	How much capacity is available in your hosting environment?
-- Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
+
+    Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
 
 6.	How long does it take you to provision a new resource, like an application server?
-- Approximately five (5) minutes to provision a new Windows application server.
+
+    Approximately five (5) minutes to provision a new Windows application server.
 
 7.	How have you designed your service to scale based on demand?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 8.	How are you paying for your hosting infrastructure (e.g., by the minute, hourly, daily, monthly, fixed)?
-- By the minute although AWS offers a fixed cost if reserving for a minimum of one year.
+
+    By the minute although AWS offers a fixed cost if reserving for a minimum of one year.
 
 9.	Is your service hosted in multiple regions, availability zones, or data centers?
-- No. This question does not apply to the Working Prototype.
+
+    No. This question does not apply to the Working Prototype.
 
 10.	In the event of a catastrophic disaster to a datacenter, how long will it take to have the service operational?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 11.	What would be the impact of a prolonged downtime window?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 12.	What data redundancy do you have built into the system, and what would be the impact of a catastrophic data loss?
-- This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
+
+    This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
   
 13.	How often do you need to contact a person from your hosting provider to get resources or to fix an issue?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ### PLAY 10 AUTOMATE TESTING AND DEPLOYMENTS
 Today, developers write automated scripts that can verify thousands of scenarios in minutes and then deploy updated code into production environments multiple times a day. They use automated performance tests which simulate surges in traffic to identify performance bottlenecks. While manual tests and quality assurance are still necessary, automated tests provide consistent and reliable protection against unintentional regressions, and make it possible for developers to confidently release frequent updates to the service.
@@ -363,36 +379,46 @@ Today, developers write automated scripts that can verify thousands of scenarios
 
 #### Natoma’s Response to Key Questions
 1.	What percentage of the code base is covered by automated tests?
-- Natoma estimates that 75% of the code is covered by automated testing.
+
+    Natoma estimates that 75% of the code is covered by automated testing.
 
 2.	How long does it take to build, test, and deploy a typical bug fix?
-- Less than 10 minutes with deployment automation.
+
+    Less than 10 minutes with deployment automation.
 
 3.	How long does it take to build, test, and deploy a new feature into production?
-- Less than 10 minutes with deployment automation
+
+    Less than 10 minutes with deployment automation
 
 4.	How frequently are builds created?
-- Builds are created with each check in of code. This occurred on a daily basis throughout Prototype development.
+
+    Builds are created with each check in of code. This occurred on a daily basis throughout Prototype development.
 
 5.	What test tools are used?
-The following test tools are used:
--	Unit testing / Unit integration testing are supported by Moq and XUnit
--	GitHub using the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub.   
+
+    The following test tools are used:
+        Unit testing / Unit integration testing are supported by Moq and XUnit
+        GitHub using the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub.   
 
 6.	Which deployment automation or continuous integration tools are used?
-- GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations.  
+
+    GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations.  
  
 7.	What is the estimated maximum number of concurrent users who will want to use the system?
-- Natoma’s Working Prototype is anticipated to have ten or fewer concurrent users.  
+
+    Natoma’s Working Prototype is anticipated to have ten or fewer concurrent users.  
 
 8.	How many simultaneous users could the system handle, according to the most recent capacity test?
-- This prototype does not require formal capacity testing.   Informal testing demonstrated that five concurrent users resulted in no performance degradation.  
+
+    This prototype does not require formal capacity testing. Informal testing demonstrated that five concurrent users resulted in no performance degradation.  
 
 9.	How does the service perform when you exceed the expected target usage volume? Does it degrade gracefully or catastrophically?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 10.	What is your scaling strategy when demand increases suddenly?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ### PLAY 11 MANAGE SECURITY AND PRIVACY THROUGH REUSABLE PROCESSES 
 Our digital services have to protect sensitive information and keep systems secure. This is typically a process of continuous review and improvement which should be built into the development and maintenance of the service. At the start of designing a new service or feature, the team lead should engage the appropriate privacy, security, and legal officer(s) to discuss the type of information collected, how it should be secured, how long it is kept, and how it may be used and shared. The sustained engagement of a privacy specialist helps ensure that personal data is properly managed. In addition, a key process to building a secure service is comprehensively testing and certifying the components in each layer of the technology stack for security vulnerabilities, and then to re-use these same pre-certified components for multiple services.
@@ -410,22 +436,28 @@ The following checklist provides a starting point, but teams should work closely
 #### Natoma’s Response to Key Questions
 
 1.	Does the service collect personal information from the user? How is the user notified of this collection?
-- In order to receive alert notifications, user musts enter information regarding phone number, email address and location. The application includes a statement telling users that the purpose of the application is to obtain user emails and phone numbers in order to provide them with the alert notifications requested.
+
+    In order to receive alert notifications, user musts enter information regarding phone number, email address and location. The application includes a statement telling users that the purpose of the application is to obtain user emails and phone numbers in order to provide them with the alert notifications requested.
 
 2.	Does it collect more information than necessary? Could the data be used in ways an average user wouldn't expect?
-- The application only collects that information necessary to geocode their address in order to send requested notifications.  The data collected cannot be used in ways the average user would not expect.
+
+    The application only collects that information necessary to geocode their address in order to send requested notifications.  The data collected cannot be used in ways the average user would not expect.
 
 3.	How does a user access, correct, delete, or remove personal information?
-- A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
+
+    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
 
 4.	Will any of the personal information stored in the system be shared with other services, people, or partners?
-- No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
+
+    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
 
 5.	How and how often is the service tested for security vulnerabilities?
-- Natoma performed limited security testing for purposes of the Working Prototype given the limited nature of the development effort.
+
+    Natoma performed limited security testing for purposes of the Working Prototype given the limited nature of the development effort.
 
 6.	How can someone from the public report a security issue?
-- Yes, the site includes an email address for users to report any issues.
+
+    Yes, the site includes an email address for users to report any issues.
 
 
 ### PLAY 12 USE DATA TO DRIVE DECISIONS
@@ -444,43 +476,56 @@ At every stage of a project, we should measure how well our service is working f
 
 #### Key Questions
 1.	What are the key metrics for the service?  
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 2.	How have these metrics performed over the life of the service?
-- This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 3.	Which system monitoring tools are in place?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 4.	What is the targeted average response time for your service? What percent of requests take more than 1 second, 2 seconds, 4 seconds, and 8 seconds?
--The Working Prototype does not require response time tracking.
+
+    The Working Prototype does not require response time tracking.
     
 5.	What is the average response time and percentile breakdown (percent of requests taking more than 1s, 2s, 4s, and 8s) for the top 10 transactions?
--Response time testing was not required for the Working Prototype. 
+
+    Response time testing was not required for the Working Prototype. 
 
 6.	What is the volume of each of your service’s top 10 transactions? What is the percentage of transactions started vs. completed?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 7.	What is your service’s monthly uptime target?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 8.	What is your service’s monthly uptime percentage, including scheduled maintenance? Excluding scheduled maintenance?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 9.	How does your team receive automated alerts when incidents occur?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+     Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 10.	How does your team respond to incidents? What is your post-mortem process?
--Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+
+    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 11.	Which tools are in place to measure user behavior?
--Natoma has integrated Google Analytics into the prototype.
+
+    Natoma has integrated Google Analytics into the prototype.
 
 12.	What tools or technologies are used for A/B testing?
--A/B testing has not been performed, Natoma has integrated Google Analytics into the prototype and this would support gathering analytics during A/B testing, if used.  
+
+    A/B testing has not been performed, Natoma has integrated Google Analytics into the prototype and this would support gathering analytics during A/B testing, if used.  
 
 13.	How do you measure customer satisfaction?
--This question does not apply to the Working Prototype.
+
+    This question does not apply to the Working Prototype.
 
 ####PLAY 13 DEFAULT TO OPEN
 
@@ -499,19 +544,24 @@ When we collaborate in the open and publish our data publicly, we can improve Go
 
 Key Questions
 1.	How are you collecting user feedback for bugs and issues?
-- End-users have the ability to provide feedback directly through a link on the About pages and on the Error page.  In addition, the site records page-by-page activity via Google Analytics and analysis of these metrics can provide insight into difficulties experienced by end-users.  
+
+    End-users have the ability to provide feedback directly through a link on the About pages and on the Error page.  In addition, the site records page-by-page activity via Google Analytics and analysis of these metrics can provide insight into difficulties experienced by end-users.  
 
 2.	If there is an API, what capabilities does it provide? Who uses it? How is it documented?
-- The User Interface (UI) utilized an API to access the Prototype’s data access layer. It has been documented with Swagger.
+
+    The User Interface (UI) utilized an API to access the Prototype’s data access layer. It has been documented with Swagger.
 
 3.	If the codebase has not been released under an open source license, explain why.
-- This question does not apply. The codebase has been released to the GitHub directory as a public project.
+
+    This question does not apply. The codebase has been released to the GitHub directory as a public project.
 
 4.	What components are made available to the public as open source?
-- The entire project is available to the public as open source.
+
+    The entire project is available to the public as open source.
 
 5.	What datasets are made available to the public?
-- The Working Prototype application as currently envisioned is a data consumer and not a data provider.  As such, the datasets are not being made public at this time. The code is available to the public.
+
+    The Working Prototype application as currently envisioned is a data consumer and not a data provider.  As such, the datasets are not being made public at this time. The code is available to the public.
 
 ## Natoma’s ReadME.md File References the RFI Requirements
 “The README.md file should also make reference to the following (items A through T in the RFI)”
