@@ -25,10 +25,7 @@ namespace Com.Natoma.Adpq.Prototype.Web
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
             Configuration = builder.Build();
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
-                Startup.ApiUrl = Configuration["ApiDevUrl"];
-            else
-                Startup.ApiUrl = Configuration["ApiProdUrl"];
+            ApiUrl = Configuration["ApiUrl"];
         }
 
         public IConfigurationRoot Configuration { get; }
