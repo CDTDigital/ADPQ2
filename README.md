@@ -291,15 +291,15 @@ The technology decisions we make need to enable development teams to work effici
 
 1.	What is your development stack and why did you choose it?
 
-Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
+    Natoma selected the .NET core development stack with Angular 2. We chose this stack because we are aware that the State of California has already made a significant investment into .NET technologies and will likely be in a better position to support this technology stack than others.  This is also a stack in which Natoma has significant experience so we were able to field a team with the appropriate experience quickly for purposes of the Working Prototype response.
 
 2.	Which databases are you using and why did you choose them?
 
-Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
+    Natoma is using PostgreSQL for the project database. We are aware that the State of California is using it on other projects and it is easily installed using published Docker images.  Additionally, the Natoma team has experience with PostgreSQL allowing us to rapidly build out the Working Prototype team.
 
 3.	How long does it take for a new team member to start developing?
 
-Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
+    Natoma selected team members from within the Natoma community already familiar with the technology stacks and had worked together in the past as such, each developer on the team was able to start developing from day one.
 
 ### PLAY 9 DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
 Our services should be deployed on flexible infrastructure, where resources can be provisioned in real-time to meet spikes traffic and user demand. Our digital services are crippled when we host them in data centers that market themselves as “cloud hosting” but require us to manage and maintain hardware directly. This outdated practice wastes time, weakens our disaster recovery plans, and results in significantly higher costs.
