@@ -1,6 +1,6 @@
 FROM microsoft/dotnet
 WORKDIR /app
-EXPOSE 5000
+EXPOSE 61552
 COPY out ./
 ENTRYPOINT ["dotnet", "Com.Natoma.Adpq.Prototype.Api.dll"]
 
