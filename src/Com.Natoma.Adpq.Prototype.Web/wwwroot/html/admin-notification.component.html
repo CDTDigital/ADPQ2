@@ -46,7 +46,7 @@
                         <div class="form-group row">
                             <label for="admin-ref-zip-input" class="col-md-2 col-form-label">Zip<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                             <div class="col-md-2">
-                                <input id="admin-ref-zip-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zip" name="admin-ref-zip-input" #adminRefZip="ngModel">
+                                <input id="admin-ref-zip-input" pInputText class="form-control" type="text" value="" required [(ngModel)]="notification.zipcode" name="admin-ref-zip-input" #adminRefZip="ngModel">
                             </div>
                             <div [hidden]="adminRefZip.valid || adminRefZip.pristine" class="col-md-4 alert alert-danger"> ZIP is required </div>
                         </div>

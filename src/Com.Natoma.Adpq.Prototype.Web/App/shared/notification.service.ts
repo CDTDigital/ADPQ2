@@ -9,7 +9,7 @@ export class Notification {
     notificationType: NotificationGeoType;
     addressLine1: string;
     city: string;
-    zip: string;
+    zipcode: string;
     state: string;
     radiusMiles: number;
     numberOfRecipients: number;
