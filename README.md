@@ -97,16 +97,20 @@ We need to understand the different ways people will interact with our services,
 
 #### Natoma’s Response to Key Questions
 1.	What are the different ways (both online and offline) that people currently accomplish the task the digital service is designed to help with?
-- California residents currently receive alert notifications via television, radio, internet alerts, mobile phone-based web applications for weather and traffic, police alerts, and via word of mouth. 
+
+    California residents currently receive alert notifications via television, radio, internet alerts, mobile phone-based web applications for weather and traffic, police alerts, and via word of mouth. 
 
 2.	Where are user pain points in the current way people accomplish the task?
-- Alert notifications are usually driven by the type of alert requested – weather alerts are given on weather-based programs or weather-applications; traffic alerts are given on the radio or television in increments requiring the user to monitor them or through traffic-based application. Users are required to monitor or subscribe to a wide variety of services to stay informed of emergencies or other events.
+
+    Alert notifications are usually driven by the type of alert requested – weather alerts are given on weather-based programs or weather-applications; traffic alerts are given on the radio or television in increments requiring the user to monitor them or through traffic-based application. Users are required to monitor or subscribe to a wide variety of services to stay informed of emergencies or other events.
 
 3.	Where does this specific project fit into the larger way people currently obtain the service being offered?
-- The Working Prototype, if further developed, would be an internet-based web application allowing users to sign up to receive alert notifications for events based on their choice of events and their selected location via email or mobile text messaging.
+
+    The Working Prototype, if further developed, would be an internet-based web application allowing users to sign up to receive alert notifications for events based on their choice of events and their selected location via email or mobile text messaging.
 
 4.	What metrics will best indicate how well the service is working for its users?
-- The diversity of alert notifications available through the services. The number of users registered to receive the service and performance metrics indicating the time between notification of an emergency event and distribution of the notification to end users.
+
+    The diversity of alert notifications available through the services. The number of users registered to receive the service and performance metrics indicating the time between notification of an emergency event and distribution of the notification to end users.
 
 
 
@@ -123,27 +127,32 @@ Using a government service shouldn’t be stressful, confusing, or daunting. It�
 
 #### Natoma’s Response to Key Questions
 1.	What primary tasks are the user trying to accomplish?
--  Establish a web-based application that allows users to 1) register to participate 2) create a user login 3) create a user profile that includes selecting the medium for receiving the alert (email, text) providing location, providing phone numbers for text messages, providing an email address. 4) Establishing an alert notification process 5) Identifying open source based technologies on which this system can operate
+
+    Establish a web-based application that allows users to 1) register to participate 2) create a user login 3) create a user profile that includes selecting the medium for receiving the alert (email, text) providing location, providing phone numbers for text messages, providing an email address. 4) Establishing an alert notification process 5) Identifying open source based technologies on which this system can operate
 
 2.	Is the language as plain and universal as possible?
--  The Natoma team performed multiple reviews with the end user to validate that the language used in the prototype is minimal and straight forward.
+
+    The Natoma team performed multiple reviews with the end user to validate that the language used in the prototype is minimal and straight forward.
 
 3.	What languages is your service offered in?
-- Natoma’s Working Prototype was built in standard American English. The team identified and created a user story requesting Spanish translation. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
+
+    Natoma’s Working Prototype was built in standard American English. The team identified and created a user story requesting Spanish translation. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
 
 4.	If a user needs help while using the service, how do they go about getting it?
-- The Working Prototype provides an email address allowing users to contact the application administrator. The team identified and created a user story requesting a Frequently Asked Questions (FAQ) page. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
+
+    The Working Prototype provides an email address allowing users to contact the application administrator. The team identified and created a user story requesting a Frequently Asked Questions (FAQ) page. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
 
 5.	How does the service’s design visually relate to other government services?  
-- Natoma looked at the following government-sponsored web sites supporting alert notications:
 
-http://www.caloes.ca.gov/cal-oes-divisions/warning-center
+    Natoma looked at the following government-sponsored web sites supporting alert notications:
 
-https://www.fcc.gov/consumers/guides/emergency-alert-system-eas
+    http://www.caloes.ca.gov/cal-oes-divisions/warning-center
 
-http://www.calalerts.org/
+    https://www.fcc.gov/consumers/guides/emergency-alert-system-eas
 
-The service offered by the Working Prototype would be unique to existing State services but the language and visual design of the sites listed here were considered within the Prototype design. If the Prototype were being built for a known State agency, Natoma review that agency’s existing web pages and use established standards related to look and feel.
+    http://www.calalerts.org/
+
+    The service offered by the Working Prototype would be unique to existing State services but the language and visual design of the sites listed here were considered within the Prototype design. If the Prototype were being built for a known State agency, Natoma review that agency’s existing web pages and use established standards related to look and feel.
 
 ### PLAY 4 BUILD THE SERVICE USING AGILE AND ITERATIVE PRACTICES
 We should use an incremental, fast-paced style of software development to reduce the risk of failure. We want to get working software into users’ hands as early as possible to give the design and development team opportunities to adjust based on user feedback about the service. A critical capability is being able to automatically test and deploy the service so that new features can be added often and be put into production easily.
@@ -164,31 +173,40 @@ We should use an incremental, fast-paced style of software development to reduce
 #### Natoma’s Response to Key Questions
 
 1.	How long did it take to ship the MVP? If it hasn't shipped yet, when will it?
-- The MVP was deployed after the first sprint – three (3) days 
+
+    The MVP was deployed after the first sprint – three (3) days 
 
 2.	How long does it take for a production deployment?
-- Natoma Integrated GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations. Once automation was established, production deployment occurred within minutes.
+
+    Natoma Integrated GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub. We used Ansible to deploy Dockerhub images to our working and production environments based on the environment specific configurations. Once automation was established, production deployment occurred within minutes.
 
 3.	How many days or weeks are in each iteration/sprint?
--Five (5) days.  
+
+    Five (5) days.  
 
 2.	Which version control system is being used?
-- Natoma used GitHub to maintain version control using a Team Foundation Server plugin. 
+
+    Natoma used GitHub to maintain version control using a Team Foundation Server plugin. 
 
 3.	How are bugs tracked and tickets issued? What tool is used?
-- Each user story was entered into GitHub created with acceptance criteria that were then translated into test cases. The Natoma usability tester executed the tests cases within the prototype and tracked defects also within GitHub. Defects/bugs identified are created in TFS, triaged, assigned priority and severity, and tracked to completion.  Test cases were then automated for continued reuse with follow on sprints.
+
+    Each user story was entered into GitHub created with acceptance criteria that were then translated into test cases. The Natoma usability tester executed the tests cases within the prototype and tracked defects also within GitHub. Defects/bugs identified are created in TFS, triaged, assigned priority and severity, and tracked to completion.  Test cases were then automated for continued reuse with follow on sprints.
 
 4.	How is the feature backlog managed? What tool is used?
-- Features are written as user stories, which are entered into Pivotal Tracker as User Stories.  During Backlog Grooming the Product Owner prioritized the stories, and during Sprint Planning, the team moved the User Stories that were committed to into the Sprint Backlog and kept the remaining in the Product Backlog or Icebox.
+
+    Features are written as user stories, which are entered into Pivotal Tracker as User Stories.  During Backlog Grooming the Product Owner prioritized the stories, and during Sprint Planning, the team moved the User Stories that were committed to into the Sprint Backlog and kept the remaining in the Product Backlog or Icebox.
   
 5.	How often do you review and reprioritize the feature and bug backlog?
-- At the end of each Sprint. Prototype development used five (5) day sprints.
+
+    At the end of each Sprint. Prototype development used five (5) day sprints.
  
 6.	How do you collect user feedback during development? How is that feedback used to improve the service?
-- In addition to scheduling reviews with subject matter experts that approximate users, the prototype was made continuously available to the entire Natoma team who were instructed to utilize all features of the system to evaluate quality and completeness based on the MVP. The team then provided suggestions for improvement in the form of new user stories that were either incorporated into the backlog for the following sprint or added to the icebox for future consideration.
+
+    In addition to scheduling reviews with subject matter experts that approximate users, the prototype was made continuously available to the entire Natoma team who were instructed to utilize all features of the system to evaluate quality and completeness based on the MVP. The team then provided suggestions for improvement in the form of new user stories that were either incorporated into the backlog for the following sprint or added to the icebox for future consideration.
    
 7.	At each stage of usability testing, which gaps were identified in addressing user needs?
-- Two gaps were identified. 1) Provide a mechanism for forgotten passwords. 2) Create a mechanism to use existing external data for existing notifications. The Project Director determined that these two gaps could be developed as future enhancements to the product since they are not necessary for MVP.  The user stories were added to the Icebox. 
+
+    Two gaps were identified. 1) Provide a mechanism for forgotten passwords. 2) Create a mechanism to use existing external data for existing notifications. The Project Director determined that these two gaps could be developed as future enhancements to the product since they are not necessary for MVP.  The user stories were added to the Icebox. 
 
 ### PLAY 5 STRUCTURE BUDGETS AND CONTRACTS TO SUPPORT DELIVERY
 To improve our chances of success when contracting out development work, we need to work with experienced budgeting and contracting officers. In cases where we use third parties to help build a service, a well-defined contract can facilitate good development practices like conducting a research and prototyping phase, refining product requirements as the service is built, evaluating open source alternatives, ensuring frequent delivery milestones, and allowing the flexibility to purchase cloud computing resources.
@@ -226,13 +244,16 @@ There must be a single product owner who has the authority and responsibility to
 
 #### Natoma’s Response to Key Questions
 1.	Who is the product owner?
-- Veronica Westlund, Vice President COO of Natoma Technologies, Inc.  
+
+    Veronica Westlund, Vice President COO of Natoma Technologies, Inc.  
 
 2.	What organizational changes have been made to ensure the product owner has sufficient authority over and support for the project?
--As Vice President and COO of Natoma, the Product Owner has sufficient authority over the Working Prototype.
+
+    As Vice President and COO of Natoma, the Product Owner has sufficient authority over the Working Prototype.
 
 3.	What does it take for the product owner to add or remove a feature from the service?
-- The Product Owner determined the Minimum Viable Product requirements or features with the initiation of the project. The project team working with an identified user community defined user stories. The Product Owner mapped user stories to product epics creating the MVP. She then evaluated additional user stories to determine if they resulted in additional features to be added to the Prototype based on the impact to MVP.
+
+    The Product Owner determined the Minimum Viable Product requirements or features with the initiation of the project. The project team working with an identified user community defined user stories. The Product Owner mapped user stories to product epics creating the MVP. She then evaluated additional user stories to determine if they resulted in additional features to be added to the Prototype based on the impact to MVP.
 
 
 ### PLAY 7 BRING IN EXPERIENCED TEAMS
