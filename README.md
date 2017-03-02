@@ -543,6 +543,7 @@ When we collaborate in the open and publish our data publicly, we can improve Go
 9.	When appropriate, share your development process and progress publicly
 
 Key Questions
+
 1.	How are you collecting user feedback for bugs and issues?
 
     End-users have the ability to provide feedback directly through a link on the About pages and on the Error page.  In addition, the site records page-by-page activity via Google Analytics and analysis of these metrics can provide insight into difficulties experienced by end-users.  
