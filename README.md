@@ -1,6 +1,7 @@
 # California Department of Technology, Request for Interest #CDT-ADQP-0117 Pre-Qualified Vendor Pool for Digital Services – Agile Development
 
 
+
 ![Natoma Technologies, Inc. Logo][logo]
 
 
@@ -9,7 +10,7 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 “The working prototype will be an application that will allow California residents to establish and manage their profile and receive emergency and non-emergency notifications via email, Short Message Service (SMS), and/or push notification based on the location and contact information provided in their profile and/or the geo-location of their cellphone if they have opted in for this service. In addition, the working prototype will provide the authorized administrative users with the ability to publish notifications and track, and analyze and visualize related data. The working prototype does not need to implement any authentication or authorization against an external directory or authentication mechanism.”
 
- 
+
 
 # [Link to the prototype web-application][prototype-url]  
 Address: <<need to add this when available>> http://prototype.natomadev.com/HHSPrototype/
@@ -126,10 +127,14 @@ Using a government service shouldn’t be stressful, confusing, or daunting. It�
 - The Working Prototype provides an email address allowing users to contact the application administrator. The team identified and created a user story requesting a Frequently Asked Questions (FAQ) page. This was deemed unnecessary to meet the MVP and was placed in the Icebox for future consideration.
 
 5.	How does the service’s design visually relate to other government services?  
-- Natoma reviewed other State of California web sites that provide or are related to the providing alert notifications. They are as follows:
+- Natoma looked at the following government-sponsored web sites supporting alert notications:
+
 http://www.caloes.ca.gov/cal-oes-divisions/warning-center
+
 https://www.fcc.gov/consumers/guides/emergency-alert-system-eas
+
 http://www.calalerts.org/
+
 The service offered by the Working Prototype would be unique to existing State services but the language and visual design of the sites listed here were considered within the Prototype design. If the Prototype were being built for a known State agency, Natoma review that agency’s existing web pages and use established standards related to look and feel.
 
 ### PLAY 4 BUILD THE SERVICE USING AGILE AND ITERATIVE PRACTICES
