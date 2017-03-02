@@ -18,7 +18,7 @@
     "com.natoma.hhs.prototype.api": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/",
+      "launchUrl": "http://localhost:5050/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
