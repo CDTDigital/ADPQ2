@@ -1,6 +1,6 @@
-# California Department of Technology, Request for Interest #CDT-ADQP-0117
+# California Department of Technology, Request for Interest #CDT-ADQP-0117 Pre-Qualified Vendor Pool for Digital Services – Agile Development
 
-# Prequalified-Vendor Pool for Digital Services – Agile Development
+
 ![Natoma Technologies, Inc. Logo][logo]
 
 
@@ -608,7 +608,6 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
 
-(939 words)
  
 [prototype-url]: <http://prototype.natomadev.com/HHSPrototype/>
 [sys-url]:<http://www.youthsolutions.org/>
