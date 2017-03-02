@@ -1,4 +1,5 @@
-FROM microsoft/dotnet
+FROM microsoft/aspnetcore
+#FROM microsoft/dotnet
 WORKDIR /app
 EXPOSE 61552
 COPY out ./
