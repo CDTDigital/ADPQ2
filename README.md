@@ -57,25 +57,32 @@ We must begin digital projects by exploring and pinpointing the needs of the peo
     California residents from across the State. 
 
 2.	What user needs will this service address?
-- California residents can register to receive email and/or text notifications of emergency or non-emergency events based on their selected location within the state of California.
+
+    California residents can register to receive email and/or text notifications of emergency or non-emergency events based on their selected location within the state of California.
 
 3.	Why does the user want or need this service?
-- California users want to know of events or situations such as heavy rain, fog, flooding, fires, large traffic jams, police action, etc that may impact their homes, schools, work places, travel destinations, commute, etc.
+
+    California users want to know of events or situations such as heavy rain, fog, flooding, fires, large traffic jams, police action, etc that may impact their homes, schools, work places, travel destinations, commute, etc.
 
 4.	Which people will have the most difficulty with the service?
-- People who are not used to or comfortable using internet-based services. Easy registration and sign up is necessary.
+
+    People who are not used to or comfortable using internet-based services. Easy registration and sign up is necessary.
 
 5.	Which research methods were used?
-- End user interviews and internet-based research around emergency notification systems with focus on the usability of the system and the technologies that support it.
+
+    End user interviews and internet-based research around emergency notification systems with focus on the usability of the system and   the technologies that support it.
 
 6.	What were the key findings?
-- For purposes of the Working Prototype, the Natoma Product Manager determined that the Prototype requires two basic functions/epics: the ability to establish a user profile based on alert notification types and location; and, the ability to create the notifications. 
+
+    For purposes of the Working Prototype, the Natoma Product Manager determined that the Prototype requires two basic functions/epics: the ability to establish a user profile based on alert notification types and location; and, the ability to create the notifications. 
 
 7.	How were the findings documented? Where can future team members access the documentation?
-- The findings of the interviews and research were documented as epics and user stories within Pivotal Tracker. The Product Manager provided team members with access to Pivotal Tracker, as needed, to review the user stories. Future team members requires access to the Pivotal Tracker project.
+
+    The findings of the interviews and research were documented as epics and user stories within Pivotal Tracker. The Product Manager provided team members with access to Pivotal Tracker, as needed, to review the user stories. Future team members requires access to the Pivotal Tracker project.
 
 8.	How often are you testing with real people?
-- Natoma team members conducted testing with each sprint. 
+
+    Natoma team members conducted testing with each sprint. 
 
 ### PLAY 2 ADDRESS THE WHOLE EXPERIENCE, FROM START TO FINISH
 
