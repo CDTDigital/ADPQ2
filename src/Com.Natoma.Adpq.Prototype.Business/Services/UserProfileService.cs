@@ -123,7 +123,7 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             userProfileViewModel.UserProfileId = newProfile.UserId;
             // generate a JWT token to return with the user
             var requestAt = DateTime.Now;
-            var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
+            var expiresIn = DateTime.Now.AddDays(2);
             userProfileViewModel.Token = TokenAuthUtils.GenerateToken(userProfileViewModel, expiresIn);
             userProfileViewModel.Password = "";
 

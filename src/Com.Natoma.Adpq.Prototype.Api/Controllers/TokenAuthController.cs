@@ -31,8 +31,7 @@ namespace Com.Natoma.Adpq.Prototype.Api.Controllers
             if (existingUser.Data != null)
             {
                 var userData = (UserProfileViewModel) existingUser.Data;
-                var requestAt = DateTime.Now;
-                var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
+                var expiresIn = DateTime.Now.AddDays(2);
                 var token = TokenAuthUtils.GenerateToken(userData, expiresIn);
 
                 return Ok(new RequestResult

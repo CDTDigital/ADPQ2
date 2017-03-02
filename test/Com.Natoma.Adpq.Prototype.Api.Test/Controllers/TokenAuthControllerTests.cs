@@ -33,7 +33,6 @@ namespace Com.Natoma.Adpq.Prototype.Api.Test.Controllers
                 Email = "email@email.com"
             };
             
-
             var result = await controller.GetAuthToken(user) as OkObjectResult;
             var requestResult = result.Value as RequestResult;
 
