@@ -18,6 +18,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             _smsOptions = smsOptions;
         }
 
+        /// <summary>
+        /// Sends a single SMS message
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <param name="smsMessage"></param>
+        /// <returns></returns>
         public async Task<bool> SendSms(string phoneNumber, string smsMessage)
         {
             var accountSid = _smsOptions.Value.AccountSid;
