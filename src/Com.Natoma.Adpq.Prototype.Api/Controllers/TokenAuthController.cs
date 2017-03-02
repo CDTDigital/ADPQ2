@@ -6,7 +6,6 @@ using Com.Natoma.Adpq.Prototype.Business.Models.UserProfile;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Utils;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 

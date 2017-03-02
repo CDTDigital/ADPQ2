@@ -9,8 +9,6 @@ using Com.Natoma.Adpq.Prototype.Business.Services;
 using Com.Natoma.Adpq.Prototype.Business.Services.Interfaces;
 using Com.Natoma.Adpq.Prototype.Business.Test.TestUtils;
 using Moq;
-using Org.BouncyCastle.Asn1.Cmp;
-using Twilio.Rest.Api.V2010.Account;
 using Xunit;
 
 namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
