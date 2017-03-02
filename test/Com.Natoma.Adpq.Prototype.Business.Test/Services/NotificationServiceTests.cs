@@ -17,6 +17,27 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
 {
     public class NotificationServiceTests
     {
+
+        [Fact]
+        public void NotificationService_Get_Success()
+        {
+            var options = DbContextUtils.CreateNewContextOptions();
+            var context = new adpq2adpqContext(options);
+            var mockGeoCodeService = new Mock<IGeoCodeService>();
+            var mockEmailService = new Mock<IEmailService>();
+            var mockSmsService = new Mock<ISmsService>();
+            PopulateContextGet(context);
+            var service = new NotificationService(context, mockGeoCodeService.Object, mockEmailService.Object,
+                mockSmsService.Object);
+
+            var result = service.Get();
+            Assert.True(result.Data != null);
+            var noteList = (List<UserNotificationViewModel>)result.Data;
+            Assert.True(noteList.Count == 1);
+            Assert.True(noteList.First().NotificationMessage == "Test Message");
+            Assert.True(noteList.First().NotificationSmsMessage == "Test SMS Message");
+        }
+
         [Fact]
         public void NotificationService_GetById_Success()
         {
@@ -97,6 +118,22 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
 
         }
 
+        [Fact]
+        public void NotificationService_GetByDay_Success()
+        {
+            var options = DbContextUtils.CreateNewContextOptions();
+            var context = new adpq2adpqContext(options);
+            var mockGeoCodeService = new Mock<IGeoCodeService>();
+            var mockEmailService = new Mock<IEmailService>();
+            var mockSmsService = new Mock<ISmsService>();
+            PopulateContextGet(context);
+            var service = new NotificationService(context, mockGeoCodeService.Object, mockEmailService.Object,
+                mockSmsService.Object);
+
+            var result = service.GetNotificationsByDay();
+            Assert.True(result.Data != null);
+        }
+
         private void PopulateContextSend(adpq2adpqContext context)
         {
             var user1 = new User
@@ -161,7 +198,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Test.Services
                 NotificationId = 1,
                 SmsMessage = "Test SMS Message",
                 EmailSubject = "Test Email Subject",
-                EmailMessage = "Test Message"
+                EmailMessage = "Test Message",
+                CreatedOn = DateTime.Now.AddDays(-1)
             };
             var userNotification1 = new UserNotification
             {

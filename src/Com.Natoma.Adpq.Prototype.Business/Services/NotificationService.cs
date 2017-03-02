@@ -31,7 +31,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
 
         public RequestResult Get()
         {
-            return null;
+            var result = new RequestResult();
+            var userNotifications = _context.UserNotification.Include(x => x.Notification)
+                .Select(PopulateUserNotificationViewModel).ToList();
+            result.State = RequestStateEnum.Success;
+            result.Data = userNotifications;
+            return result;
         }
 
         public RequestResult Get(int userProfileId)
@@ -113,7 +118,8 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
                 CreatedOn = DateTime.Now,
                 CreatedBy = notificationViewModel.CreatedBy,
                 UpdatedBy = notificationViewModel.CreatedBy,
-                UpdatedOn = DateTime.Now
+                UpdatedOn = DateTime.Now,
+                RadiusMiles = notificationViewModel.RadiusMiles
             };
 
             List<User> usersToRecieve;
