@@ -3,6 +3,7 @@
 -- add user
 CREATE USER adpq WITH
   LOGIN
+  PASSWORD 'adpq2adpq' 
   SUPERUSER
   INHERIT
   NOCREATEDB
@@ -147,7 +148,7 @@ ALTER TABLE public."Notification"
 
 CREATE INDEX fki_fk_notification_notificationtype
     ON public."Notification" USING btree
-    (NotificationTypeId)
+    ("NotificationTypeId")
     TABLESPACE pg_default;
 
 CREATE TABLE public."UserNotification"
@@ -183,7 +184,7 @@ ALTER TABLE public."UserNotification"
 
 CREATE INDEX "fki_fk_notification_userNotification"
     ON public."UserNotification" USING btree
-    (NotificationId)
+    ("NotificationId")
     TABLESPACE pg_default;
 
 -- Index: fki_fk_user_userNotification
@@ -192,7 +193,7 @@ CREATE INDEX "fki_fk_notification_userNotification"
 
 CREATE INDEX "fki_fk_user_userNotification"
     ON public."UserNotification" USING btree
-    (UserId)
+    ("UserId")
     TABLESPACE pg_default;
 
 

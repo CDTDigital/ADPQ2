@@ -19,17 +19,20 @@ RUN apt-get update && apt-get install -y python-software-properties software-pro
 # Run the rest of the commands as the ``postgres`` user created by the ``postgres-9.3`` package when it was ``apt-get installed``
 USER postgres
 
+# Pull in the latest build SQL from the repository.
+
+COPY adpq_db_create_postgres.sql .
+
 # Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
 # then create a database `docker` owned by the ``docker`` role.
 # Note: here we use ``&&\`` to run commands one after the other - the ``\``
 #       allows the RUN command to span multiple lines.
 RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER adpq WITH SUPERUSER PASSWORD 'adpq2adpq';" &&\
-    createdb -O adpq adpq2adpq
+    psql -f ./adpq_db_create_postgres.sql
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.  Note if the database is to be allowed access from the internet as a whole
-# replace localhost with 0.0.0.0/0. 
+# replace localhost with 0.0.0.0/0.
 RUN echo "host all  all    localhost  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 
 # And add ``listen_addresses`` to ``/etc/postgresql/9.3/main/postgresql.conf``
