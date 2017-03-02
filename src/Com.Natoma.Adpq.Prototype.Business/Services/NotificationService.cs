@@ -27,6 +27,10 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             _smsService = smsService;
         }
 
+        /// <summary>
+        /// Returns a list of user notifications
+        /// </summary>
+        /// <returns></returns>
         public RequestResult Get()
         {
             var result = new RequestResult();
@@ -37,6 +41,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return result;
         }
 
+        /// <summary>
+        /// Returns a list of user notifications by user id
+        /// </summary>
+        /// <param name="userProfileId"></param>
+        /// <returns></returns>
         public RequestResult Get(int userProfileId)
         {
             var result = new RequestResult();
@@ -47,6 +56,10 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return result;
         }
 
+        /// <summary>
+        /// Returns a dataset representing details about notifcations sent in the last 30 days
+        /// </summary>
+        /// <returns></returns>
         public RequestResult GetNotificationsByDay()
         {
             var result = new List<NotificationsByDayViewModel>();
@@ -97,6 +110,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             };
         }
         
+        /// <summary>
+        /// Creates and Sends a single notification
+        /// </summary>
+        /// <param name="notificationViewModel"></param>
+        /// <returns></returns>
         public async Task<RequestResult> CreateAndSendNotification(NotificationViewModel notificationViewModel)
         {
             var result = new RequestResult();
@@ -149,6 +167,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             return result;
         }
 
+        /// <summary>
+        /// Processes a notification send request
+        /// </summary>
+        /// <param name="notification"></param>
+        /// <param name="usersToRecieve"></param>
+        /// <returns></returns>
         private async Task ProcessNotifications(Notification notification, List<User> usersToRecieve)
         {
             // NOTE: In a real production app, this functionality should be accomplished using a third party email tool to avoid domain spam issues.
@@ -166,6 +190,13 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             await Task.WhenAll(tasks);
         }
         
+        /// <summary>
+        /// Sends notification to user
+        /// </summary>
+        /// <param name="semaphore"></param>
+        /// <param name="notification"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private async Task SendNotification(SemaphoreSlim semaphore, Notification notification, User user)
         {
             var resultMessage = new StringBuilder();
@@ -201,11 +232,23 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             semaphore.Release(); // release the semaphore to free up queue
         }
 
+        /// <summary>
+        /// Returns a list of users to notify
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longtitude"></param>
+        /// <param name="radiusMiles"></param>
+        /// <returns></returns>
         private List<User> GetUserToNotify(double latitude, double longtitude, int radiusMiles)
         {
             return _geoCodeService.GetUsersInRadius(latitude, longtitude, radiusMiles);
         }
 
+        /// <summary>
+        /// Populates a notification to view model
+        /// </summary>
+        /// <param name="notification"></param>
+        /// <returns></returns>
         private UserNotificationViewModel PopulateUserNotificationViewModel(UserNotification notification)
         {
             return new UserNotificationViewModel

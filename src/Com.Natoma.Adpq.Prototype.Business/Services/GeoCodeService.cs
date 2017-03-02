@@ -24,6 +24,15 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             _geoCodeOptions = geoCodeOptions;
         }
 
+        /// <summary>
+        /// Uses Google Maps API to Geolocate an address
+        /// </summary>
+        /// <param name="address1"></param>
+        /// <param name="address2"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zipcode"></param>
+        /// <returns></returns>
         public LatLongSet GetGeoLocation(string address1, string address2, string city, string state, string zipcode)
         {
             if (string.IsNullOrEmpty(address1) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state))
@@ -63,6 +72,13 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }
         }
 
+        /// <summary>
+        /// Returns a list of users in a radius
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <param name="radiusMiles"></param>
+        /// <returns></returns>
         public List<User> GetUsersInRadius(double latitude, double longitude, int radiusMiles)
         {
             var radiusMeters = radiusMiles * 1609.344;  // 1609.344 meters per mile

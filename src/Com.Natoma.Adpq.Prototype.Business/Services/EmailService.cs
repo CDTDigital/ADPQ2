@@ -18,6 +18,13 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             _emailOptions = emailOptions;
         }
 
+        /// <summary>
+        /// Send single email async
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public async Task<bool> SendEmailAsync(string email, string subject, string message)
         {
             if (_client == null)
@@ -46,6 +53,9 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }
         }
 
+        /// <summary>
+        /// If a client is connected, disconnects.
+        /// </summary>
         public void Disconnect()
         {
             if (_client != null && _client.IsConnected)

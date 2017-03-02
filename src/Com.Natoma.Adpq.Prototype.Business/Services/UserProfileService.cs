@@ -23,6 +23,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             _geoCodeService = geoCodeService;
         }
 
+        /// <summary>
+        /// Get a user profile view model by user id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<RequestResult> Get(int id)
         {
             var user = await _context.User.Where(x => x.UserId == id).FirstOrDefaultAsync();
@@ -34,6 +39,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             };
         }
 
+        /// <summary>
+        /// returns a user if email and password check succeeds
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public async Task<RequestResult> Get(string email, string password)
         {
             // get user by email address
@@ -60,6 +71,12 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             };
         }
 
+
+        /// <summary>
+        /// Creates a user
+        /// </summary>
+        /// <param name="userProfileViewModel"></param>
+        /// <returns></returns>
         public async Task<RequestResult> Create(UserProfileViewModel userProfileViewModel)
         {
             // check for unique email
@@ -117,6 +134,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             }; 
         }
 
+        /// <summary>
+        /// Updates a user
+        /// </summary>
+        /// <param name="userProfileViewModel"></param>
+        /// <returns></returns>
         public async Task<RequestResult> Update(UserProfileViewModel userProfileViewModel)
         {
             var updatingUserProfile = _context.User.FirstOrDefault(x => x.UserId == userProfileViewModel.UserProfileId);
@@ -170,6 +192,11 @@ namespace Com.Natoma.Adpq.Prototype.Business.Services
             };
         }
         
+        /// <summary>
+        /// Populates a user to view model
+        /// </summary>
+        /// <param name="userProfile"></param>
+        /// <returns></returns>
         private UserProfileViewModel PopulateUserProfileViewModel(User userProfile)
         {
             return new UserProfileViewModel
