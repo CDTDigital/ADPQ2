@@ -370,7 +370,7 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 5.	How much capacity is available in your hosting environment?
 
-    Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
+    Amazon’s cloud services are scaleable based on capacity. This does not apply to the Working Prototype.
 
 6.	How long does it take you to provision a new resource, like an application server?
 
@@ -398,7 +398,7 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 12.	What data redundancy do you have built into the system, and what would be the impact of a catastrophic data loss?
 
-    This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
+    This question does not apply to the Working Prototype. For the purposes of this prototype data, redundancy was not within scope.
   
 13.	How often do you need to contact a person from your hosting provider to get resources or to fix an issue?
 
@@ -483,11 +483,11 @@ The following checklist provides a starting point, but teams should work closely
 
 3.	How does a user access, correct, delete, or remove personal information?
 
-    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
+    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include a delete account option at this time since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
 
 4.	Will any of the personal information stored in the system be shared with other services, people, or partners?
 
-    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
+    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) data will be used by email and text services.
 
 5.	How and how often is the service tested for security vulnerabilities?
 
@@ -523,7 +523,7 @@ At every stage of a project, we should measure how well our service is working f
 
 3.	Which system monitoring tools are in place?
 
-    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+    Natoma has deployed DataDog to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 4.	What is the targeted average response time for your service? What percent of requests take more than 1 second, 2 seconds, 4 seconds, and 8 seconds?
 
@@ -652,19 +652,25 @@ Natoma applied a User-Centered Design approach to the creation of our Working Pr
 
 ## Requirement D. Used at least a minimum of three (3) "user-centric design" techniques and/or tools.
 Natoma used the following user-centric design techniques to develop the Working Prototype:
-1.	Explicit understanding of users, tasks and environments: Natoma identified simulated end user to provide initial user stories for the creation of an alert notification system. The Natoma Researcher and Business Analyst performed internet-based research to better understand the capabilities, business needs and technology supporting existing alert notification systems and developed a series of detailed questions that were then posed to the end user. The end user stories were enhanced and further deconstructed into more focused user stories that included testable acceptance criteria. Technical criteria were also captured as user stories.
-2.	Users were involved in the design and development approach, the process is driven by user-centered evaluation and the process was iterative: Natoma adopted a scrum-based iterative approach to the Prototype development using three day sprints. The Product Manager identified three epics to develop and user stories were prioritized based on their necessity to building functioning epics. The Natoma team conducted daily scrums where all aspects of the design, build and test were reviewed as a team. When the epic was built out enough to creating a working prototype, the whole team conducted role playing to review and refine the design and additional user stories were captured. The end user participated in this process. This effort was performed with each iteration.
-3.	Design team included multidisciplinary skills: See Requirement B regarding Natoma’s multidisciplinary and collaborative team approach to development.
+
+1.	Explicit understanding of users, tasks and environments. Natoma identified simulated end users to provide initial user stories for the creation of an alert notification system. The Natoma Researcher and Business Analyst performed internet-based research to better understand the capabilities, business needs and technology supporting existing alert notification systems and developed a series of detailed questions that were then posed to the end user. The end user stories were enhanced and further deconstructed into more focused user stories that included testable acceptance criteria. Technical criteria were also captured as user stories.
+
+2.	Users were involved in the design and development approach. The process was driven by user-centered evaluation. The process was iterative. Natoma adopted a scrum-based iterative approach to the Prototype development using five day sprints. The Product Manager identified three epics to develop and user stories were prioritized based on their necessity to building functioning epics. The Natoma team conducted daily scrums where all aspects of the design, build and test were reviewed as a team. When the epic was built out enough to creating a working prototype, the whole team conducted role playing to review and refine the design and additional user stories were captured. The end user participated in this process. This effort was performed with each iteration.
+
+3.	Design team included multidisciplinary skills. See Requirement B regarding Natoma’s multidisciplinary and collaborative team approach to development.
 
 ## Requirement E. Used GitHub to document code commits.
- Natoma used GitHub to document code commits.  https://github.com/NatomaTechnologies/ADPQ2
+ 
+ Natoma used GitHub to document code commits. 
+ 
+ https://github.com/NatomaTechnologies/ADPQ2
  
  
 ## Requirements F. Used Swagger to document the RESTful API and provided a link to the Swagger API
 
-http://adpq2prodapi.natomadev.com:5050/swagger/ 
+Natoma used Swagger to document the RESTful API. 
 
-Natoma used Swagger to document the RESTful API. [Insert the link the Swagger API]
+http://adpq2prodapi.natomadev.com:5050/swagger/ 
 
 
 ## Requirement G. Complied with Section 508 of the Americans with Disability Act and WCAG 2.0
