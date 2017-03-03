@@ -755,7 +755,7 @@ Natoma automated unit testing through GitHub and the Jenkins GitHub web hook so 
 Natoma configured continuous integration, automated execution of unit testing and continuous deployment through the GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, run tests and updates/deploys of the Docker Hub Images to DockerHub and the IaaS.
 
 ## Requirement P. Setup or used configuration management
-Natoma set up and used GitHub through a TFS plug in for configuration management.
+Natoma set up and used Ansible for configuration management.
 
 ## Requirement Q. Setup or used continuous monitoring
 Natoma used DataDog to perform continuous monitoring.
@@ -766,7 +766,9 @@ Natoma deployed the Working Prototype using Docker Containers to deploy the soft
 
 ## Requirement S. Provided sufficient documentation to install and run their prototype on another machine
 
-Yes, this documentation can be found in the GitHub directory and was used in the “production” installation of the Working Prototype provided to the State for review.
+Yes, this documentation can be found here:
+
+https://github.com/NatomaTechnologies/ADPQ2/tree/master/Installation%20Instructions
 
 ## Requirement T. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge
 
