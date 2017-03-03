@@ -686,7 +686,11 @@ Natoma created a design style guide and used PrimeNG as a pattern library.  Prim
 
 ## Requirement I. Performed usability tests with people
 
-The Natoma Usability Tester and Business Analyst conducted functional testing of the acceptance criteria within the user stories assigned to each epic. Defects were logged and retesting performed to validate fixes within the sprints. In addition, the entire Natoma team including the end user exercised the functionality built with each iteration to identify additional user stories that would improve application design and use.
+The Natoma Usability Tester and Business Analyst conducted functional testing of the acceptance criteria within the user stories assigned to each epic. Defects were logged and retesting performed to validate fixes within the sprints. In addition, the entire Natoma team including the end user exercised the functionality built with each iteration to identify additional user stories that would improve application design and use. 
+
+Link to usability tests with people.
+
+https://github.com/NatomaTechnologies/ADPQ2/wiki/User-Prototype-Reviews
 
 
 ## Requirement J. Used an iterative approach where feedback informed subsequent work or version of the prototype
