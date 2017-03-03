@@ -48,7 +48,7 @@ Other actions within the UI, such as a successful log in, will result in navigat
 
 The verification of the user’s status in the previous step is performed through the userService which, is as seen in the import section is user.service.ts (https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/user/user.service.ts). The getLoggedInUser method asynchronously retrieves the user ID from the Angular2 cookie service and, assuming the user has not timed out or otherwise logged out, gets the user’s information by making a call to the API.  More specifically, getLoggedInUser calls getUserInfo which uses the authService (auth.service  seen here: https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/shared/auth.service.ts) to perform its authGet behavior which makes an HTTP call to api/UserProfile (note: This is passed as a parameter in the updateUserInfo method of user.service.ts to authService. Once in auth.service, it is seen as the url parameter.)
 
-### The UserProfileController
+The UserProfileController
 
 (https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Api/Controllers/UserProfileController.cs) in the API project handles the request to api/UserProfile.  Since the request is a RESTful HTTP get and provides an ID, the Get method handles the request.  This get method first verifies that the requestor is properly authorized using Microsoft’s authorization tools and, assuming the requestor is successfully verified, the controller fires a Get request to the user profile service.  The user profile service, which is provided to the controller through constructor-based dependency injection, is a business service described by the user profile service interface (https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Services/Interfaces/IUserProfileService.cs) and implemented by the user profile service (https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Services/UserProfileService.cs). 
 
@@ -58,6 +58,7 @@ This final UserProfileViewModel is passed back from the business service through
 T
 he code flow described here exemplifies the majority of transactions performed by the prototype application. Others which perform actions such as sending email or text are similar but end with calls to SMTP or SMS services (respectively) instead of calls to a database.
 
+--------------------end of the technical approach---------------------------------
 
 
 ## Natoma Response to the RFI Requirements
