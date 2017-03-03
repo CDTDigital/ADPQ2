@@ -199,12 +199,12 @@ CREATE INDEX "fki_fk_user_userNotification"
 
 -- insert notification type lookup
 
-INSERT INTO "NotificationType" VALUES (1, 'Blast');
-INSERT INTO "NotificationType" VALUES (2, 'Regional');
+INSERT INTO public."NotificationType" VALUES (1, 'Blast');
+INSERT INTO public."NotificationType" VALUES (2, 'Regional');
 
 -- insert admin user
 
-INSERT INTO "User" VALUES (36, 'Admin', 'Admin', '1000 main st', NULL, 'Sacramento', 'CA', '95821', true, '8Mg4JPu6/VRkW+7+mqEgddRbXf0vUGzcbrUVMoaYnnQ=', 38.6547351999999975, -121.442350899999994, 'admin@example.net', 'L1lrGc2f+U2rQ6kvwsOYOw==', false, true, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public."User" VALUES (36, 'Admin', 'Admin', '1000 main st', NULL, 'Sacramento', 'CA', '95821', true, '8Mg4JPu6/VRkW+7+mqEgddRbXf0vUGzcbrUVMoaYnnQ=', 38.6547351999999975, -121.442350899999994, 'admin@example.net', 'L1lrGc2f+U2rQ6kvwsOYOw==', false, true, NULL, NULL, NULL, NULL, NULL);
 
   
   
