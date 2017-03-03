@@ -682,7 +682,7 @@ Natoma used WAVE application plug-in for ADA compliance. W3C HTML validator chec
 
 ## Requirement H. Created or used a design style guide and/or pattern library
 
-Natoma used PrimeNG.  PrimeNG is a collection of UI components for Angular 2.  All widgets are open source and free to use under MIT License.
+Natoma created a design style guide and used PrimeNG as a pattern library.  PrimeNG is a collection of UI components for Angular 2.  All widgets are open source and free to use under MIT License.
 
 ## Requirement I. Performed usability tests with people
 
