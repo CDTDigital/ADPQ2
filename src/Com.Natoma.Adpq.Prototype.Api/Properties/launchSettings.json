@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:61552/",
+      "applicationUrl": "http://localhost:5050/",
       "sslPort": 0
     }
   },
@@ -16,10 +16,27 @@
       }
     },
     "com.natoma.hhs.prototype.api": {
-      "commandName": "Project",
-      "launchUrl": "http://localhost:5000/api/values",
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5050/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "com.natoma.hhs.prototype.web.production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "com.natoma.hhs.prototype.web.release": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Release"
       }
     },
     "Docker": {

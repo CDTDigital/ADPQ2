@@ -12,12 +12,12 @@ import { MenuItem } from 'primeng/primeng';
     moduleId: module.id,
 })
 export class FaqComponent implements OnInit {
-    private isAdmin: boolean;
+    private user: User;
 
     constructor(private userService: UserService, private adpqService: ADPQService) { }
 
     async ngOnInit() {
-        this.isAdmin = (await this.userService.getLoggedInUser()).isAdmin;
+        this.user = await this.userService.getLoggedInUser();
 
         this.adpqService.breadcrumbItems = [
             <MenuItem>{ label: 'FAQ', routerLink: ['./faq'] }

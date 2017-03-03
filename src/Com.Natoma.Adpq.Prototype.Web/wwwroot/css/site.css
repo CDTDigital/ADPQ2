@@ -115,6 +115,7 @@ img.background {
             animation: fadein 6s;
 }
 a.faq-link {
+    float: right;
     margin-right: 25px;
     font-weight: 700;
     cursor: pointer;

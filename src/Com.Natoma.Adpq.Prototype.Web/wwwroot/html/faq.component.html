@@ -4,10 +4,10 @@
     </div>
 </div>
 
-<div *ngIf="!isAdmin" class="row faq-content">
+<div *ngIf="!user?.isAdmin" class="row faq-content">
     <div class="col-md-8 col-md-offset-2">
         <p class="adpq-question">What is the purpose of this site?</p>
-        <p class="adpq-answer">This site is a demonstration prorotype project developed for the state of California.  A user that registers may receive notifications via text and/or email from someone testing the system.</p>
+        <p class="adpq-answer">This site is a demonstration prototype project developed for the State of California.  A user that registers may receive notifications via text and/or email from someone testing the system.</p>
         <p class="adpq-question">How do I create an account?</p>
         <p class="adpq-answer">To create an account click the Create Account link on the login page.  You will be prompted to enter account information.</p>
         <p class="adpq-question">What if I want to change my information after I've created an account?</p>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div *ngIf="isAdmin" class="row faq-content">
+<div *ngIf="user?.isAdmin" class="row faq-content">
     <div class="col-md-8 col-md-offset-2">
         <p class="adpq-question">How do I send Notifications?</p>
         <p class="adpq-answer">To send notifications, click the Send notifications option on your home page.  Once on the page select the type of notification you will be sending.  The type of notification can be blast to send to all subscribers or regional to send to subscribers in a defined region.  </p>
