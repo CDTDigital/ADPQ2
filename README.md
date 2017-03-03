@@ -2,7 +2,11 @@
 
 
 
+
+
+
 ![Natoma Technologies, Inc. Logo][logo]
+
 
 
 # Natoma’s ADPQ Submission – Prototype B
@@ -13,31 +17,36 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 # [Link to the prototype web-application][prototype-url]  
 
-Note: Please use Chrome or Safari to access the Prototype. Due to the compressed development timeframe, Natoma limited validation to these two web browsers.
+Note: Use Chrome or Safari to access the Prototype. Due to the compressed development timeframe and our prioritization for the use of open source, Natoma limited validation to these two web browsers.
+
+The system has been seeded with an Administrative user with the following credentials:
+
+    Username:  admin@example.net
+    Password:   password1
 
 
-## Other useful links
-[link to our Pivotal Tracker][pt-url]
+## Other useful links:
+[Link to our Pivotal Tracker][pt-url]
 
 ## Natoma’s Approach to Building the Working Prototype
-Natoma convened a multidisciplinary team of highly experienced Information Technology (IT) professionals from within our internal staffing network to work on this Prototype. Everyone on our team is currently working on other Natoma projects and our team members have worked with one another. This allowed us to coalesce quickly as a team and assign work based on each team member’s strengths. Our Chief Operations Officer (COO), Veronica Westlund, assumed the role of Project Director. As a Natoma Executive, she has decision-making authority regarding the approach and scope to be taken for this Prototype. We assigned senior staff to the roles of Agile Coach and Technical Architect. Additional technical development team members were added. The team adopted a Scrum-based approach to development and identified the high level scope necessary to meet the Minimal Value Plan (MVP) for the Working Prototype in a compressed, two-week time frame. Sprint planning included translating the MVP into three epics, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the Prototype plan. Our technical team chose modern tools and techniques with which they were already familiar reducing ramp up time. The team determined that the work could be completed during two sprints over 10 days (five days per sprint). This Planning effort was completed within two days of receipt of the RFI and development began immediately.
+Natoma convened a multidisciplinary team of highly experienced Information Technology (IT) professionals from within our internal staffing network to work on this Prototype. Everyone on our team is currently working on other Natoma projects and our team members have worked with one another. This allowed us to coalesce quickly as a team and assign work based on each team member’s strengths. Our Chief Operations Officer (COO), Veronica Westlund, assumed the role of Project Director. As a Natoma Executive, she has decision-making authority regarding the approach and scope to be taken for this Prototype. We assigned senior staff to the roles of Agile Coach and Technical Architect. Additional technical development team members were added. The team adopted a Scrum-based approach to development and identified the high level scope necessary to meet the Minimal Value Plan (MVP) for the Working Prototype in a compressed, two-week time frame. Sprint planning included translating the MVP into two epics, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the Prototype plan. Our technical team chose modern tools and techniques with which they were already familiar reducing ramp up time. The team determined that the work could be completed during two sprints over 10 days (five days per sprint). This Planning effort was completed within two days of receipt of the RFI and development began immediately.
 
-We assigned another Natoma Senior Business Analyst to assume the role of end-user. This person worked with our team to further refine our user stories and establish testable acceptance criteria for each story. Our developers stood up and configured our development and test environments and began developing the Prototype based upon our agreed upon design. Our developers implemented configuration management, automated unit testing and continuous integration using GitHub as a central repository and tool set. Testing began immediate to the creation of viable working product. The team conducted daily scrum meetings and participated in role playing scenarios where team members tested the Prototype based on a specific role. Our end user participated in this effort. This provided immediate feedback regarding design and usability of the product and resulted in updated or additional user stories. The Project Director reviewed each new user story to determine if the story belonged in the Backlog or in the Icebox for future consideration. This level of effort was performed with both sprints.
+We assigned another Natoma Senior Business Analyst to assume the role of end-user. This person worked with our team to further refine our user stories and establish testable acceptance criteria for each story. Our developers stood up and configured our development and test environments and began developing the Prototype based upon the team's agreed upon design. Our developers implemented configuration management, automated unit testing and continuous integration using GitHub as a central repository and tool set. Testing began immediate to the creation of a viable working product. The team conducted daily scrum meetings and participated in role playing scenarios where team members tested the Prototype based on a specific role. Our end user participated in this effort. This provided immediate feedback regarding design and usability of the product and resulted in updated or additional user stories. The Project Director reviewed each new user story to determine if the story belonged in the Backlog or in the Icebox for future consideration. This level of effort was performed with both sprints.
 
 In order to achieve our end goal, we relied on collaborative development and communication tools such as Pivotal Tracker, GitHub and Skype. The final result of our efforts is a collaboratively designed and built Working Prototype that meets the MVP of the RFI requirements using modern, open source technologies within a very compressed time frame.
 
 
 ## Natoma’s User-Centered Design
-Natoma applied a user-centered approach to the design of the Working Prototype. We identified a senior Natoma team member who served as our simulated end user. The team worked with this person to create purpose driven, high level user stories to define the end user needs for a notification alert system. The team then conducted additional internet-based research on other alert notification systems used within the State of California and other states as well as the technology supporting these systems and refined and enhanced the user stories identifying testable acceptance criteria for each story. The stories were then entered into Pivotal Tracker and linked to the previously identified Prototype epics. The development team created a viable prototype that was then tested by each member of the Sprint team using the role playing technique described above. This approach provided immediate feedback from our “users” as to the look, feel and functionality of our Prototype product resulting in a better product that is easy to understand.
+Natoma applied a user-centered approach to the design of the Working Prototype. We identified a senior Natoma team member who served as our simulated end user. The team worked with this person to create purpose driven, high level user stories to define the end user needs for a notification alert system. The team then conducted additional internet-based research on other alert notification systems used within the State of California and other states as well as the technology supporting these systems and refined and enhanced the user stories identifying testable acceptance criteria for each story. The stories were then entered into Pivotal Tracker and linked to the previously identified Prototype epics. The development team created a viable prototype that was then tested by each member of the Sprint team using the role playing technique described above. This approach provided immediate feedback from our “users” as to the look, feel and functionality of our Prototype resulting in a better product that is easy to understand.
 
 
 # Natoma’s Narrative for the Technical Approach 
 ## High Level Overview
-The Natoma ADPQ2 prototype uses a modern approach based on .NET core, Angular2, and PostgreSQL to provide a secure, user-friendly website.
+The Natoma ADPQ2 Prototype uses a modern approach based on .NET core, Angular2, and PostgreSQL to provide a secure, user-friendly website.
 
-Following the principles of agile and MVP, the ADPQ2 development team built this application focused on the simplest, most quickly developed implementation of the prioritized stories. In the initial kick-off meeting, the team selected the base technologies (.NET Core and PostgreSQL).  As needs became more specific, we identified and added supporting technologies that would simplify the implementation of a solution to those problems and would provide the stability of code libraries that have already been proven in production environments. Key among the supporting technologies are Angular 2 and TypeScript which combine to form a modern JavaScript framework that provides the user with a responsive interface while giving developers tools that make writing code easier. Each member of the development team is empowered to research, identify, select, and implement tools with an understanding of the abbreviated nature of this development exercise and the need to provide a stable application.
+Following the principles of Agile and MVP, the ADPQ2 development team built this application focused on the simplest, most quickly developed implementation of the prioritized stories. In the initial kick-off meeting, the team selected the base technologies (.NET Core and PostgreSQL).  As needs became more specific, we identified and added supporting technologies that simplified the implementation of a solution to those problems and provided the stability of code libraries that have already been proven in production environments. Key among the supporting technologies are Angular 2 and TypeScript which combine to form a modern JavaScript framework that provides the user with a responsive interface while giving developers tools that make writing code easier. Each member of the development team was empowered to research, identify, select, and implement tools with an understanding of the abbreviated nature of this development exercise and the need to provide a stable application.
 
-The code was developed as a JavaScript web application that is initiated from the web application and then accesses RESTful services from the api which, in turn, use a business layer to provide business logic and data access. These three main architectural features (web application, API for JavaScript, and business layer) are represented as the three Project files within the overall Solution, [Com.Natoma.Adpq.Prototype.Web](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Web), [Com.Natoma.Adpq.Prototype.Api](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Api), and [Com.Natoma.Adpq.Prototype.Business](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Business) respectively. Each project follows a standard approach to project structure according to the nature of the project. Additionally, the app and business projects have corresponding test projects. The web project does not have a test project as most of the runnable code is generated from TypeScript and the rest (e.g. the [HomeController](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/Controllers/HomeController.cs)) do not contain sufficient complexity to warrent their own automated tests.
+The code was developed as a JavaScript web application that is initiated from the web application and then accesses RESTful services from the API which, in turn, use a business layer to provide business logic and data access. These three main architectural features (web application, API for JavaScript, and business layer) are represented as the three Project files within the overall Solution, [Com.Natoma.Adpq.Prototype.Web](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Web), [Com.Natoma.Adpq.Prototype.Api](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Api), and [Com.Natoma.Adpq.Prototype.Business](https://github.com/NatomaTechnologies/ADPQ2/tree/master/src/Com.Natoma.Adpq.Prototype.Business) respectively. Each project follows a standard approach to project structure according to the nature of the project. Additionally, the application and business projects have corresponding test projects. The web project does not have a test project as most of the runnable code is generated from TypeScript and the rest (e.g. the [HomeController](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/Controllers/HomeController.cs)) do not contain sufficient complexity to warrent their own automated tests.
 
 ## Code Flow
 Please note that in the following code flow walkthrough, several .ts files are identified as controlling certain behaviors. These files are not used directly by the deployed application. Instead, these files are used by TypeScript to generate .js files which are deployed to the browser and control client-side behavior with only minimal interaction with the server.  The generated .js files are not part of the code base in GitHub as they would be duplicative and confusing.  While the .ts files are specified in the walkthrough, they merely represent their corresponding .js files as these files are not available in GitHub.  When the application is built the js files are generated from the compilation of .ts files (TypeScript classes)
@@ -46,17 +55,17 @@ When a user first connects to the website, he or she is able to log in or create
 
 Some actions, such as making the signup section of the login page visible is controlled solely in the browser by methods like doMakeSignupVisible.  This method alters the isSignupVisible variable which, through the component lifecycle of Angular2, triggers a change in the [corresponding HTML page](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/wwwroot/html/login.component.html).
 
-Other actions within the UI, such as a successful log in, will result in navigation within the website.  This example behavior can be seen in routeUser method of the [login.component.ts file](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/login.component.ts) where the user will be routed to the admin or user component (home page) based on the user type. Routes are specified in [app.routing.ts](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/app.routing.ts) and map to specific components.  For instance, if the user is an administrator (isAdmin is true), the router (an Angular 2 construct) is told to navigate to the route “./admin”.  Per app.routing.ts, this route maps to the AdminHomeComponent which, by Angular2 convention refers to the [admin-home.component](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/admin/admin-home.component.ts). For security reasons, this component does not trust that the user is really an administrator and first verifies against the user service that the user truly is an administrator before presenting the [admin-home.component.html](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/wwwroot/html/admin-home.component.html).  If it is determined that the user is not truly an administrator, the system navigates to the “./user” route instead.
+Other actions within the UI, such as a successful log in, will result in navigation within the website.  This example behavior can be seen in routeUser method of the [login.component.ts file](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/login.component.ts) where the user will be routed to the admin or user component (home page) based on the user type. Routes are specified in [app.routing.ts](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/app.routing.ts) and map to specific components.  For instance, if the user is an administrator (isAdmin is true), the router (an Angular 2 construct) is told to navigate to the route “./admin”.  Per app.routing.ts, this route maps to the AdminHomeComponent which, by Angular 2 convention refers to the [admin-home.component](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/admin/admin-home.component.ts). For security reasons, this component does not trust that the user is really an administrator and first verifies against the user service that the user truly is an administrator before presenting the [admin-home.component.html](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/wwwroot/html/admin-home.component.html).  If it is determined that the user is not truly an administrator, the system navigates to the “./user” route instead.
 
-The verification of the user’s status in the previous step is performed through the userService which, is as seen in the import section is [user.service.ts](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/user/user.service.ts). The getLoggedInUser method asynchronously retrieves the user ID from the Angular2 cookie service and, assuming the user has not timed out or otherwise logged out, gets the user’s information by making a call to the API.  More specifically, getLoggedInUser calls getUserInfo which uses the [auth.service](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/shared/auth.service.ts) to perform its authGet behavior which makes an HTTP call to api/UserProfile (note: This is passed as a parameter in the updateUserInfo method of user.service.ts to authService. Once in auth.service, it is seen as the url parameter.)
+The verification of the user’s status in the previous step is performed through the userService which is as seen in the import section is [user.service.ts](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/user/user.service.ts). The getLoggedInUser method asynchronously retrieves the user ID from the Angular 2 cookie service and, assuming the user has not timed out or otherwise logged out, gets the user’s information by making a call to the API.  More specifically, getLoggedInUser calls getUserInfo which uses the [auth.service](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Web/App/shared/auth.service.ts) to perform its authGet behavior which makes a HTTP call to api/UserProfile. (Note: This is passed as a parameter in the updateUserInfo method of user.service.ts to authService. Once in auth.service, it is seen as the url parameter.)
 
 The [UserProfileController](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Api/Controllers/UserProfileController.cs) in the API project handles the request to api/UserProfile.  Since the request is a RESTful HTTP get and provides an ID, the Get method handles the request.  This get method first verifies that the requestor is properly authorized using Microsoft’s authorization tools and, assuming the requestor is successfully verified, the controller fires a Get request to the user profile service.  The user profile service, which is provided to the controller through constructor-based dependency injection, is a business service described by the [user profile service interface](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Services/Interfaces/IUserProfileService.cs) and implemented by the [user profile service](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Services/UserProfileService.cs). 
 
-This get method uses Microsoft’s entity framework to return the first record from the database that matches the user ID provided by the cookie service. As UserId is defined as the primary key of the user table (as seen at the end of CREATE TABLE public.”User” in the [database create script](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Api/DB/adpq_db_create_postgres.sql) no more than one record will ever be returned from this query.  If no matching record is found, null is returned.  Otherwise, the EntityFramework user is translated into a [UserProfileViewModel](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Models/UserProfile/UserProfileViewModel.cs) and returned.
+This get method uses Microsoft’s entity framework to return the first record from the database that matches the user ID provided by the cookie service. As UserId is defined as the primary key of the user table as seen at the end of CREATE TABLE public.”User” in the [database create script](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Api/DB/adpq_db_create_postgres.sql) no more than one record will ever be returned from this query.  If no matching record is found, null is returned.  Otherwise, the EntityFramework user is translated into a [UserProfileViewModel](https://github.com/NatomaTechnologies/ADPQ2/blob/master/src/Com.Natoma.Adpq.Prototype.Business/Models/UserProfile/UserProfileViewModel.cs) and returned.
 
 This final UserProfileViewModel is passed back from the business service through the controller to the TypeScript user service which, in turn, returns it to the admin home component.
 
-The code flow described here exemplifies the majority of transactions performed by the prototype application. Others which perform actions such as sending email or text are similar but end with calls to SMTP or SMS services (respectively) instead of calls to a database.
+The code flow described here exemplifies the majority of transactions performed by the prototype application. Other transactions perform actions such as sending email or text are similar but end with calls to SMTP or SMS services (respectively) instead of calls to a database.
 
 --------------------end of the technical approach---------------------------------
 
@@ -361,7 +370,7 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 5.	How much capacity is available in your hosting environment?
 
-    Amazon’s cloud services are scale-able based on capacity. This does not apply to the Working Prototype.
+    Amazon’s cloud services are scaleable based on capacity. This does not apply to the Working Prototype.
 
 6.	How long does it take you to provision a new resource, like an application server?
 
@@ -389,7 +398,7 @@ Our services should be deployed on flexible infrastructure, where resources can 
 
 12.	What data redundancy do you have built into the system, and what would be the impact of a catastrophic data loss?
 
-    This question does not apply to the Working Prototype. For the purposes of this prototype data redundancy was not within scope.
+    This question does not apply to the Working Prototype. For the purposes of this prototype data, redundancy was not within scope.
   
 13.	How often do you need to contact a person from your hosting provider to get resources or to fix an issue?
 
@@ -474,11 +483,11 @@ The following checklist provides a starting point, but teams should work closely
 
 3.	How does a user access, correct, delete, or remove personal information?
 
-    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include delete account option since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
+    A user can access the application with a valid user id and password and modify user information to remove personal details.  The Working Prototype does not include a delete account option at this time since it is not necessary for the MVP but users can overwrite existing information with non-personally identifiable data.
 
 4.	Will any of the personal information stored in the system be shared with other services, people, or partners?
 
-    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) information will be used by email and text services.
+    No, personal information will not be shared with other services, people or partners.  However, email and mobile phone (if provided) data will be used by email and text services.
 
 5.	How and how often is the service tested for security vulnerabilities?
 
@@ -514,7 +523,7 @@ At every stage of a project, we should measure how well our service is working f
 
 3.	Which system monitoring tools are in place?
 
-    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+    Natoma has deployed DataDog to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 4.	What is the targeted average response time for your service? What percent of requests take more than 1 second, 2 seconds, 4 seconds, and 8 seconds?
 
@@ -643,19 +652,25 @@ Natoma applied a User-Centered Design approach to the creation of our Working Pr
 
 ## Requirement D. Used at least a minimum of three (3) "user-centric design" techniques and/or tools.
 Natoma used the following user-centric design techniques to develop the Working Prototype:
-1.	Explicit understanding of users, tasks and environments: Natoma identified simulated end user to provide initial user stories for the creation of an alert notification system. The Natoma Researcher and Business Analyst performed internet-based research to better understand the capabilities, business needs and technology supporting existing alert notification systems and developed a series of detailed questions that were then posed to the end user. The end user stories were enhanced and further deconstructed into more focused user stories that included testable acceptance criteria. Technical criteria were also captured as user stories.
-2.	Users were involved in the design and development approach, the process is driven by user-centered evaluation and the process was iterative: Natoma adopted a scrum-based iterative approach to the Prototype development using three day sprints. The Product Manager identified three epics to develop and user stories were prioritized based on their necessity to building functioning epics. The Natoma team conducted daily scrums where all aspects of the design, build and test were reviewed as a team. When the epic was built out enough to creating a working prototype, the whole team conducted role playing to review and refine the design and additional user stories were captured. The end user participated in this process. This effort was performed with each iteration.
-3.	Design team included multidisciplinary skills: See Requirement B regarding Natoma’s multidisciplinary and collaborative team approach to development.
+
+1.	Explicit understanding of users, tasks and environments. Natoma identified simulated end users to provide initial user stories for the creation of an alert notification system. The Natoma Researcher and Business Analyst performed internet-based research to better understand the capabilities, business needs and technology supporting existing alert notification systems and developed a series of detailed questions that were then posed to the end user. The end user stories were enhanced and further deconstructed into more focused user stories that included testable acceptance criteria. Technical criteria were also captured as user stories.
+
+2.	Users were involved in the design and development approach. The process was driven by user-centered evaluation. The process was iterative. Natoma adopted a scrum-based iterative approach to the Prototype development using five day sprints. The Product Manager identified three epics to develop and user stories were prioritized based on their necessity to building functioning epics. The Natoma team conducted daily scrums where all aspects of the design, build and test were reviewed as a team. When the epic was built out enough to creating a working prototype, the whole team conducted role playing to review and refine the design and additional user stories were captured. The end user participated in this process. This effort was performed with each iteration.
+
+3.	Design team included multidisciplinary skills. See Requirement B regarding Natoma’s multidisciplinary and collaborative team approach to development.
 
 ## Requirement E. Used GitHub to document code commits.
- Natoma used GitHub to document code commits.  https://github.com/NatomaTechnologies/ADPQ2
+ 
+ Natoma used GitHub to document code commits. 
+ 
+ https://github.com/NatomaTechnologies/ADPQ2
  
  
 ## Requirements F. Used Swagger to document the RESTful API and provided a link to the Swagger API
 
-http://adpq2prodapi.natomadev.com:5050/swagger/ 
+Natoma used Swagger to document the RESTful API. 
 
-Natoma used Swagger to document the RESTful API. [Insert the link the Swagger API]
+http://adpq2prodapi.natomadev.com:5050/swagger/ 
 
 
 ## Requirement G. Complied with Section 508 of the Americans with Disability Act and WCAG 2.0
@@ -677,7 +692,7 @@ Natoma adopted a Scrum approach for development of the Working Prototype The Nat
 
 
 ## Requirement K. Created a prototype that works on multiple devices and presents a responsive design 
-Natoma’s Working Prototype is designed to work on devices that receive email and mobile phones that receive text messages to ensure that end users have access to requested services across mediums.
+Natoma’s Working Prototype is designed to be accessible using the web browsers Chrome or Safari on laptops or mobile phones. It provides email notifications and mobile phones text messages.
 
 ## Requirement L. Used at leave five (5) modern and open-source technologies regardless of architectural layer (front end, backend, etc)
 Natoma used the following open-source tools and technologies in the development the Working Prototype:
