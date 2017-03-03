@@ -15,6 +15,8 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 # [Link to the prototype web-application][prototype-url]  
 Address: <<need to add this when available>> http://prototype.natomadev.com/HHSPrototype/
 
+## Other useful links
+[link to our Pivotal Tracker][pt-url]
 
 ## Natoma’s Approach to Building the Working Prototype
 Natoma convened a multidisciplinary team of highly experienced Information Technology (IT) professionals from within our internal staffing network to work on this Prototype. Everyone on our team is currently working on other Natoma projects and our team members have worked with one another. This allowed us to coalesce quickly as a team and assign work based on each team member’s strengths. Our Chief Operations Officer (COO), Veronica Westlund, assumed the role of Project Director. As a Natoma Executive, she has decision-making authority regarding the approach and scope to be taken for this Prototype. We assigned senior staff to the roles of Agile Coach and Technical Architect. Additional technical development team members were added. The team adopted a Scrum-based approach to development and identified the high level scope necessary to meet the Minimal Value Plan (MVP) for the Working Prototype in a compressed, two-week time frame. Sprint planning included translating the MVP into three epics, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the Prototype plan. Our technical team chose modern tools and techniques with which they were already familiar reducing ramp up time. The team determined that the work could be completed during two sprints over 10 days (five days per sprint). This Planning effort was completed within two days of receipt of the RFI and development began immediately.
@@ -723,33 +725,6 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
  
-[prototype-url]: <http://prototype.natomadev.com/HHSPrototype/>
-[sys-url]:<http://www.youthsolutions.org/>
-[url-kanban-dir]:</Doc/Planning/Kanban>
-[approach-doc]:</Doc/Planning/Prototype-Approach.pdf>
-[conceptual-data-model-doc]:</Doc/Architecture/Conceptual-Data-Model.pdf>
-[backlog-dir]:</Doc/Planning/Backlog>
-[backlog-doc]:</Doc/Planning/Backlog/Backlog-TFS-Extract-20160608.pdf>
-[req-doc]:</Doc/Requirements/Functional-and-Technical-Requirements.pdf
-[all-stories-dir]:</Doc/Planning/Stories>
-[logo]: </Doc/NT_Logo_rgb_tight_transparent.gif>
-[initial-reqs-doc]:</Doc/Planning/Stories/User-Stories-Tasks-Initial.pdf>
-[Session1-dir]:</Doc/Human-Centered-Design/Session1/>
-[Session2-dir]:</Doc/Human-Centered-Design/Session2/>
-[architecture-doc]:</Doc/Architecture/Prototype-Architecture.pdf>  
-[prototype-V1-screenshots]:</Doc/Human-Centered-Design/Interviews-Analysis/Iteration-One-Screen-Shots.pdf>
-[Yuri-Kimura-IV-doc]:</Doc/Human-Centered-Design/Interviews-Analysis/Yuri_User-Feedback-Session1.txt>
-[Playbook-doc]:</Doc/Human-Centered-Design/Playbook/Playbook-CHHS-Prototype.pdf>
-[MS-License]:<https://www.visualstudio.com/en-us/dn877550.aspx> 
-[use-case-dir]:</Doc/Requirements/Use-Cases/>
-[test-case-dir]:</Doc/Test/Test-Planning/>
-[test-results-doc]:</Doc/Test/Test-Execution/Test-Results-Summary.pdf>
-[test-results-dir]:</Doc/Test/Test-Execution/>
-[defect-doc]:</Doc/Test/Defects/Defect-Summary.pdf>
-[Continuous_Integration_Rpt-doc]:</Doc/Test/Automated-Unit-Test-Reports/Continuous_Integration_Rpt.pdf>
-[change-log-doc]:</Doc/Configuration-Management/Change-Log.pdf>
-[Monitor-Sample-doc]:</Doc/Monitoring/Monitoring-Sample.pdf>
-[Human-Centered-Design-doc]:</Doc/Human-Centered-Design/Human-centered-design.pdf>
-[deployment-doc]:</Doc/Deployment/Deployment-Instructions.pdf>
-[google-analytics-doc]:</Doc/Analytics/Analytics-Sample.pdf>
-[rtm-doc]:</Doc/Requirements/Simple-RTM.pdf>
+[prototype-url]: <http://need this/>
+
+[pt-url]:<https://www.pivotaltracker.com/n/projects/1976013>
