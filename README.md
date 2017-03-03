@@ -753,5 +753,5 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
  
-
-[pt-url]:<https://www.pivotaltracker.com/n/projects/1976013>
+[logo]: </Doc/NT_Logo_rgb_tight_transparent.gif>
+[pt-url]:<https://www.pivotaltracker.com/projects/1976013>
