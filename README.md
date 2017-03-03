@@ -19,9 +19,14 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 Note: Use Chrome or Safari to access the Prototype. Due to the compressed development timeframe and our prioritization for the use of open source, Natoma limited validation to these two web browsers.
 
+The system has been seeded with an Administrative user with the following credentials:
 
-## Other useful links
-[link to our Pivotal Tracker][pt-url]
+    Username:  admin@example.net
+    Password:   password1
+
+
+## Other useful links:
+[Link to our Pivotal Tracker][pt-url]
 
 ## Natoma’s Approach to Building the Working Prototype
 Natoma convened a multidisciplinary team of highly experienced Information Technology (IT) professionals from within our internal staffing network to work on this Prototype. Everyone on our team is currently working on other Natoma projects and our team members have worked with one another. This allowed us to coalesce quickly as a team and assign work based on each team member’s strengths. Our Chief Operations Officer (COO), Veronica Westlund, assumed the role of Project Director. As a Natoma Executive, she has decision-making authority regarding the approach and scope to be taken for this Prototype. We assigned senior staff to the roles of Agile Coach and Technical Architect. Additional technical development team members were added. The team adopted a Scrum-based approach to development and identified the high level scope necessary to meet the Minimal Value Plan (MVP) for the Working Prototype in a compressed, two-week time frame. Sprint planning included translating the MVP into two epics, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the Prototype plan. Our technical team chose modern tools and techniques with which they were already familiar reducing ramp up time. The team determined that the work could be completed during two sprints over 10 days (five days per sprint). This Planning effort was completed within two days of receipt of the RFI and development began immediately.
