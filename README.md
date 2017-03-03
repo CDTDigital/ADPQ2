@@ -706,9 +706,13 @@ Natoma used the following open-source tools and technologies in the development 
 
 
 In addition, Natoma utilized a free tier version of the following tools: 
+
 1.	PivotalTracker (free for public projects – free 30 day for private projects)
+
 2.	Twilio (Free tier restricted SMS tool)
+
 3.	GitHub (free for public projects, pay for private)
+
 4.	DockerHub (free for public repositories, pay for private)
 
 ## Requirement M. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider and indicated which provider they used
