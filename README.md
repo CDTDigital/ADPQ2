@@ -692,7 +692,7 @@ Natoma adopted a Scrum approach for development of the Working Prototype The Nat
 
 
 ## Requirement K. Created a prototype that works on multiple devices and presents a responsive design 
-Natoma’s Working Prototype is designed to work on devices that receive email and mobile phones that receive text messages to ensure that end users have access to requested services across mediums.
+Natoma’s Working Prototype is designed to be accessible using the web browsers Chrome or Safari on laptops or mobile phones. It provides email notifications and mobile phones text messages.
 
 ## Requirement L. Used at leave five (5) modern and open-source technologies regardless of architectural layer (front end, backend, etc)
 Natoma used the following open-source tools and technologies in the development the Working Prototype:
