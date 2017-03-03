@@ -604,7 +604,9 @@ Key Questions
 
 ## Natoma’s ReadME.md File References the RFI Requirements
 “The README.md file should also make reference to the following (items A through T in the RFI)”
-Requirement A. Assigned one leader and gave that person responsibility and held that person accountable for the quality of the prototype submitted. 
+
+
+## Requirement A. Assigned one leader and gave that person responsibility and held that person accountable for the quality of the prototype submitted. 
 
 Natoma assigned Veronica Westlund, Chief Operations Officer (COO), as Product Manager for this Working Prototype development. As COO, Veronica has authority to make decisions regarding product features and technical implementation details as they relate to Natoma released products. Veronica has provided Technical Project Management and has served as a Technical Architect for Natoma for more than eight years. Upon review of the RFI, Veronica assembled a team of professionals knowledgeable in the design, development and release of digital services to recommend suitable technologies that have resulted in an intuitive and simple solution for the user community. Veronica then lead the team in the solicitation of user stories extracted from potential end-users and worked with the team to build the prototype using a Scrum-based approach to Working Prototype. Veronica had responsibility for negotiating user stories to ensure that functionality resulted in the creation of a minimum viable product while meeting the requirements of the RFI. 
 
