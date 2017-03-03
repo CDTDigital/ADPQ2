@@ -27,14 +27,18 @@ namespace Com.Natoma.Adpq.Prototype.Api
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .SetBasePath(env.ContentRootPath);
+            builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             if (env.IsEnvironment("Development"))
             {
+                builder.AddJsonFile($"appsettings.Development.json", optional: true);
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
+            }
+            else
+            {
+                builder.AddJsonFile($"appsettings.production.json", optional: true);
             }
 
             builder.AddEnvironmentVariables();
