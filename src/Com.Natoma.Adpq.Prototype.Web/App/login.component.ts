@@ -34,7 +34,7 @@ export class LoginComponent {
                     }, 200);
                 }
                 else {
-                    this.infoMessages.push({ severity: 'error', summary: `Error logging in.`, detail: result.msg });
+                    this.infoMessages= [{ severity: 'error', summary: `Error logging in.`, detail: result.msg }];
                 }
             });
     }
