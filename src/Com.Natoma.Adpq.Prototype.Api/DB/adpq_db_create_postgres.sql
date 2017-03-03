@@ -19,7 +19,9 @@ CREATE DATABASE adpq2adpq
   LC_CTYPE = 'C.UTF-8'
   TABLESPACE = pg_default
   CONNECTION LIMIT = -1;
-  
+
+
+ \connect adpq2adpq
 -- create sequences
   
 CREATE SEQUENCE public."User_UserId_seq"
