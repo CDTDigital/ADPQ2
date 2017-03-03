@@ -606,15 +606,25 @@ Natoma assigned Veronica Westlund, Chief Operations Officer (COO), as Product Ma
 Natoma’s assembled a multi-disciplinary team who participated in daily scrum sessions and utilized Pivotal Tracker, SharePoint, GitHub and other collaborative tools to develop the Working Prototype. Note that some of the Natoma team members performed dual roles during development. Labor categories and participating resources:
 
 Labor Category 1. Product Manager - Veronica Westlund 
+
 Labor Category 2. Technical Architect - Thomas Ramirez
+
 Labor Category 3. Interaction Designer/User Researcher/Usability Tester -  Eamonn Guiney 
+
 Labor Category 4. Writer/Content Designer/Content Strategist – Veronica Westlund
+
 Labor Category 6. Front End Web Developer -  Thomas Bertan
+
 Labor Category 7. Backend Web Developer – Brian Riley
+
 Labor Category 8. DevOps Engineer – Jeff Drewes
+
 Labor Category 9. Security Engineer - Thomas Ramirez
+
 Labor Category 10. Delivery Manager – Lynn Jones 
+
 Labor Category 11. Agile Coach – Eamonn Guiney
+
 Labor Category 12. Business Analyst – Eamonn Guiney
 
 ## Requirement C. Understood what people needed by including people in the prototype development and design process. 
@@ -644,6 +654,8 @@ Natoma used the following user-centric design techniques to develop the Working 
  
 ## Requirements F. Used Swagger to document the RESTful API and provided a link to the Swagger API
 
+http://adpq2prodapi.natomadev.com:5050/swagger/ 
+
 Natoma used Swagger to document the RESTful API. [Insert the link the Swagger API]
 
 
@@ -671,23 +683,38 @@ Natoma’s Working Prototype is designed to work on devices that receive email a
 ## Requirement L. Used at leave five (5) modern and open-source technologies regardless of architectural layer (front end, backend, etc)
 Natoma used the following open-source tools and technologies in the development the Working Prototype:
 1.	.Net Core
+
 2.	Angular 2
+
 3.	ASP.Net Core MVC
+
 4.	Swashbuckler
+
 5.	Swagger
+
 6.	Docker
+
 7.	Ansible
+
 8.	Jenkins
+
 9.	TypeScript
+
 10.	DataDog
+
 11.	Wave tool for Chrome
+
 12.	PostgreSQL
 
 
 In addition, Natoma utilized a free tier version of the following tools: 
+
 1.	PivotalTracker (free for public projects – free 30 day for private projects)
+
 2.	Twilio (Free tier restricted SMS tool)
+
 3.	GitHub (free for public projects, pay for private)
+
 4.	DockerHub (free for public repositories, pay for private)
 
 ## Requirement M. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider and indicated which provider they used
@@ -726,6 +753,5 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
  
-[prototype-url]: <http://need this/>
 
 [pt-url]:<https://www.pivotaltracker.com/n/projects/1976013>
