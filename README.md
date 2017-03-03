@@ -654,6 +654,8 @@ Natoma used the following user-centric design techniques to develop the Working 
  
 ## Requirements F. Used Swagger to document the RESTful API and provided a link to the Swagger API
 
+http://adpq2prodapi.natomadev.com:5050/swagger/ 
+
 Natoma used Swagger to document the RESTful API. [Insert the link the Swagger API]
 
 
