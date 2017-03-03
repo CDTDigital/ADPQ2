@@ -47,6 +47,7 @@
       "wwwroot",
       "**/*.cshtml",
       "appsettings.json",
+      "appsettings.production.json",
       "web.config",
       "docker-compose.yml",
       "Dockerfile",
