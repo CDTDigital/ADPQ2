@@ -11,9 +11,11 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 “The working prototype will be an application that will allow California residents to establish and manage their profile and receive emergency and non-emergency notifications via email, Short Message Service (SMS), and/or push notification based on the location and contact information provided in their profile and/or the geo-location of their cellphone if they have opted in for this service. In addition, the working prototype will provide the authorized administrative users with the ability to publish notifications and track, and analyze and visualize related data. The working prototype does not need to implement any authentication or authorization against an external directory or authentication mechanism.”
 
 
-
 # [Link to the prototype web-application][prototype-url]  
 Address: <<need to add this when available>> http://prototype.natomadev.com/insert here/
+
+Note: Please use Chrome or Safari to access the Prototype. Due to the compressed development timeframe, Natoma limited validation to these two web browsers.
+
 
 ## Other useful links
 [link to our Pivotal Tracker][pt-url]
@@ -537,11 +539,11 @@ At every stage of a project, we should measure how well our service is working f
 
 9.	How does your team receive automated alerts when incidents occur?
 
-     Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+     Natoma has deployed DataDog to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 10.	How does your team respond to incidents? What is your post-mortem process?
 
-    Natoma has deployed Application Insights to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
+    Natoma has deployed DataDog to continuously monitor the availability of the prototype via ‘ping’ results.  Were this a high availability, high criticality, application Natoma would recommend monitoring the vitals (processor, memory, disk space) of the servers in each tier in addition to monitoring the network health.  However, server and AWS alerts can be added for this level of monitoring as well.
 
 11.	Which tools are in place to measure user behavior?
 
@@ -677,9 +679,11 @@ Natoma used the following open-source tools and technologies in the development 
 7.	Ansible
 8.	Jenkins
 9.	TypeScript
-10.	Icinga
+10.	DataDog
 11.	Wave tool for Chrome
 12.	PostgreSQL
+
+
 In addition, Natoma utilized a free tier version of the following tools: 
 1.	PivotalTracker (free for public projects – free 30 day for private projects)
 2.	Twilio (Free tier restricted SMS tool)
@@ -701,7 +705,7 @@ Natoma configured continuous integration, automated execution of unit testing an
 Natoma set up and used GitHub through a TFS plug in for configuration management.
 
 ## Requirement Q. Setup or used continuous monitoring
-Natoma used Application Insights to perform continuous monitoring.
+Natoma used DataDog to perform continuous monitoring.
 
 ## Requirement R. Deployed their software in an open source container such as Docker (i.e.: utilized operating system level virtualization)
 
