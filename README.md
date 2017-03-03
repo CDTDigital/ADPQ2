@@ -13,7 +13,7 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 
 # [Link to the prototype web-application][prototype-url]  
-Address: <<need to add this when available>> http://prototype.natomadev.com/HHSPrototype/
+Address: <<need to add this when available>> http://prototype.natomadev.com/insert here/
 
 ## Other useful links
 [link to our Pivotal Tracker][pt-url]
