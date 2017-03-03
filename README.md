@@ -665,7 +665,8 @@ Natoma used the following user-centric design techniques to develop the Working 
  
  Natoma used GitHub to document code commits. 
  
- https://github.com/NatomaTechnologies/ADPQ2
+ https://github.com/NatomaTechnologies/ADPQ2/commits/master
+ 
  
  
 ## Requirements F. Used Swagger to document the RESTful API and provided a link to the Swagger API
