@@ -12,7 +12,6 @@ Natoma Technologies, Inc. (Natoma) is pleased to respond to the California Offic
 
 
 # [Link to the prototype web-application][prototype-url]  
-Address: <<need to add this when available>> http://prototype.natomadev.com/insert here/
 
 Note: Please use Chrome or Safari to access the Prototype. Due to the compressed development timeframe, Natoma limited validation to these two web browsers.
 
@@ -751,7 +750,6 @@ As stated in Requirement L Used at least Five (5) open-source technologies, Nato
 
 
 
-
- 
-
-[pt-url]:<https://www.pivotaltracker.com/n/projects/1976013>
+[prototype-url]:<http://adpq2prodweb.natomadev.com:5000>
+[logo]: </Doc/NT_Logo_rgb_tight_transparent.gif>
+[pt-url]:<https://www.pivotaltracker.com/projects/1976013>
